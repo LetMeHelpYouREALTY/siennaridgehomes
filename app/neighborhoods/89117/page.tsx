@@ -4,7 +4,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { MapPin, Home, Users, Star, TrendingUp, Phone, Mail } from 'lucide-react'
-import Script from 'next/script'
 
 // Type declarations for RealScout web components
 declare global {
@@ -54,12 +53,6 @@ export const metadata: Metadata = {
 export default function SpringValley89117Page() {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* RealScout Script */}
-      <Script
-        src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-        type="module"
-        strategy="afterInteractive"
-      />
       
       {/* Hero Section */}
       <section className="relative py-16 overflow-hidden">

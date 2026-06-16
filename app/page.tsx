@@ -8,7 +8,6 @@ import LeadForm from '@/components/lead-form'
 import JsonLd from '@/components/json-ld'
 import ClientReviewsSection from '@/components/client-reviews-section'
 import FeaturedListingCard from '@/components/featured-listing-card'
-import Script from 'next/script'
 import { buildFaqPageSchema, HOMEPAGE_FAQS } from '@/lib/structured-data'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
 import { 
@@ -85,13 +84,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       <JsonLd id="faq-schema" data={buildFaqPageSchema(HOMEPAGE_FAQS)} />
-      
-      {/* RealScout Script */}
-      <Script
-        src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-        type="module"
-        strategy="afterInteractive"
-      />
+
       {/* Hero Section */}
       <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-700/80"></div>

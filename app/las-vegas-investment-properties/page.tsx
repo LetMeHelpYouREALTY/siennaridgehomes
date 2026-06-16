@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { DollarSign, TrendingUp, Building, BarChart3 } from 'lucide-react'
-import RealScoutScript from '@/components/realscout-script'
 import SeoCtaSection from '@/components/seo-cta-section'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
 
@@ -18,8 +17,6 @@ export const metadata: Metadata = {
 export default function LasVegasInvestmentPropertiesPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <RealScoutScript />
-
       <section className="py-16 bg-blue-900 text-white">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Las Vegas Investment Properties</h1>

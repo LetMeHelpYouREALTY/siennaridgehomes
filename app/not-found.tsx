@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Home, Search, ArrowLeft, MapPin, Phone, Mail } from 'lucide-react'
-import Script from 'next/script'
 
 // Type declarations for RealScout web components
 declare global {
@@ -32,12 +31,6 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* RealScout Script */}
-      <Script
-        src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-        type="module"
-        strategy="afterInteractive"
-      />
       
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">

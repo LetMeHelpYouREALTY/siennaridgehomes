@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import RealScoutScript from '@/components/realscout-script'
 import SeoCtaSection from '@/components/seo-cta-section'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
 
@@ -18,8 +17,6 @@ export const metadata: Metadata = {
 export default function SouthwestLasVegasHomesPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <RealScoutScript />
-
       <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-700/80" />
         <div className="absolute inset-0">

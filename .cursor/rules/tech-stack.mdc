@@ -1,0 +1,36 @@
+---
+description: Sienna Ridge Homes tech stack conventions — Next.js 15, TypeScript, Tailwind, RealScout, Vercel SEO.
+alwaysApply: true
+---
+
+# Sienna Ridge Homes — Tech Stack
+
+## Stack
+
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 15 App Router (Server Components default) |
+| Language | TypeScript (strict) |
+| Styling | Tailwind CSS v3 + Radix UI + CVA |
+| Deployment | Vercel — `main` branch = production |
+| MLS widgets | RealScout web components (`AGENT_ENCODED_ID` from `lib/site-config.ts`) |
+| SEO | JSON-LD in `lib/structured-data.ts`, sitemaps in `app/sitemap*.xml/` |
+| Analytics | Google Analytics `G-VB9NKRDQK1` via `components/third-party-scripts.tsx` |
+
+## Conventions
+
+- **Imports**: top of file only; use `@/` path alias.
+- **Site constants**: NAP, URLs, agent ID live in `lib/site-config.ts` — never hardcode.
+- **Structured data**: build with helpers in `lib/structured-data.ts`; render via `components/json-ld.tsx`.
+- **RealScout**: load once via `components/realscout-script.tsx` (`lazyOnload`); do not duplicate `<Script>` tags on pages.
+- **Listings**: featured models in `lib/listings-data.ts`; detail pages at `app/listings/[slug]/`.
+- **Reviews**: testimonials in `lib/reviews-data.ts`; use `ClientReviewsSection` with matching schema.
+- **Sitemap URLs**: register in `lib/sitemap-pages.ts` only.
+- **Commits**: push directly to `main` for production deploys.
+
+## Do not
+
+- Add fake `aggregateRating` or MLS numbers without real data.
+- Use `getServerSideProps` / Pages Router patterns.
+- Create nested git repos or duplicate project roots.
+- Defer JSON-LD with `afterInteractive` — use server-rendered `JsonLd` component.

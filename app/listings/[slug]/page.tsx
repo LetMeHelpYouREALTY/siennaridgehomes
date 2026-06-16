@@ -6,7 +6,6 @@ import { notFound } from 'next/navigation'
 import { Bed, Bath, Square, MapPin, Phone, ExternalLink } from 'lucide-react'
 import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import JsonLd from '@/components/json-ld'
-import RealScoutScript from '@/components/realscout-script'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -67,7 +66,6 @@ export default async function ListingDetailPage({ params }: ListingPageProps) {
           { name: listing.name, path: `/listings/${listing.slug}` },
         )}
       />
-      <RealScoutScript />
 
       <section className="py-12">
         <div className="container mx-auto px-4">

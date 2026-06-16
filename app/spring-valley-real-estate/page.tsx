@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { MapPin, Home, TrendingUp, Users } from 'lucide-react'
-import RealScoutScript from '@/components/realscout-script'
 import SeoCtaSection from '@/components/seo-cta-section'
 import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
@@ -25,7 +24,6 @@ export default function SpringValleyRealEstatePage() {
       <BreadcrumbSchema
         items={breadcrumbTrail({ name: 'Spring Valley Real Estate', path: '/spring-valley-real-estate' })}
       />
-      <RealScoutScript />
 
       <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-700/80" />

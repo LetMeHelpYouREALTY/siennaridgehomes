@@ -11,7 +11,6 @@ import ClientReviewsSection from '@/components/client-reviews-section'
 import FeaturedListingCard from '@/components/featured-listing-card'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
-import Script from 'next/script'
 
 // Type declarations for RealScout web components
 declare global {
@@ -50,12 +49,6 @@ export default function ListingsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <BreadcrumbSchema items={breadcrumbTrail({ name: 'Listings', path: '/listings' })} />
-      {/* RealScout Script */}
-      <Script
-        src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-        type="module"
-        strategy="afterInteractive"
-      />
       {/* Header Section */}
       <section className="relative py-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-700/80"></div>

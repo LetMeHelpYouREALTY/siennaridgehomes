@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
-import Script from 'next/script'
 import JsonLd from '@/components/json-ld'
+import ThirdPartyScripts from '@/components/third-party-scripts'
+import RealScoutScript from '@/components/realscout-script'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import { buildGlobalStructuredDataGraph } from '@/lib/structured-data'
@@ -10,6 +11,8 @@ import './globals.css'
 
 const inter = Inter({
   subsets: ['latin'],
+  display: 'swap',
+  preload: true,
 })
 
 export const metadata: Metadata = {
@@ -92,26 +95,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-VB9NKRDQK1"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-VB9NKRDQK1');
-          `}
-        </Script>
-        
         <JsonLd id="global-structured-data" data={buildGlobalStructuredDataGraph()} />
       </head>
-          <body
-            className={`${inter.className} antialiased`}
-          >
-            <ThemeProvider
+      <body className={`${inter.className} antialiased`}>
+        <ThemeProvider
               attribute="class"
               defaultTheme="system"
               enableSystem
@@ -124,7 +111,9 @@ export default function RootLayout({
               </main>
               <Footer />
             </ThemeProvider>
-          </body>
+        <ThirdPartyScripts />
+        <RealScoutScript />
+      </body>
     </html>
   )
 }

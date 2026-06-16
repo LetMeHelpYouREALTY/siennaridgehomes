@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { MapPin, Home, TrendingUp } from 'lucide-react'
-import RealScoutScript from '@/components/realscout-script'
 import SeoCtaSection from '@/components/seo-cta-section'
 import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import { AGENT_ENCODED_ID } from '@/lib/site-config'
@@ -41,7 +40,6 @@ export default function ZipCodeLanding({
   return (
     <div className="min-h-screen bg-gray-50">
       {breadcrumbs ? <BreadcrumbSchema items={breadcrumbs} /> : null}
-      <RealScoutScript />
 
       <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-700/80" />

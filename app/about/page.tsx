@@ -7,7 +7,6 @@ import { Phone, Mail, MapPin, Award, Users, Home, Star } from 'lucide-react'
 import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import ClientReviewsSection from '@/components/client-reviews-section'
 import JsonLd from '@/components/json-ld'
-import Script from 'next/script'
 import { buildProfilePageSchema } from '@/lib/structured-data'
 
 // Type declarations for RealScout web components
@@ -52,12 +51,6 @@ export default function AboutPage() {
           { name: 'Home', path: '/' },
           { name: 'About Dr. Jan Duffy', path: '/about' },
         ]}
-      />
-      {/* RealScout Script */}
-      <Script
-        src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-        type="module"
-        strategy="afterInteractive"
       />
       {/* Hero Section */}
       <section className="relative py-16 overflow-hidden">

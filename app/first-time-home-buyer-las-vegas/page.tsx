@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { CheckCircle, Home, FileText, Handshake, Key } from 'lucide-react'
-import RealScoutScript from '@/components/realscout-script'
 import SeoCtaSection from '@/components/seo-cta-section'
 import LeadForm from '@/components/lead-form'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
@@ -26,8 +25,6 @@ const steps = [
 export default function FirstTimeHomeBuyerPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <RealScoutScript />
-
       <section className="py-16 bg-blue-900 text-white">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">First-Time Home Buyer Guide — Las Vegas</h1>
