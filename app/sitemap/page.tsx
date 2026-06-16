@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Home, MapPin, User, FileText, Search, Phone, Mail } from 'lucide-react'
+import { NAP, formatFullAddress } from '@/lib/site-config'
 
 export const metadata: Metadata = {
   title: 'Sitemap | Southwest Las Vegas Real Estate | Dr. Jan Duffy',
@@ -69,9 +70,9 @@ export default function SitemapPage() {
   ]
 
   const contactInfo = {
-    phone: '(702) 903-3336',
-    email: 'DrJanSells@SiennaRidgeHomes.com',
-    address: '8370 Caldera Hills Avenue, Las Vegas, NV 89147',
+    phone: NAP.phone,
+    email: NAP.email,
+    address: formatFullAddress(),
   }
 
   return (

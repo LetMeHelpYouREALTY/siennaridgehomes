@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { NAP, formatFullAddress } from '@/lib/site-config'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Southwest Las Vegas Real Estate | Dr. Jan Duffy',
@@ -61,10 +62,10 @@ export default function PrivacyPolicyPage() {
                   If you have any questions about this privacy policy, please contact us at:
                 </p>
                 <div className="bg-gray-100 p-4 rounded-lg">
-                  <p className="font-semibold">Dr. Jan Duffy</p>
-                  <p>Email: DrJanSells@SiennaRidgeHomes.com</p>
-                  <p>Phone: (702) 903-3336</p>
-                  <p>Address: 8370 Caldera Hills Avenue, Las Vegas, NV 89147</p>
+                  <p className="font-semibold">{NAP.name}</p>
+                  <p>Email: {NAP.email}</p>
+                  <p>Phone: {NAP.phone}</p>
+                  <p>Address: {formatFullAddress()}</p>
                 </div>
               </div>
             </CardContent>

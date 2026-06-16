@@ -11,6 +11,7 @@ import ClientReviewsSection from '@/components/client-reviews-section'
 import FeaturedListingCard from '@/components/featured-listing-card'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
+import { NAP, formatCityStateZip } from '@/lib/site-config'
 
 // Type declarations for RealScout web components
 declare global {
@@ -333,13 +334,13 @@ export default function ListingsPage() {
                   <div className="text-center text-white">
                     <Home className="h-16 w-16 mx-auto mb-4" />
                     <p className="text-lg font-semibold">Dr. Jan Duffy's Office</p>
-                    <p className="text-sm">8370 Caldera Hills Avenue</p>
-                    <p className="text-xs">Las Vegas, NV 89147</p>
+                    <p className="text-sm">{NAP.streetAddress}</p>
+                    <p className="text-xs">{formatCityStateZip()}</p>
                   </div>
                 </div>
                 <CardContent className="p-6">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-lg font-semibold">8370 Caldera Hills Avenue</h3>
+                    <h3 className="text-lg font-semibold">{NAP.streetAddress}</h3>
                     <Badge variant="secondary" className="bg-blue-100 text-blue-800">
                       Office Location
                     </Badge>
@@ -348,11 +349,11 @@ export default function ListingsPage() {
                   <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
                     <div className="flex items-center gap-1">
                       <MapPin className="h-4 w-4" />
-                      <span>Las Vegas, NV 89147</span>
+                      <span>{formatCityStateZip()}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Phone className="h-4 w-4" />
-                      <span>(702) 903-3336</span>
+                      <span>{NAP.phone}</span>
                     </div>
                   </div>
                   <p className="text-sm text-gray-600 mb-4">

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Phone, Mail, MapPin, Home, User, Search } from 'lucide-react'
+import { NAP, OFFICE_MAPS_URL, formatCityStateZip } from '@/lib/site-config'
 
 export default function Footer() {
   return (
@@ -65,22 +66,29 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-blue-400" />
-                <a href="tel:+17029033336" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  (702) 903-3336
+                <a href={`tel:${NAP.phoneTel}`} className="text-gray-300 hover:text-blue-400 transition-colors">
+                  {NAP.phone}
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-blue-400" />
-                <a href="mailto:DrJanSells@SiennaRidgeHomes.com" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  DrJanSells@SiennaRidgeHomes.com
+                <a href={`mailto:${NAP.email}`} className="text-gray-300 hover:text-blue-400 transition-colors">
+                  {NAP.email}
                 </a>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 text-blue-400 mt-1" />
-                <div className="text-gray-300">
-                  <p className="text-sm">8370 Caldera Hills Avenue</p>
-                  <p className="text-sm">Las Vegas, NV 89147</p>
-                </div>
+                <address className="text-gray-300 not-italic">
+                  <a
+                    href={OFFICE_MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-400 transition-colors"
+                  >
+                    <p className="text-sm">{NAP.streetAddress}</p>
+                    <p className="text-sm">{formatCityStateZip()}</p>
+                  </a>
+                </address>
               </div>
             </div>
           </div>

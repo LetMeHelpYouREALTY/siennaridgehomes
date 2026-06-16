@@ -7,13 +7,30 @@ export const NAP = {
   phone: '(702) 903-3336',
   phoneTel: '+17029033336',
   email: 'DrJanSells@SiennaRidgeHomes.com',
-  streetAddress: '8370 Caldera Hills Avenue',
+  streetAddress: '8370 Caldera Hls Ave',
   city: 'Las Vegas',
   state: 'NV',
   postalCode: '89147',
   license: 'S.0197614.LLC',
   brokerage: 'Berkshire Hathaway HomeServices Nevada Properties',
 } as const
+
+/** Sienna Ridge sales office — matches Google Maps / USPS listing */
+export const OFFICE_GEO = {
+  latitude: 36.11058,
+  longitude: -115.274467,
+} as const
+
+export const OFFICE_MAPS_URL =
+  'https://www.google.com/maps/search/?api=1&query=8370+Caldera+Hls+Ave,+Las+Vegas,+NV+89147'
+
+export function formatCityStateZip() {
+  return `${NAP.city}, ${NAP.state} ${NAP.postalCode}`
+}
+
+export function formatFullAddress() {
+  return `${NAP.streetAddress}, ${formatCityStateZip()}`
+}
 
 export const SERVICE_ZIP_CODES = ['89117', '89147', '89148'] as const
 

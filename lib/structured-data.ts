@@ -1,4 +1,4 @@
-import { AGENT_ENCODED_ID, NAP, SITE_URL } from '@/lib/site-config'
+import { AGENT_ENCODED_ID, NAP, OFFICE_GEO, SITE_URL } from '@/lib/site-config'
 import type { ClientReview } from '@/lib/reviews-data'
 import type { FeaturedListing } from '@/lib/listings-data'
 import { listingUrl } from '@/lib/listings-data'
@@ -31,8 +31,8 @@ const postalAddress = {
 
 const geoCoordinates = {
   '@type': 'GeoCoordinates' as const,
-  latitude: 36.0699,
-  longitude: -115.2789,
+  latitude: OFFICE_GEO.latitude,
+  longitude: OFFICE_GEO.longitude,
 }
 
 const contactPoint = {

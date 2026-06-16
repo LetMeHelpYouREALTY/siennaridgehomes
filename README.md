@@ -121,7 +121,7 @@ All widgets are configured for Dr. Jan Duffy's agent ID and styled to match the 
 
 - **Phone**: (702) 903-3336
 - **Email**: DrJanSells@SiennaRidgeHomes.com
-- **Office**: 8370 Caldera Hills Avenue, Las Vegas, NV 89147
+- **Office**: 8370 Caldera Hls Ave, Las Vegas, NV 89147
 - **Service Areas**: Southwest Las Vegas, Spring Valley (89117, 89147, 89148)
 
 ## Development
