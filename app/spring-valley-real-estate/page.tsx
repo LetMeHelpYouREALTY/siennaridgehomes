@@ -6,6 +6,8 @@ import { Badge } from '@/components/ui/badge'
 import { MapPin, Home, TrendingUp, Users } from 'lucide-react'
 import RealScoutScript from '@/components/realscout-script'
 import SeoCtaSection from '@/components/seo-cta-section'
+import BreadcrumbSchema from '@/components/breadcrumb-schema'
+import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -20,6 +22,9 @@ export const metadata: Metadata = {
 export default function SpringValleyRealEstatePage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      <BreadcrumbSchema
+        items={breadcrumbTrail({ name: 'Spring Valley Real Estate', path: '/spring-valley-real-estate' })}
+      />
       <RealScoutScript />
 
       <section className="relative py-16 overflow-hidden">

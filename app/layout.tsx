@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 import Script from 'next/script'
+import JsonLd from '@/components/json-ld'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import { buildGlobalStructuredDataGraph } from '@/lib/structured-data'
 import './globals.css'
 
 const inter = Inter({
@@ -104,157 +106,7 @@ export default function RootLayout({
           `}
         </Script>
         
-        {/* Structured Data - Real Estate Agent */}
-        <Script
-          id="real-estate-agent-schema"
-          type="application/ld+json"
-          strategy="afterInteractive"
-        >
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "RealEstateAgent",
-              "name": "Dr. Jan Duffy",
-              "description": "Premier Spring Valley real estate agent specializing in Southwest Las Vegas homes (89117, 89147, 89148). Expert buyer agent for families, investors, and first-time home buyers.",
-              "url": "https://www.siennaridgehomes.com",
-              "telephone": "(702) 903-3336",
-              "email": "DrJanSells@SiennaRidgeHomes.com",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Las Vegas",
-                "addressRegion": "NV",
-                "addressCountry": "US",
-                "postalCode": "89117"
-              },
-              "areaServed": [
-                {
-                  "@type": "City",
-                  "name": "Spring Valley",
-                  "containedInPlace": {
-                    "@type": "State",
-                    "name": "Nevada"
-                  }
-                },
-                {
-                  "@type": "PostalCode",
-                  "postalCode": "89117"
-                },
-                {
-                  "@type": "PostalCode", 
-                  "postalCode": "89147"
-                },
-                {
-                  "@type": "PostalCode",
-                  "postalCode": "89148"
-                }
-              ],
-              "knowsAbout": [
-                "Spring Valley real estate",
-                "Southwest Las Vegas homes",
-                "Las Vegas investment properties",
-                "First time home buyers",
-                "Real estate market analysis",
-                "Home valuations"
-              ],
-              "hasCredential": {
-                "@type": "EducationalOccupationalCredential",
-                "credentialCategory": "Real Estate License",
-                "recognizedBy": {
-                  "@type": "Organization",
-                  "name": "Nevada Real Estate Division"
-                }
-              },
-              "memberOf": {
-                "@type": "Organization",
-                "name": "National Association of Realtors"
-              }
-            }
-          `}
-        </Script>
-        
-        {/* Structured Data - Local Business */}
-        <Script
-          id="local-business-schema"
-          type="application/ld+json"
-          strategy="afterInteractive"
-        >
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "RealEstateAgent",
-              "name": "Dr. Jan Duffy Real Estate",
-              "description": "Spring Valley real estate services specializing in Southwest Las Vegas homes for sale, buyer representation, and property valuations.",
-              "url": "https://www.siennaridgehomes.com",
-              "telephone": "(702) 903-3336",
-              "email": "DrJanSells@SiennaRidgeHomes.com",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Southwest Las Vegas",
-                "addressLocality": "Las Vegas",
-                "addressRegion": "NV",
-                "postalCode": "89117",
-                "addressCountry": "US"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "36.0958",
-                "longitude": "-115.3036"
-              },
-              "openingHours": "Mo-Su 00:00-23:59",
-              "serviceArea": {
-                "@type": "GeoCircle",
-                "geoMidpoint": {
-                  "@type": "GeoCoordinates",
-                  "latitude": "36.0958",
-                  "longitude": "-115.3036"
-                },
-                "geoRadius": "15"
-              },
-              "priceRange": "$$",
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "5.0",
-                "reviewCount": "100"
-              }
-            }
-          `}
-        </Script>
-        
-        {/* Structured Data - Web Application */}
-        <Script
-          id="web-app-schema"
-          type="application/ld+json"
-          strategy="afterInteractive"
-        >
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "WebApplication",
-              "name": "Southwest Las Vegas Homes - Property Search",
-              "description": "Find your dream home in Spring Valley & Southwest Las Vegas with Dr. Jan Duffy's expert real estate services. Search MLS listings, get home valuations, and expert buyer guidance.",
-              "url": "https://www.siennaridgehomes.com",
-              "applicationCategory": "RealEstateApplication",
-              "operatingSystem": "Web Browser",
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD",
-                "description": "Free property search and home valuation services"
-              },
-              "author": {
-                "@type": "Person",
-                "name": "Dr. Jan Duffy",
-                "url": "https://www.siennaridgehomes.com"
-              },
-              "publisher": {
-                "@type": "Organization",
-                "name": "Southwest Las Vegas Homes",
-                "url": "https://www.siennaridgehomes.com"
-              },
-              "keywords": "Spring Valley real estate, Southwest Las Vegas homes, 89117 homes, 89147 homes, 89148 homes, Las Vegas real estate agent, Dr. Jan Duffy"
-            }
-          `}
-        </Script>
+        <JsonLd id="global-structured-data" data={buildGlobalStructuredDataGraph()} />
       </head>
           <body
             className={`${inter.className} antialiased`}

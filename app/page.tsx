@@ -5,7 +5,9 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import LeadForm from '@/components/lead-form'
+import JsonLd from '@/components/json-ld'
 import Script from 'next/script'
+import { buildFaqPageSchema, HOMEPAGE_FAQS } from '@/lib/structured-data'
 import { 
   Home, 
   MapPin, 
@@ -79,69 +81,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="min-h-screen">
-      {/* FAQ Schema Markup */}
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {`
-          {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What areas does Dr. Jan Duffy serve in Southwest Las Vegas?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Dr. Jan Duffy specializes in Spring Valley and Southwest Las Vegas, specifically serving the zip codes 89117, 89147, and 89148. She has extensive knowledge of these neighborhoods and can help you find the perfect home in any of these areas."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How much do homes cost in Spring Valley Las Vegas?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Spring Valley home prices range from $350,000 to $650,000, depending on size, condition, and location. Established homes in 89117 and 89147 typically range from $350,000-$500,000, while newer developments in 89148 can reach $450,000-$650,000."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is Spring Valley a good area to buy a home in Las Vegas?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, Spring Valley is an excellent area for home buyers. It offers established neighborhoods, great schools, convenient access to the Strip and airport, and strong appreciation potential. The area is expected to outperform metro averages in 2025."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What makes Dr. Jan Duffy the best Spring Valley real estate agent?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Dr. Jan Duffy has helped over 100 families find their dream homes in Spring Valley and Southwest Las Vegas. She offers personalized service, expert local knowledge, and specializes in buyer representation for families, investors, and first-time buyers."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How can I get a free home valuation for my Las Vegas property?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "You can get a free, instant home valuation using our online tool above, or contact Dr. Jan Duffy directly for a comprehensive market analysis. She provides accurate, data-driven valuations for all Southwest Las Vegas properties."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What types of homes are available in Southwest Las Vegas zip codes 89117, 89147, 89148?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Southwest Las Vegas offers diverse housing options including single-story homes (1,800-2,400 sq ft), two-story homes (2,200-3,200 sq ft), and executive properties (3,000+ sq ft). You'll find established neighborhoods, new construction, and excellent investment opportunities."
-                }
-              }
-            ]
-          }
-        `}
-      </Script>
+      <JsonLd id="faq-schema" data={buildFaqPageSchema(HOMEPAGE_FAQS)} />
       
       {/* RealScout Script */}
       <Script

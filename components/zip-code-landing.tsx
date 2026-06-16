@@ -5,7 +5,9 @@ import { Badge } from '@/components/ui/badge'
 import { MapPin, Home, TrendingUp } from 'lucide-react'
 import RealScoutScript from '@/components/realscout-script'
 import SeoCtaSection from '@/components/seo-cta-section'
+import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import { AGENT_ENCODED_ID } from '@/lib/site-config'
+import type { BreadcrumbItem } from '@/lib/structured-data'
 
 export type ZipCodeLandingProps = {
   zipCode: string
@@ -19,6 +21,7 @@ export type ZipCodeLandingProps = {
   priceMax: string
   highlights: string[]
   heroImageAlt: string
+  breadcrumbs?: BreadcrumbItem[]
 }
 
 export default function ZipCodeLanding({
@@ -33,9 +36,11 @@ export default function ZipCodeLanding({
   priceMax,
   highlights,
   heroImageAlt,
+  breadcrumbs,
 }: ZipCodeLandingProps) {
   return (
     <div className="min-h-screen bg-gray-50">
+      {breadcrumbs ? <BreadcrumbSchema items={breadcrumbs} /> : null}
       <RealScoutScript />
 
       <section className="relative py-16 overflow-hidden">

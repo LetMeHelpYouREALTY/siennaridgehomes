@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import ZipCodeLanding from '@/components/zip-code-landing'
+import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function Homes89147Page() {
         'Consistent resale activity and rental interest',
       ]}
       heroImageAlt="89147 Southwest Las Vegas homes for sale"
+      breadcrumbs={breadcrumbTrail({ name: '89147 Homes for Sale', path: '/89147-homes-for-sale' })}
     />
   )
 }

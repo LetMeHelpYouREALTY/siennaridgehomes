@@ -4,7 +4,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Phone, Mail, MapPin, Award, Users, Home, Star } from 'lucide-react'
+import BreadcrumbSchema from '@/components/breadcrumb-schema'
+import JsonLd from '@/components/json-ld'
 import Script from 'next/script'
+import { buildProfilePageSchema } from '@/lib/structured-data'
 
 // Type declarations for RealScout web components
 declare global {
@@ -42,6 +45,13 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      <JsonLd id="profile-page-schema" data={buildProfilePageSchema()} />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'About Dr. Jan Duffy', path: '/about' },
+        ]}
+      />
       {/* RealScout Script */}
       <Script
         src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
