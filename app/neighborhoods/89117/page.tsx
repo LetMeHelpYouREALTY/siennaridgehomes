@@ -29,9 +29,14 @@ declare global {
   }
 }
 
+import { SITE_URL } from '@/lib/site-config'
+
 export const metadata: Metadata = {
   title: 'Spring Valley Real Estate | 89117 Homes for Sale | Dr. Jan Duffy',
   description: 'Discover Spring Valley homes for sale in zip code 89117. Dr. Jan Duffy specializes in Spring Valley real estate with expert local knowledge and personalized service for families and investors.',
+  alternates: {
+    canonical: `${SITE_URL}/neighborhoods/89117`,
+  },
   keywords: [
     'Spring Valley homes for sale',
     '89117 real estate',

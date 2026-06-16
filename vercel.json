@@ -1,5 +1,13 @@
 {
   "buildCommand": "npm run build",
   "installCommand": "npm install",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "siennaridgehomes.com" }],
+      "destination": "https://www.siennaridgehomes.com/:path*",
+      "permanent": true
+    }
+  ]
 }
