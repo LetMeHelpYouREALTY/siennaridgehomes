@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import type { FeaturedListing } from '@/lib/listings-data'
 import { formatListingPrice } from '@/lib/listings-data'
+import { REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 
 type FeaturedListingCardProps = {
   listing: FeaturedListing
@@ -21,9 +22,20 @@ export default function FeaturedListingCard({ listing }: FeaturedListingCardProp
 
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-      <div className="h-48 relative">
-        <Image src={listing.image} alt={listing.imageAlt} fill className="object-cover" />
-      </div>
+      <a
+        href={REALSCOUT_SEARCH_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block h-48 relative group cursor-pointer"
+        aria-label={`Search homes like ${listing.name} on MLS`}
+      >
+        <Image
+          src={listing.image}
+          alt={listing.imageAlt}
+          fill
+          className="object-cover transition-transform group-hover:scale-105"
+        />
+      </a>
       <CardContent className="p-4">
         <div className="flex items-center justify-between mb-2">
           <Badge variant="secondary" className={statusClass}>

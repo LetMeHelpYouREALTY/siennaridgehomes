@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
-import { NAP } from '@/lib/site-config'
+import { NAP, REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Home, Search, ArrowLeft, MapPin, Phone, Mail } from 'lucide-react'
 
@@ -60,7 +60,7 @@ export default function NotFound() {
                 <Link href="/">Go Home</Link>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
-                <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer">
+                <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer">
                   Search Properties
                 </a>
               </Button>
@@ -222,7 +222,7 @@ export default function NotFound() {
                   </Link>
                 </Button>
                 <Button variant="outline" className="h-auto p-4">
-                  <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center h-full">
+                  <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center h-full">
                     <Search className="h-6 w-6 mb-2" />
                     <span className="font-semibold">RealScout</span>
                     <span className="text-xs text-gray-600">Property Search</span>

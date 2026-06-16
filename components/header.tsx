@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
 import { Menu, X, Phone, Search, Home } from 'lucide-react'
-import { NAP } from '@/lib/site-config'
+import { NAP, REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -45,7 +45,7 @@ export default function Header() {
             </Link>
             <div className="flex items-center space-x-4">
               <a 
-                href="http://drjanduffy.realscout.com/" 
+                href={REALSCOUT_SEARCH_URL}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center text-blue-600 hover:text-blue-700 transition-colors"
@@ -95,7 +95,7 @@ export default function Header() {
               </Link>
               <div className="pt-4 border-t space-y-3">
                 <a 
-                  href="http://drjanduffy.realscout.com/" 
+                  href={REALSCOUT_SEARCH_URL}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center text-blue-600 hover:text-blue-700 transition-colors"

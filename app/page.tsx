@@ -13,6 +13,7 @@ import SiennaRidgeOverview from '@/components/sienna-ridge-overview'
 import { buildFaqPageSchema, HOMEPAGE_FAQS } from '@/lib/structured-data'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
 import { formatCommunityPriceRange } from '@/lib/sienna-ridge-community'
+import { REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 import { 
   Home, 
   MapPin, 
@@ -387,12 +388,18 @@ export default function HomePage() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   <Card className="overflow-hidden">
-                    <div className="h-48 relative">
+                    <a
+                      href={REALSCOUT_SEARCH_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block h-48 relative group cursor-pointer"
+                      aria-label="Search established homes for sale in Spring Valley"
+                    >
                       <Image
                         src="/images/hero-spring-valley.jpg"
                         alt="Established homes in Spring Valley, Southwest Las Vegas"
                         fill
-                        className="object-cover"
+                        className="object-cover transition-transform group-hover:scale-105"
                       />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <div className="text-center text-white">
@@ -401,7 +408,7 @@ export default function HomePage() {
                       <p className="text-sm">1,800 - 2,400 sq ft</p>
                     </div>
                   </div>
-                </div>
+                    </a>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-2">Established Homes (89117, 89147)</h3>
                   <p className="text-gray-600 mb-4">
@@ -425,12 +432,18 @@ export default function HomePage() {
               </Card>
 
                   <Card className="overflow-hidden">
-                    <div className="h-48 relative">
+                    <a
+                      href={REALSCOUT_SEARCH_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block h-48 relative group cursor-pointer"
+                      aria-label="Search Sienna Ridge new construction homes for sale"
+                    >
                       <Image
                         src="/images/property-sample-2.jpg"
                         alt="Newer developments in Southwest Las Vegas"
                         fill
-                        className="object-cover"
+                        className="object-cover transition-transform group-hover:scale-105"
                       />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <div className="text-center text-white">
@@ -439,7 +452,7 @@ export default function HomePage() {
                       <p className="text-sm">2,200 - 3,200 sq ft</p>
                     </div>
                   </div>
-                </div>
+                    </a>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-2">Sienna Ridge by Lennar (89147)</h3>
                   <p className="text-gray-600 mb-4">
@@ -463,12 +476,18 @@ export default function HomePage() {
               </Card>
 
                   <Card className="overflow-hidden">
-                    <div className="h-48 relative">
+                    <a
+                      href={REALSCOUT_SEARCH_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block h-48 relative group cursor-pointer"
+                      aria-label="Search investment properties for sale in Southwest Las Vegas"
+                    >
                       <Image
                         src="/images/property-sample-3.jpg"
                         alt="Investment properties in Southwest Las Vegas"
                         fill
-                        className="object-cover"
+                        className="object-cover transition-transform group-hover:scale-105"
                       />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <div className="text-center text-white">
@@ -477,7 +496,7 @@ export default function HomePage() {
                       <p className="text-sm">3,000+ sq ft</p>
                     </div>
                   </div>
-                </div>
+                    </a>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-2">Investment Properties</h3>
                   <p className="text-gray-600 mb-4">
@@ -700,7 +719,7 @@ export default function HomePage() {
                   </a>
                 </Button>
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
-                  <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                  <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer" className="flex items-center">
                     <Home className="h-4 w-4 mr-2" />
                     Search Properties
                   </a>

@@ -15,6 +15,7 @@ import {
   communityPriceMinString,
   formatCommunityPriceRange,
 } from '@/lib/sienna-ridge-community'
+import { REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 
 // Type declarations for RealScout web components
 declare global {
@@ -375,7 +376,7 @@ export default function AboutPage() {
                 Email DrJanSells@SiennaRidgeHomes.com
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
-                <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer" className="flex items-center">
                   <Home className="h-4 w-4 mr-2" />
                   Search Properties
                 </a>
