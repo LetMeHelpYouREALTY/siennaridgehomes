@@ -41,21 +41,49 @@ This website serves as the primary online presence for Dr. Jan Duffy's real esta
 
 ```
 ├── app/
-│   ├── about/                 # About Dr. Jan Duffy page
-│   ├── listings/             # Property listings page
-│   ├── layout.tsx            # Root layout with header/footer
-│   ├── page.tsx              # Homepage with RealScout widgets
-│   ├── not-found.tsx         # 404 page with lead capture
-│   ├── robots.ts             # SEO robots.txt
-│   └── sitemap.ts            # SEO sitemap
+│   ├── about/                      # About Dr. Jan Duffy
+│   ├── listings/
+│   │   ├── page.tsx                # Listings index + RealScout widgets
+│   │   └── [slug]/page.tsx         # Individual property detail pages
+│   ├── sitemap.xml/route.ts        # Main XML sitemap (17+ URLs)
+│   ├── sitemap-index.xml/route.ts  # Sitemap index for GSC
+│   ├── sitemap-images.xml/route.ts # Image sitemap
+│   ├── layout.tsx                  # Root layout + global JSON-LD
+│   ├── page.tsx                    # Homepage
+│   └── robots.ts                   # robots.txt
 ├── components/
-│   ├── ui/                   # Reusable UI components
-│   ├── header.tsx            # Site navigation
-│   ├── footer.tsx            # Site footer
-│   └── lead-form.tsx         # Contact form component
-├── public/                   # Static assets
-└── types/                    # TypeScript declarations
+│   ├── client-reviews-section.tsx  # Reviews + Review schema
+│   ├── featured-listing-card.tsx   # Property cards
+│   └── ui/                         # Radix UI components
+├── lib/
+│   ├── site-config.ts              # NAP, URLs, agent ID
+│   ├── structured-data.ts          # JSON-LD builders
+│   ├── listings-data.ts            # Featured Sienna Ridge models
+│   ├── reviews-data.ts             # Client testimonials
+│   └── sitemap-pages.ts            # Sitemap URL registry
+├── public/
+│   └── sitemap.xsl                 # Human-readable sitemap styling
+└── middleware.ts                   # www + HTTPS redirects
 ```
+
+## Git Workflow
+
+This repository uses a **single-repo, production-first** workflow:
+
+| Branch | Purpose |
+|---|---|
+| `main` | Production — deploys to [siennaridgehomes.com](https://www.siennaridgehomes.com) via Vercel |
+
+```bash
+git clone https://github.com/LetMeHelpYouREALTY/siennaridgehomes.git
+cd siennaridgehomes
+git checkout main
+git pull origin main
+```
+
+All changes commit and push directly to `main` for production deployment. Feature branches are deleted after merge.
+
+**Remote:** `https://github.com/LetMeHelpYouREALTY/siennaridgehomes.git`
 
 ## Key Pages
 
@@ -91,7 +119,7 @@ All widgets are configured for Dr. Jan Duffy's agent ID and styled to match the 
 
 ## Contact Information
 
-- **Phone**: (702) 555-0123
+- **Phone**: (702) 903-3336
 - **Email**: DrJanSells@SiennaRidgeHomes.com
 - **Office**: 8370 Caldera Hills Avenue, Las Vegas, NV 89147
 - **Service Areas**: Southwest Las Vegas, Spring Valley (89117, 89147, 89148)
