@@ -1,36 +1,21 @@
 import { NextResponse } from 'next/server'
+import { SITE_URL } from '@/lib/site-config'
+import { sitemapXmlResponse } from '@/lib/sitemap-response'
 
 export async function GET() {
-  const baseUrl = 'https://www.siennaridgehomes.com'
   const currentDate = new Date().toISOString()
-
-  const sitemaps = [
-    {
-      loc: `${baseUrl}/sitemap.xml`,
-      lastmod: currentDate,
-    },
-    {
-      loc: `${baseUrl}/sitemap-images.xml`,
-      lastmod: currentDate,
-    },
-    {
-      loc: `${baseUrl}/sitemap-neighborhoods.xml`,
-      lastmod: currentDate,
-    },
-  ]
 
   const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${sitemaps.map(sitemap => `
   <sitemap>
-    <loc>${sitemap.loc}</loc>
-    <lastmod>${sitemap.lastmod}</lastmod>
-  </sitemap>`).join('')}
+    <loc>${SITE_URL}/sitemap.xml</loc>
+    <lastmod>${currentDate}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${SITE_URL}/sitemap-images.xml</loc>
+    <lastmod>${currentDate}</lastmod>
+  </sitemap>
 </sitemapindex>`
 
-  return new NextResponse(sitemapIndex, {
-    headers: {
-      'Content-Type': 'application/xml',
-    },
-  })
+  return sitemapXmlResponse(sitemapIndex)
 }

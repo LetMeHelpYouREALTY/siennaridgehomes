@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server'
 import { SITE_URL } from '@/lib/site-config'
+import { sitemapXmlResponse } from '@/lib/sitemap-response'
 
 export async function GET() {
   const currentDate = new Date().toISOString()
@@ -17,18 +17,17 @@ export async function GET() {
 
   const neighborhoodSitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${neighborhoodPages.map((url) => `
-  <url>
+${neighborhoodPages
+  .map(
+    (url) => `  <url>
     <loc>${url}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url>`).join('')}
+  </url>`,
+  )
+  .join('\n')}
 </urlset>`
 
-  return new NextResponse(neighborhoodSitemap, {
-    headers: {
-      'Content-Type': 'application/xml',
-    },
-  })
+  return sitemapXmlResponse(neighborhoodSitemap)
 }
