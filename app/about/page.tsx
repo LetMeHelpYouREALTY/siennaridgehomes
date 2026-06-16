@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Phone, Mail, MapPin, Award, Users, Home, Star } from 'lucide-react'
 import BreadcrumbSchema from '@/components/breadcrumb-schema'
+import ClientReviewsSection from '@/components/client-reviews-section'
 import JsonLd from '@/components/json-ld'
 import Script from 'next/script'
 import { buildProfilePageSchema } from '@/lib/structured-data'
@@ -238,64 +239,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">What Clients Say</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Placeholder testimonials - user to replace with real ones */}
-              <Card>
-                <CardContent className="pt-6">
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 mb-4">
-                    "Dr. Janet Duffy made our home buying process seamless. Her knowledge of Sienna Ridge 
-                    helped us find the perfect home for our family."
-                  </p>
-                  <div className="font-semibold">Sarah & Mike Johnson</div>
-                  <div className="text-sm text-gray-500">Sienna Ridge Homeowners</div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="pt-6">
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 mb-4">
-                    "Professional, knowledgeable, and always available. Dr. Duffy helped us navigate 
-                    the new construction process with confidence."
-                  </p>
-                  <div className="font-semibold">David Chen</div>
-                  <div className="text-sm text-gray-500">Sienna Ridge Homeowner</div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="pt-6">
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 mb-4">
-                    "As an investor, I needed someone who understood the market. Dr. Duffy's expertise 
-                    helped me make smart investment decisions in Sienna Ridge."
-                  </p>
-                  <div className="font-semibold">Robert Martinez</div>
-                  <div className="text-sm text-gray-500">Real Estate Investor</div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ClientReviewsSection limit={3} />
 
       {/* Contact CTA Section */}
       {/* RealScout Lead Generation Section */}

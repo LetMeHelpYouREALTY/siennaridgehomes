@@ -1,4 +1,7 @@
 import { AGENT_ENCODED_ID, NAP, SITE_URL } from '@/lib/site-config'
+import type { ClientReview } from '@/lib/reviews-data'
+import type { FeaturedListing } from '@/lib/listings-data'
+import { listingUrl } from '@/lib/listings-data'
 
 export const STRUCTURED_DATA_IDS = {
   organization: `${SITE_URL}/#organization`,
@@ -236,4 +239,76 @@ export function buildBreadcrumbSchema(items: BreadcrumbItem[]) {
 
 export function listingSearchTarget() {
   return `${SITE_URL}/listings?agent=${AGENT_ENCODED_ID}`
+}
+
+/** Review snippets — each review must match visible on-page content. */
+export function buildReviewsSchema(reviews: ClientReview[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': reviews.map((review) => ({
+      '@type': 'Review',
+      '@id': `${SITE_URL}/#review-${review.id}`,
+      author: {
+        '@type': 'Person',
+        name: review.author,
+      },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: review.rating,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      reviewBody: review.quote,
+      itemReviewed: {
+        '@id': STRUCTURED_DATA_IDS.realEstateAgent,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: review.source,
+      },
+    })),
+  }
+}
+
+/** RealEstateListing schema for individual property detail pages. */
+export function buildRealEstateListingSchema(listing: FeaturedListing) {
+  const url = listingUrl(listing.slug)
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'RealEstateListing',
+    '@id': `${url}#listing`,
+    name: listing.name,
+    url,
+    description: listing.description,
+    datePosted: listing.lastModified,
+    image: `${SITE_URL}${listing.image}`,
+    offers: {
+      '@type': 'Offer',
+      price: listing.price,
+      priceCurrency: 'USD',
+      availability:
+        listing.status === 'Coming Soon'
+          ? 'https://schema.org/PreOrder'
+          : 'https://schema.org/InStock',
+      seller: {
+        '@id': STRUCTURED_DATA_IDS.realEstateAgent,
+      },
+    },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: listing.streetAddress,
+      addressLocality: listing.city,
+      addressRegion: listing.state,
+      postalCode: listing.postalCode,
+      addressCountry: 'US',
+    },
+    numberOfBedrooms: listing.beds,
+    numberOfBathroomsTotal: listing.baths,
+    floorSize: {
+      '@type': 'QuantitativeValue',
+      value: listing.sqft,
+      unitCode: 'FTK',
+    },
+  }
 }

@@ -1,4 +1,5 @@
 import { SITE_URL } from '@/lib/site-config'
+import { FEATURED_LISTINGS } from '@/lib/listings-data'
 
 export type SitemapPage = {
   path: string
@@ -12,6 +13,12 @@ export const SITEMAP_PAGES: SitemapPage[] = [
   { path: '', lastModified: '2026-06-16', changeFrequency: 'weekly', priority: 1 },
   { path: '/about', lastModified: '2026-01-15', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/listings', lastModified: '2026-06-16', changeFrequency: 'daily', priority: 0.9 },
+  ...FEATURED_LISTINGS.map((listing) => ({
+    path: `/listings/${listing.slug}`,
+    lastModified: listing.lastModified,
+    changeFrequency: 'weekly' as const,
+    priority: 0.85,
+  })),
   { path: '/neighborhoods/89117', lastModified: '2026-06-16', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/neighborhoods/89147', lastModified: '2026-06-16', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/neighborhoods/89148', lastModified: '2026-06-16', changeFrequency: 'weekly', priority: 0.9 },
@@ -82,19 +89,19 @@ export const SITEMAP_IMAGES: SitemapImage[] = [
     title: 'Professional Headshot - Dr. Jan Duffy Real Estate',
   },
   {
-    pagePath: '/listings',
+    pagePath: '/listings/1594-sienna-ridge',
     loc: `${SITE_URL}/images/property-sample-1.jpg`,
     caption: 'New construction home in Spring Valley',
     title: '1594 Sienna Ridge - Single Story Home Model',
   },
   {
-    pagePath: '/listings',
+    pagePath: '/listings/1760-sienna-ridge',
     loc: `${SITE_URL}/images/property-sample-2.jpg`,
     caption: 'Available home in Southwest Las Vegas',
     title: '1760 Sienna Ridge - Two Story Home Model',
   },
   {
-    pagePath: '/listings',
+    pagePath: '/listings/2270-sienna-ridge',
     loc: `${SITE_URL}/images/property-sample-3.jpg`,
     caption: 'Investment opportunity in Las Vegas',
     title: '2270 Sienna Ridge - Executive Home Model',

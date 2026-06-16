@@ -6,8 +6,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import LeadForm from '@/components/lead-form'
 import JsonLd from '@/components/json-ld'
+import ClientReviewsSection from '@/components/client-reviews-section'
+import FeaturedListingCard from '@/components/featured-listing-card'
 import Script from 'next/script'
 import { buildFaqPageSchema, HOMEPAGE_FAQS } from '@/lib/structured-data'
+import { FEATURED_LISTINGS } from '@/lib/listings-data'
 import { 
   Home, 
   MapPin, 
@@ -706,118 +709,16 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Model 1 */}
-              <Card className="overflow-hidden">
-                <div className="h-48 relative">
-                  <Image
-                    src="/images/property-sample-1.jpg"
-                    alt="1594 Sienna Ridge - Single Story Home Model"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">1594 Sienna Ridge</h3>
-                  <div className="space-y-2 text-gray-600">
-                    <div className="flex justify-between">
-                      <span>Bedrooms:</span>
-                      <span>3</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Bathrooms:</span>
-                      <span>2.5</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Square Feet:</span>
-                      <span>1,594</span>
-                    </div>
-                    <div className="flex justify-between font-semibold">
-                      <span>Starting at:</span>
-                      <span className="text-blue-600">$485,000</span>
-                    </div>
-                  </div>
-                  <Button className="w-full mt-4 bg-blue-600 hover:bg-blue-700">
-                    Learn More
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Model 2 */}
-              <Card className="overflow-hidden">
-                <div className="h-48 relative">
-                  <Image
-                    src="/images/property-sample-2.jpg"
-                    alt="1760 Sienna Ridge - Two Story Home Model"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">1760 Sienna Ridge</h3>
-                  <div className="space-y-2 text-gray-600">
-                    <div className="flex justify-between">
-                      <span>Bedrooms:</span>
-                      <span>4</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Bathrooms:</span>
-                      <span>3</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Square Feet:</span>
-                      <span>1,760</span>
-                    </div>
-                    <div className="flex justify-between font-semibold">
-                      <span>Starting at:</span>
-                      <span className="text-blue-600">$525,000</span>
-                    </div>
-                  </div>
-                  <Button className="w-full mt-4 bg-blue-600 hover:bg-blue-700">
-                    Learn More
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Model 3 */}
-              <Card className="overflow-hidden">
-                <div className="h-48 relative">
-                  <Image
-                    src="/images/property-sample-3.jpg"
-                    alt="2270 Sienna Ridge - Executive Home Model"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">2270 Sienna Ridge</h3>
-                  <div className="space-y-2 text-gray-600">
-                    <div className="flex justify-between">
-                      <span>Bedrooms:</span>
-                      <span>5</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Bathrooms:</span>
-                      <span>3.5</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Square Feet:</span>
-                      <span>2,270</span>
-                    </div>
-                    <div className="flex justify-between font-semibold">
-                      <span>Starting at:</span>
-                      <span className="text-blue-600">$675,000</span>
-                    </div>
-                  </div>
-                  <Button className="w-full mt-4 bg-blue-600 hover:bg-blue-700">
-                    Learn More
-                  </Button>
-                </CardContent>
-              </Card>
+              {FEATURED_LISTINGS.map((listing) => (
+                <FeaturedListingCard key={listing.slug} listing={listing} />
+              ))}
             </div>
           </div>
         </div>
       </section>
 
+
+      <ClientReviewsSection limit={3} />
 
       {/* FAQ Section for Featured Snippets */}
       <section className="py-16 bg-gray-50">

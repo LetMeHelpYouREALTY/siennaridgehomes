@@ -7,7 +7,10 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Home, MapPin, Bed, Bath, Square, DollarSign, Filter, Search, TrendingUp, Star, Phone } from 'lucide-react'
 import BreadcrumbSchema from '@/components/breadcrumb-schema'
+import ClientReviewsSection from '@/components/client-reviews-section'
+import FeaturedListingCard from '@/components/featured-listing-card'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
+import { FEATURED_LISTINGS } from '@/lib/listings-data'
 import Script from 'next/script'
 
 // Type declarations for RealScout web components
@@ -379,148 +382,10 @@ export default function ListingsPage() {
               </Card>
             </div>
 
-            {/* Sample Property Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {/* Sample Property 1 */}
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-                    <div className="h-48 relative">
-                      <Image
-                        src="/images/property-sample-1.jpg"
-                        alt="New construction home in Spring Valley"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge variant="secondary" className="bg-green-100 text-green-800">
-                      New Construction
-                    </Badge>
-                    <span className="text-sm text-gray-500">MLS #123456</span>
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2">1594 Sienna Ridge</h3>
-                  <div className="flex items-center gap-1 mb-2">
-                    <MapPin className="h-4 w-4 text-gray-400" />
-                    <span className="text-sm text-gray-600">Sienna Ridge, Las Vegas</span>
-                  </div>
-                  <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
-                    <div className="flex items-center gap-1">
-                      <Bed className="h-4 w-4" />
-                      <span>3</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Bath className="h-4 w-4" />
-                      <span>2.5</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Square className="h-4 w-4" />
-                      <span>1,594 sq ft</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="text-xl font-bold text-blue-600">$485,000</div>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                      <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                        Search Properties
-                      </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-
-                  {/* Sample Property 2 */}
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-                    <div className="h-48 relative">
-                      <Image
-                        src="/images/property-sample-2.jpg"
-                        alt="Available home in Southwest Las Vegas"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge variant="secondary" className="bg-blue-100 text-blue-800">
-                      Available Now
-                    </Badge>
-                    <span className="text-sm text-gray-500">MLS #123457</span>
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2">1760 Sienna Ridge</h3>
-                  <div className="flex items-center gap-1 mb-2">
-                    <MapPin className="h-4 w-4 text-gray-400" />
-                    <span className="text-sm text-gray-600">Sienna Ridge, Las Vegas</span>
-                  </div>
-                  <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
-                    <div className="flex items-center gap-1">
-                      <Bed className="h-4 w-4" />
-                      <span>4</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Bath className="h-4 w-4" />
-                      <span>3</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Square className="h-4 w-4" />
-                      <span>1,760 sq ft</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="text-xl font-bold text-blue-600">$525,000</div>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                      <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                        Search Properties
-                      </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-
-                  {/* Sample Property 3 */}
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-                    <div className="h-48 relative">
-                      <Image
-                        src="/images/property-sample-3.jpg"
-                        alt="Investment opportunity in Las Vegas"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge variant="secondary" className="bg-purple-100 text-purple-800">
-                      Coming Soon
-                    </Badge>
-                    <span className="text-sm text-gray-500">MLS #123458</span>
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2">2270 Sienna Ridge</h3>
-                  <div className="flex items-center gap-1 mb-2">
-                    <MapPin className="h-4 w-4 text-gray-400" />
-                    <span className="text-sm text-gray-600">Sienna Ridge, Las Vegas</span>
-                  </div>
-                  <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
-                    <div className="flex items-center gap-1">
-                      <Bed className="h-4 w-4" />
-                      <span>5</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Bath className="h-4 w-4" />
-                      <span>3.5</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Square className="h-4 w-4" />
-                      <span>2,270 sq ft</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="text-xl font-bold text-blue-600">$675,000</div>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                      <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                        Search Properties
-                      </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+              {FEATURED_LISTINGS.map((listing) => (
+                <FeaturedListingCard key={listing.slug} listing={listing} />
+              ))}
             </div>
 
             {/* CTA Section */}
@@ -547,6 +412,7 @@ export default function ListingsPage() {
           </div>
         </div>
       </section>
+      <ClientReviewsSection limit={3} />
     </div>
   )
 }
