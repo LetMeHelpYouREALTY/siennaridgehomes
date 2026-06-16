@@ -6,6 +6,8 @@ import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Home, MapPin, Bed, Bath, Square, DollarSign, Filter, Search, TrendingUp, Star, Phone } from 'lucide-react'
+import BreadcrumbSchema from '@/components/breadcrumb-schema'
+import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import Script from 'next/script'
 
 // Type declarations for RealScout web components
@@ -44,6 +46,7 @@ export const metadata: Metadata = {
 export default function ListingsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      <BreadcrumbSchema items={breadcrumbTrail({ name: 'Listings', path: '/listings' })} />
       {/* RealScout Script */}
       <Script
         src="https://em.realscout.com/widgets/realscout-web-components.umd.js"

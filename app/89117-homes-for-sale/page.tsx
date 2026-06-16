@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import ZipCodeLanding from '@/components/zip-code-landing'
+import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function Homes89117Page() {
         'Strong rental demand and appreciation potential',
       ]}
       heroImageAlt="89117 Spring Valley homes for sale in Southwest Las Vegas"
+      breadcrumbs={breadcrumbTrail({ name: '89117 Homes for Sale', path: '/89117-homes-for-sale' })}
     />
   )
 }
