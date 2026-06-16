@@ -2,6 +2,7 @@ import { AGENT_ENCODED_ID, NAP, OFFICE_GEO, SITE_URL } from '@/lib/site-config'
 import type { ClientReview } from '@/lib/reviews-data'
 import type { FeaturedListing } from '@/lib/listings-data'
 import { listingUrl } from '@/lib/listings-data'
+import { formatCommunityPriceRange, SIENNA_RIDGE } from '@/lib/sienna-ridge-community'
 
 export const STRUCTURED_DATA_IDS = {
   organization: `${SITE_URL}/#organization`,
@@ -51,9 +52,17 @@ export const HOMEPAGE_FAQS: FaqItem[] = [
       'Dr. Jan Duffy specializes in Spring Valley and Southwest Las Vegas, specifically serving the zip codes 89117, 89147, and 89148. She has extensive knowledge of these neighborhoods and can help you find the perfect home in any of these areas.',
   },
   {
+    question: 'How much do homes cost in Sienna Ridge by Lennar?',
+    answer: `Sienna Ridge new construction base prices range from ${formatCommunityPriceRange()}. Pricing varies by floor plan, elevation, and lot. Contact Dr. Jan Duffy for current availability, incentives, and buyer representation at the Sienna Ridge sales center.`,
+  },
+  {
+    question: 'What features does Sienna Ridge offer?',
+    answer: `${SIENNA_RIDGE.location} Floor plans often include ${SIENNA_RIDGE.features[0]}, ${SIENNA_RIDGE.features[1].toLowerCase()}, and ${SIENNA_RIDGE.features[2].toLowerCase()}.`,
+  },
+  {
     question: 'How much do homes cost in Spring Valley Las Vegas?',
     answer:
-      'Spring Valley home prices range from $350,000 to $650,000, depending on size, condition, and location. Established homes in 89117 and 89147 typically range from $350,000-$500,000, while newer developments in 89148 can reach $450,000-$650,000.',
+      'Spring Valley home prices range from $350,000 to $650,000+ for established homes in 89117 and 89147. New construction at Sienna Ridge by Lennar (89147) starts from approximately $564,890 and reaches $860,000+ depending on floor plan.',
   },
   {
     question: 'Is Spring Valley a good area to buy a home in Las Vegas?',

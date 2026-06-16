@@ -7,7 +7,13 @@ import { Phone, Mail, MapPin, Award, Users, Home, Star } from 'lucide-react'
 import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import ClientReviewsSection from '@/components/client-reviews-section'
 import JsonLd from '@/components/json-ld'
+import SiennaRidgeOverview from '@/components/sienna-ridge-overview'
 import { buildProfilePageSchema } from '@/lib/structured-data'
+import {
+  communityPriceMaxString,
+  communityPriceMinString,
+  formatCommunityPriceRange,
+} from '@/lib/sienna-ridge-community'
 
 // Type declarations for RealScout web components
 declare global {
@@ -232,6 +238,21 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Sienna Ridge by Lennar</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Dr. Jan Duffy represents buyers at the Sienna Ridge sales center — new Lennar homes from{' '}
+                {formatCommunityPriceRange()}.
+              </p>
+            </div>
+            <SiennaRidgeOverview />
+          </div>
+        </div>
+      </section>
+
       <ClientReviewsSection limit={3} />
 
       {/* Contact CTA Section */}
@@ -306,7 +327,7 @@ export default function AboutPage() {
               <CardHeader>
                 <CardTitle className="text-center">Featured Sienna Ridge Homes</CardTitle>
                 <CardDescription className="text-center">
-                  Current listings in the Sienna Ridge area - $500K to $600K range
+                  Current Sienna Ridge listings — {formatCommunityPriceRange()}
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6">
@@ -316,8 +337,8 @@ export default function AboutPage() {
                       sort-order="NEWEST" 
                       listing-status="For Sale,In Contract" 
                       property-types=",SFR" 
-                      price-min="500000" 
-                      price-max="600000"
+                      price-min={communityPriceMinString()} 
+                      price-max={communityPriceMaxString()}
                       style={{
                         '--rs-listing-divider-color': '#0e64c8',
                         'width': '100%'

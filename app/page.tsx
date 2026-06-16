@@ -8,8 +8,10 @@ import LeadForm from '@/components/lead-form'
 import JsonLd from '@/components/json-ld'
 import ClientReviewsSection from '@/components/client-reviews-section'
 import FeaturedListingCard from '@/components/featured-listing-card'
+import SiennaRidgeOverview from '@/components/sienna-ridge-overview'
 import { buildFaqPageSchema, HOMEPAGE_FAQS } from '@/lib/structured-data'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
+import { formatCommunityPriceRange } from '@/lib/sienna-ridge-community'
 import { 
   Home, 
   MapPin, 
@@ -449,22 +451,22 @@ export default function HomePage() {
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">Newer Developments (89148)</h3>
+                  <h3 className="text-xl font-semibold mb-2">Sienna Ridge by Lennar (89147)</h3>
                   <p className="text-gray-600 mb-4">
-                    Modern new construction homes with contemporary finishes, energy-efficient features, and resort-style amenities.
+                    New Lennar construction near Desert Breeze Park and I-215 with Next Gen® suites, downstairs bedrooms, and solar options.
                   </p>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span>Bedrooms:</span>
-                      <span>4-5</span>
+                      <span>3-5</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Bathrooms:</span>
-                      <span>3-4</span>
+                      <span>Square Feet:</span>
+                      <span>1,594 - 2,270+</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Price Range:</span>
-                      <span className="font-semibold text-blue-600">$450K-$650K</span>
+                      <span className="font-semibold text-blue-600">{formatCommunityPriceRange()}</span>
                     </div>
                   </div>
                 </CardContent>
@@ -628,64 +630,14 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Welcome to Southwest Las Vegas / Spring Valley</h2>
+              <h2 className="text-3xl font-bold mb-4">About Sienna Ridge by Lennar</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Experience the best of Las Vegas living in Spring Valley and Southwest Las Vegas (89117, 89147, 89148). 
-                A thriving community with established neighborhoods, new developments, and exceptional investment opportunities.
+                Southwest Las Vegas new construction in zip code 89147 — plus established Spring Valley
+                neighborhoods in 89117 and 89148.
               </p>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <MapPin className="h-5 w-5 text-blue-600" />
-                    Prime Location
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    Strategically located in Southwest Las Vegas with easy access to major highways, 
-                    shopping centers, and entertainment venues. Close to the Las Vegas Strip and McCarran Airport.
-                  </p>
-                  <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-                    <p className="text-sm font-semibold text-blue-800">Coverage Areas</p>
-                    <p className="text-sm text-blue-600">89117, 89147, 89148</p>
-                    <p className="text-xs text-blue-500">Spring Valley & Southwest Las Vegas</p>
-                  </div>
-                </CardContent>
-              </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Star className="h-5 w-5 text-blue-600" />
-                    Luxury Amenities
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    Enjoy excellent amenities including community pools, fitness centers, 
-                    parks, playgrounds, and walking trails throughout the established and newer neighborhoods.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <TrendingUp className="h-5 w-5 text-blue-600" />
-                    Investment Value
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    Strong appreciation potential with growing demand and limited inventory. 
-                    Perfect for both families and investors seeking stable returns in a market expected to outperform in 2025.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+            <SiennaRidgeOverview />
           </div>
         </div>
       </section>
@@ -697,7 +649,7 @@ export default function HomePage() {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">Featured Home Models</h2>
               <p className="text-xl text-gray-600">
-                Discover the beautiful floor plans available in Sienna Ridge
+                Lennar floor plans at Sienna Ridge — base prices from {formatCommunityPriceRange(false)}+
               </p>
             </div>
 
@@ -719,35 +671,12 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions About Spring Valley Real Estate</h2>
             <div className="space-y-8">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold mb-3 text-blue-600">What areas does Dr. Jan Duffy serve in Southwest Las Vegas?</h3>
-                <p className="text-gray-700">Dr. Jan Duffy specializes in Spring Valley and Southwest Las Vegas, specifically serving the zip codes 89117, 89147, and 89148. She has extensive knowledge of these neighborhoods and can help you find the perfect home in any of these areas.</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold mb-3 text-blue-600">How much do homes cost in Spring Valley Las Vegas?</h3>
-                <p className="text-gray-700">Spring Valley home prices range from $350,000 to $650,000, depending on size, condition, and location. Established homes in 89117 and 89147 typically range from $350,000-$500,000, while newer developments in 89148 can reach $450,000-$650,000.</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold mb-3 text-blue-600">Is Spring Valley a good area to buy a home in Las Vegas?</h3>
-                <p className="text-gray-700">Yes, Spring Valley is an excellent area for home buyers. It offers established neighborhoods, great schools, convenient access to the Strip and airport, and strong appreciation potential. The area is expected to outperform metro averages in 2025.</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold mb-3 text-blue-600">What makes Dr. Jan Duffy the best Spring Valley real estate agent?</h3>
-                <p className="text-gray-700">Dr. Jan Duffy has helped over 100 families find their dream homes in Spring Valley and Southwest Las Vegas. She offers personalized service, expert local knowledge, and specializes in buyer representation for families, investors, and first-time buyers.</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold mb-3 text-blue-600">How can I get a free home valuation for my Las Vegas property?</h3>
-                <p className="text-gray-700">You can get a free, instant home valuation using our online tool above, or contact Dr. Jan Duffy directly for a comprehensive market analysis. She provides accurate, data-driven valuations for all Southwest Las Vegas properties.</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold mb-3 text-blue-600">What types of homes are available in Southwest Las Vegas zip codes 89117, 89147, 89148?</h3>
-                <p className="text-gray-700">Southwest Las Vegas offers diverse housing options including single-story homes (1,800-2,400 sq ft), two-story homes (2,200-3,200 sq ft), and executive properties (3,000+ sq ft). You'll find established neighborhoods, new construction, and excellent investment opportunities.</p>
-              </div>
+              {HOMEPAGE_FAQS.map((faq) => (
+                <div key={faq.question} className="bg-white p-6 rounded-lg shadow-sm">
+                  <h3 className="text-xl font-semibold mb-3 text-blue-600">{faq.question}</h3>
+                  <p className="text-gray-700">{faq.answer}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

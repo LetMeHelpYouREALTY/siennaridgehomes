@@ -14,7 +14,8 @@ app/                    # Next.js App Router pages
 lib/site-config.ts      # SITE_URL, NAP, AGENT_ENCODED_ID, REVIEW_PROFILES
 lib/structured-data.ts  # Organization, RealEstateAgent, Review, RealEstateListing JSON-LD
 lib/sitemap-pages.ts    # Single source of truth for sitemap URLs
-lib/listings-data.ts    # Featured Sienna Ridge model homes
+lib/listings-data.ts    # Featured Sienna Ridge Lennar model homes
+lib/sienna-ridge-community.ts  # Location, features, base price range ($564,890–$860,000+)
 lib/reviews-data.ts     # Client testimonials
 components/json-ld.tsx  # Server-rendered structured data
 components/realscout-script.tsx

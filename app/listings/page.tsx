@@ -9,9 +9,15 @@ import { Home, MapPin, Bed, Bath, Square, DollarSign, Filter, Search, TrendingUp
 import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import ClientReviewsSection from '@/components/client-reviews-section'
 import FeaturedListingCard from '@/components/featured-listing-card'
+import SiennaRidgeOverview from '@/components/sienna-ridge-overview'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
 import { NAP, formatCityStateZip } from '@/lib/site-config'
+import {
+  communityPriceMaxString,
+  communityPriceMinString,
+  formatCommunityPriceRange,
+} from '@/lib/sienna-ridge-community'
 
 // Type declarations for RealScout web components
 declare global {
@@ -83,61 +89,31 @@ export default function ListingsPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Southwest Las Vegas Real Estate Market Overview</h2>
+              <h2 className="text-3xl font-bold mb-4">Sienna Ridge by Lennar</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Spring Valley & Southwest Las Vegas (89117, 89147, 89148) represent one of Las Vegas's most desirable areas, 
-                offering a mix of established homes and newer developments with exceptional investment potential.
+                New construction in 89147 plus established Spring Valley neighborhoods in 89117 and 89148.
               </p>
             </div>
-            
+
+            <SiennaRidgeOverview />
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Models */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Featured Floor Plans</h2>
+              <p className="text-xl text-gray-600">
+                Lennar models at Sienna Ridge — base prices from {formatCommunityPriceRange(false)}+
+              </p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <TrendingUp className="h-5 w-5 text-blue-600" />
-                    Market Trends
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    The Southwest Las Vegas market continues to show strong appreciation with increasing demand 
-                    for both established homes and newer developments. Properties in this area maintain excellent resale value 
-                    and strong rental yields due to the prime location and growing population.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <MapPin className="h-5 w-5 text-blue-600" />
-                    Location Benefits
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    Strategically located in Southwest Las Vegas with easy access to major highways, shopping centers, 
-                    entertainment venues, and the Las Vegas Strip. Close proximity to McCarran 
-                    Airport and major employment centers makes this area highly desirable.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Star className="h-5 w-5 text-blue-600" />
-                    Community Amenities
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    Residents enjoy excellent amenities including community pools, fitness centers, 
-                    parks, playgrounds, and walking trails. Both established neighborhoods and newer developments offer 
-                    exceptional lifestyle opportunities for families and investors.
-                  </p>
-                </CardContent>
-              </Card>
+              {FEATURED_LISTINGS.map((listing) => (
+                <FeaturedListingCard key={listing.slug} listing={listing} />
+              ))}
             </div>
           </div>
         </div>
@@ -154,7 +130,7 @@ export default function ListingsPage() {
                   Search Sienna Ridge Properties
                 </CardTitle>
                 <CardDescription>
-                  Use the filters below to find your perfect home in Sienna Ridge
+                  Use the filters below to find your perfect home in Sienna Ridge ({formatCommunityPriceRange()})
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -166,11 +142,10 @@ export default function ListingsPage() {
                         <SelectValue placeholder="Any Price" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="under-400k">Under $400K</SelectItem>
-                        <SelectItem value="400k-500k">$400K - $500K</SelectItem>
-                        <SelectItem value="500k-600k">$500K - $600K</SelectItem>
-                        <SelectItem value="600k-750k">$600K - $750K</SelectItem>
-                        <SelectItem value="750k-plus">$750K+</SelectItem>
+                        <SelectItem value="565k-650k">$565K - $650K</SelectItem>
+                        <SelectItem value="650k-750k">$650K - $750K</SelectItem>
+                        <SelectItem value="750k-860k">$750K - $860K</SelectItem>
+                        <SelectItem value="860k-plus">$860K+</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -306,7 +281,7 @@ export default function ListingsPage() {
               <CardHeader>
                 <CardTitle className="text-center">Featured Sienna Ridge Homes</CardTitle>
                 <CardDescription className="text-center">
-                  Current listings in the Sienna Ridge area - $500K to $600K range
+                  Current Sienna Ridge listings — {formatCommunityPriceRange()}
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6">
@@ -316,8 +291,8 @@ export default function ListingsPage() {
                       sort-order="NEWEST" 
                       listing-status="For Sale,In Contract" 
                       property-types=",SFR" 
-                      price-min="500000" 
-                      price-max="600000"
+                      price-min={communityPriceMinString()} 
+                      price-max={communityPriceMaxString()}
                       style={{
                         '--rs-listing-divider-color': '#0e64c8',
                         'width': '100%'
@@ -374,12 +349,6 @@ export default function ListingsPage() {
                   </div>
                 </CardContent>
               </Card>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {FEATURED_LISTINGS.map((listing) => (
-                <FeaturedListingCard key={listing.slug} listing={listing} />
-              ))}
             </div>
 
             {/* CTA Section */}
