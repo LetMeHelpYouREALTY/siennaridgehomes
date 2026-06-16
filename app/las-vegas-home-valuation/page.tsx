@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { DollarSign } from 'lucide-react'
 import SeoCtaSection from '@/components/seo-cta-section'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
-import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
+import { AGENT_ENCODED_ID, REALSCOUT_SEARCH_URL, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
   title: 'Las Vegas Home Valuation | Free Property Estimate | Dr. Jan Duffy',
@@ -61,9 +61,14 @@ export default function LasVegasHomeValuationPage() {
               Learn about Spring Valley market trends
             </Link>{' '}
             or browse{' '}
-            <Link href="/listings" className="text-blue-600 hover:underline">
+            <a
+              href={REALSCOUT_SEARCH_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
               current listings
-            </Link>
+            </a>
             .
           </p>
         </div>

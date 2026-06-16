@@ -360,7 +360,7 @@ export default function ListingsPage() {
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold mb-4">Don't See What You're Looking For?</h3>
                   <p className="text-gray-600 mb-6">
-                    Dr. Janet Duffy can help you find off-market properties and pre-construction opportunities in Sienna Ridge
+                    Dr. Jan Duffy can help you find off-market properties and pre-construction opportunities in Sienna Ridge
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <CalendlyPopupButton size="lg" className="bg-blue-600 hover:bg-blue-700" />

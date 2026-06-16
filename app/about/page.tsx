@@ -15,7 +15,7 @@ import {
   communityPriceMinString,
   formatCommunityPriceRange,
 } from '@/lib/sienna-ridge-community'
-import { REALSCOUT_SEARCH_URL } from '@/lib/site-config'
+import { REALSCOUT_SEARCH_URL, NAP } from '@/lib/site-config'
 
 // Type declarations for RealScout web components
 declare global {
@@ -364,16 +364,20 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">Ready to Find Your Sienna Ridge Home?</h2>
             <p className="text-xl mb-8">
-              Let Dr. Janet Duffy guide you through your home buying journey with expert knowledge and personalized service.
+              Let Dr. Jan Duffy guide you through your home buying journey with expert knowledge and personalized service.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
-                    <Phone className="h-4 w-4 mr-2" />
-                    Call (702) 903-3336
+              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100" asChild>
+                <a href={`tel:${NAP.phoneTel}`}>
+                  <Phone className="h-4 w-4 mr-2" />
+                  Call {NAP.phone}
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
-                <Mail className="h-4 w-4 mr-2" />
-                Email DrJanSells@SiennaRidgeHomes.com
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
+                <a href={`mailto:${NAP.email}`}>
+                  <Mail className="h-4 w-4 mr-2" />
+                  Email {NAP.email}
+                </a>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
                 <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer" className="flex items-center">

@@ -123,12 +123,12 @@ export default function HomePage() {
               </Badge>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/listings" passHref>
-                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100" asChild>
+                <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer">
                   <Home className="h-4 w-4 mr-2" />
                   View Available Homes <ArrowRight className="h-4 w-4 ml-2" />
-                </Button>
-              </Link>
+                </a>
+              </Button>
               <CalendlyPopupButton
                 size="lg"
                 variant="outline"
