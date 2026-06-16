@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Phone, Mail, MapPin, Home, User, Search } from 'lucide-react'
+import CalendlyPopupButton from '@/components/calendly-popup-button'
 import { NAP, OFFICE_MAPS_URL, formatCityStateZip } from '@/lib/site-config'
 
 export default function Footer() {
@@ -90,6 +91,11 @@ export default function Footer() {
                   </a>
                 </address>
               </div>
+              <CalendlyPopupButton
+                size="sm"
+                variant="outline"
+                className="w-full border-blue-400 text-blue-300 hover:bg-blue-600 hover:text-white"
+              />
             </div>
           </div>
 

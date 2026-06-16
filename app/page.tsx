@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import LeadForm from '@/components/lead-form'
+import CalendlyPopupButton from '@/components/calendly-popup-button'
 import JsonLd from '@/components/json-ld'
 import ClientReviewsSection from '@/components/client-reviews-section'
 import FeaturedListingCard from '@/components/featured-listing-card'
@@ -19,7 +20,6 @@ import {
   Star, 
   Phone, 
   Mail, 
-  Calendar,
   ArrowRight,
   CheckCircle,
   Award,
@@ -128,12 +128,12 @@ export default function HomePage() {
                   View Available Homes <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </Link>
-              <Link href="/about" passHref>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
-                  <Calendar className="h-4 w-4 mr-2" />
-                  Schedule Consultation <ArrowRight className="h-4 w-4 ml-2" />
-                </Button>
-              </Link>
+              <CalendlyPopupButton
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
+                label="Schedule Consultation"
+              />
             </div>
           </div>
         </div>
@@ -290,20 +290,10 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            {/* Lead Form */}
-            <Card className="max-w-2xl mx-auto">
-              <CardHeader className="text-center">
-                <CardTitle className="text-2xl font-bold mb-2">
-                  Get Personalized Guidance
-                </CardTitle>
-                <CardDescription className="text-gray-600">
-                  Connect with Dr. Jan Duffy for expert real estate advice
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <LeadForm />
-              </CardContent>
-            </Card>
+            {/* Schedule Consultation */}
+            <div className="max-w-3xl mx-auto">
+              <LeadForm />
+            </div>
           </div>
         </div>
       </section>
@@ -691,15 +681,25 @@ export default function HomePage() {
               Let Dr. Jan Duffy guide you through your home buying journey in Spring Valley & Southwest Las Vegas (89117, 89147, 89148) with expert knowledge and personalized service.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
+                <CalendlyPopupButton
+                  size="lg"
+                  variant="secondary"
+                  className="bg-white text-blue-600 hover:bg-gray-100"
+                  label="Schedule time with me"
+                />
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
+                  <a href="tel:+17029033336">
                     <Phone className="h-4 w-4 mr-2" />
                     Call (702) 903-3336
+                  </a>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
-                  <Mail className="h-4 w-4 mr-2" />
-                  Email DrJanSells@SiennaRidgeHomes.com
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
+                  <a href="mailto:DrJanSells@SiennaRidgeHomes.com">
+                    <Mail className="h-4 w-4 mr-2" />
+                    Email DrJanSells@SiennaRidgeHomes.com
+                  </a>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
                   <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer" className="flex items-center">
                     <Home className="h-4 w-4 mr-2" />
                     Search Properties

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import SeoCtaSection from '@/components/seo-cta-section'
+import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -89,6 +90,15 @@ export default function SouthwestLasVegasHomesPage() {
               />
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <ScheduleConsultationSection
+            title="Book Your Southwest Las Vegas Buyer Consultation"
+            description="Schedule a 15-minute private conversation about homes in 89117, 89147, and 89148."
+          />
         </div>
       </section>
 

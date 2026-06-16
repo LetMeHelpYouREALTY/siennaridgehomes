@@ -3,7 +3,9 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Menu, X, Phone, Mail, MapPin, Home, User, Search } from 'lucide-react'
+import CalendlyPopupButton from '@/components/calendly-popup-button'
+import { Menu, X, Phone, Search, Home } from 'lucide-react'
+import { NAP } from '@/lib/site-config'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -14,7 +16,6 @@ export default function Header() {
     <header className="bg-white shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Home className="h-8 w-8 text-blue-600" />
             <div className="hidden sm:block">
@@ -23,7 +24,6 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors">
               Home
@@ -47,52 +47,38 @@ export default function Header() {
                 <Search className="h-4 w-4 mr-1" />
                 Search Properties
               </a>
-              <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                <Phone className="h-4 w-4 mr-1" />
-                Call Now
+              <CalendlyPopupButton size="sm" className="bg-blue-600 hover:bg-blue-700" />
+              <Button size="sm" variant="outline" asChild>
+                <a href={`tel:${NAP.phoneTel}`}>
+                  <Phone className="h-4 w-4 mr-1" />
+                  Call
+                </a>
               </Button>
             </div>
           </nav>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
             className="lg:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100"
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden py-4 border-t">
             <nav className="flex flex-col space-y-4">
-              <Link 
-                href="/" 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Home
               </Link>
-              <Link 
-                href="/listings" 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Link href="/listings" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Listings
               </Link>
-              <Link 
-                href="/neighborhoods/89117" 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Link href="/neighborhoods/89117" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Spring Valley
               </Link>
-              <Link 
-                href="/about" 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Link href="/about" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 About Dr. Duffy
               </Link>
               <div className="pt-4 border-t space-y-3">
@@ -106,13 +92,12 @@ export default function Header() {
                   <Search className="h-4 w-4 mr-2" />
                   Search Properties
                 </a>
-                <Button 
-                  size="sm" 
-                  className="w-full bg-blue-600 hover:bg-blue-700"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <Phone className="h-4 w-4 mr-2" />
-                  Call (702) 903-3336
+                <CalendlyPopupButton size="sm" className="w-full bg-blue-600 hover:bg-blue-700" />
+                <Button size="sm" variant="outline" className="w-full" asChild>
+                  <a href={`tel:${NAP.phoneTel}`}>
+                    <Phone className="h-4 w-4 mr-2" />
+                    Call {NAP.phone}
+                  </a>
                 </Button>
               </div>
             </nav>

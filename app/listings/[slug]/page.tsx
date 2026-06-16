@@ -6,6 +6,8 @@ import { notFound } from 'next/navigation'
 import { Bed, Bath, Square, MapPin, Phone, ExternalLink } from 'lucide-react'
 import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import JsonLd from '@/components/json-ld'
+import ScheduleConsultationSection from '@/components/schedule-consultation-section'
+import CalendlyPopupButton from '@/components/calendly-popup-button'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -113,6 +115,7 @@ export default async function ListingDetailPage({ params }: ListingPageProps) {
               </ul>
 
               <div className="flex flex-col sm:flex-row gap-3">
+                <CalendlyPopupButton className="bg-blue-600 hover:bg-blue-700" label="Schedule a Tour" />
                 <Button className="bg-blue-600 hover:bg-blue-700" asChild>
                   <Link href={`tel:${NAP.phoneTel}`}>
                     <Phone className="h-4 w-4 mr-2" />
@@ -160,6 +163,15 @@ export default async function ListingDetailPage({ params }: ListingPageProps) {
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <ScheduleConsultationSection
+            title={`Discuss ${listing.name} with Dr. Jan Duffy`}
+            description="Book a 15-minute private conversation about this floor plan, current incentives, and your Sienna Ridge home search."
+          />
         </div>
       </section>
     </div>

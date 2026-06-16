@@ -10,6 +10,8 @@ import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import ClientReviewsSection from '@/components/client-reviews-section'
 import FeaturedListingCard from '@/components/featured-listing-card'
 import SiennaRidgeOverview from '@/components/sienna-ridge-overview'
+import ScheduleConsultationSection from '@/components/schedule-consultation-section'
+import CalendlyPopupButton from '@/components/calendly-popup-button'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
 import { NAP, formatCityStateZip } from '@/lib/site-config'
@@ -336,14 +338,11 @@ export default function ListingsPage() {
                     Professional consultation space for all your Sienna Ridge real estate needs.
                   </p>
                   <div className="flex gap-2">
-                    <Button className="flex-1">
-                      <Phone className="h-4 w-4 mr-2" />
-                      Call Office
-                    </Button>
-                    <Button variant="outline" className="flex-1">
-                      <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                        <Home className="h-4 w-4 mr-2" />
-                        Search Properties
+                    <CalendlyPopupButton className="flex-1" label="Schedule a Tour" />
+                    <Button variant="outline" className="flex-1" asChild>
+                      <a href={`tel:${NAP.phoneTel}`}>
+                        <Phone className="h-4 w-4 mr-2" />
+                        Call Office
                       </a>
                     </Button>
                   </div>
@@ -360,13 +359,12 @@ export default function ListingsPage() {
                     Dr. Janet Duffy can help you find off-market properties and pre-construction opportunities in Sienna Ridge
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                      <Home className="h-4 w-4 mr-2" />
-                      Get Custom Search
-                    </Button>
-                    <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
-                      <MapPin className="h-4 w-4 mr-2" />
-                      Schedule Tour
+                    <CalendlyPopupButton size="lg" className="bg-blue-600 hover:bg-blue-700" />
+                    <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white" asChild>
+                      <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        <Home className="h-4 w-4 mr-2" />
+                        Search Properties
+                      </a>
                     </Button>
                   </div>
                 </CardContent>
@@ -375,6 +373,16 @@ export default function ListingsPage() {
           </div>
         </div>
       </section>
+
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <ScheduleConsultationSection
+            title="Book a Private Conversation with Dr. Jan Duffy"
+            description="Schedule a 15-minute call to discuss Sienna Ridge floor plans, MLS listings, or your Southwest Las Vegas home search."
+          />
+        </div>
+      </section>
+
       <ClientReviewsSection limit={3} />
     </div>
   )

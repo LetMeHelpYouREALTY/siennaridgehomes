@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { MapPin, Home, TrendingUp } from 'lucide-react'
 import SeoCtaSection from '@/components/seo-cta-section'
+import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import { AGENT_ENCODED_ID } from '@/lib/site-config'
 import type { BreadcrumbItem } from '@/lib/structured-data'
@@ -159,6 +160,15 @@ export default function ZipCodeLanding({
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <ScheduleConsultationSection
+            title={`Schedule Your ${areaName} Home Search Consultation`}
+            description={`Book a 15-minute call with Dr. Jan Duffy to discuss homes in ${zipCode} and your buyer goals.`}
+          />
         </div>
       </section>
 

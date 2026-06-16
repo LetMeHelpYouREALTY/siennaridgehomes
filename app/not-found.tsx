@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import CalendlyPopupButton from '@/components/calendly-popup-button'
+import ScheduleConsultationSection from '@/components/schedule-consultation-section'
+import { NAP } from '@/lib/site-config'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Home, Search, ArrowLeft, MapPin, Phone, Mail } from 'lucide-react'
 
@@ -52,12 +55,11 @@ export default function NotFound() {
               The page you're looking for doesn't exist, but your dream home in Sienna Ridge does!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
-                <Home className="h-4 w-4 mr-2" />
+              <CalendlyPopupButton size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100" />
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
                 <Link href="/">Go Home</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
-                <Search className="h-4 w-4 mr-2" />
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
                 <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer">
                   Search Properties
                 </a>
@@ -186,6 +188,14 @@ export default function NotFound() {
               </CardContent>
             </Card>
 
+            <div className="mt-12">
+              <ScheduleConsultationSection
+                title="Schedule a Conversation with Dr. Jan Duffy"
+                description="Book a 15-minute call to get back on track with your Sienna Ridge or Southwest Las Vegas home search."
+                showPopupFallback={false}
+              />
+            </div>
+
             {/* Popular Pages */}
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-6">Popular Pages</h3>
@@ -233,18 +243,17 @@ export default function NotFound() {
               Don't let a missing page stop you from finding your dream home. Dr. Jan Duffy is here to help!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
-                <Phone className="h-4 w-4 mr-2" />
-                Call (702) 555-0123
+              <CalendlyPopupButton size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100" />
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
+                <a href={`tel:${NAP.phoneTel}`}>
+                  <Phone className="h-4 w-4 mr-2" />
+                  Call {NAP.phone}
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
-                <Mail className="h-4 w-4 mr-2" />
-                Email DrJanSells@SiennaRidgeHomes.com
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
-                <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                  <Search className="h-4 w-4 mr-2" />
-                  Search Properties
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
+                <a href={`mailto:${NAP.email}`}>
+                  <Mail className="h-4 w-4 mr-2" />
+                  Email {NAP.email}
                 </a>
               </Button>
             </div>

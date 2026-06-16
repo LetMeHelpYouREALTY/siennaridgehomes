@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { CheckCircle, Home, FileText, Handshake, Key } from 'lucide-react'
 import SeoCtaSection from '@/components/seo-cta-section'
-import LeadForm from '@/components/lead-form'
+import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -84,15 +84,10 @@ export default function FirstTimeHomeBuyerPage() {
             </CardContent>
           </Card>
 
-          <Card className="max-w-2xl mx-auto">
-            <CardHeader className="text-center">
-              <CardTitle>Get First-Time Buyer Guidance</CardTitle>
-              <CardDescription>Connect with Dr. Jan Duffy for a personalized buying plan</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <LeadForm />
-            </CardContent>
-          </Card>
+          <ScheduleConsultationSection
+            title="Schedule Your First-Time Buyer Consultation"
+            description="Book a 15-minute call with Dr. Jan Duffy to map out financing, neighborhoods, and your Las Vegas home buying timeline."
+          />
         </div>
       </section>
 

@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 import JsonLd from '@/components/json-ld'
 import ThirdPartyScripts from '@/components/third-party-scripts'
+import CalendlyScripts from '@/components/calendly-scripts'
+import CalendlyBadgeWidget from '@/components/calendly-badge-widget'
 import RealScoutScript from '@/components/realscout-script'
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -112,6 +114,8 @@ export default function RootLayout({
               <Footer />
             </ThemeProvider>
         <ThirdPartyScripts />
+        <CalendlyScripts />
+        <CalendlyBadgeWidget />
         <RealScoutScript />
       </body>
     </html>

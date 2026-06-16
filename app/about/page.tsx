@@ -8,6 +8,7 @@ import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import ClientReviewsSection from '@/components/client-reviews-section'
 import JsonLd from '@/components/json-ld'
 import SiennaRidgeOverview from '@/components/sienna-ridge-overview'
+import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import { buildProfilePageSchema } from '@/lib/structured-data'
 import {
   communityPriceMaxString,
@@ -255,7 +256,14 @@ export default function AboutPage() {
 
       <ClientReviewsSection limit={3} />
 
-      {/* Contact CTA Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <ScheduleConsultationSection />
+          </div>
+        </div>
+      </section>
+
       {/* RealScout Lead Generation Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">

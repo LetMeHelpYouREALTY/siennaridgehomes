@@ -16,6 +16,7 @@ alwaysApply: true
 | MLS widgets | RealScout web components (`AGENT_ENCODED_ID` from `lib/site-config.ts`) |
 | SEO | JSON-LD in `lib/structured-data.ts`, sitemaps in `app/sitemap*.xml/` |
 | Analytics | Google Analytics `G-VB9NKRDQK1` via `components/third-party-scripts.tsx` |
+| Scheduling | Calendly inline, popup, and badge widgets via `components/calendly-*.tsx` |
 
 ## Conventions
 
@@ -23,6 +24,7 @@ alwaysApply: true
 - **Site constants**: NAP, URLs, agent ID live in `lib/site-config.ts` — never hardcode.
 - **Structured data**: build with helpers in `lib/structured-data.ts`; render via `components/json-ld.tsx`.
 - **RealScout**: load once via `components/realscout-script.tsx` (`lazyOnload`); do not duplicate `<Script>` tags on pages.
+- **Calendly**: load once via `components/calendly-scripts.tsx`; use inline widget for booking sections, popup buttons for CTAs, badge globally in layout.
 - **Listings**: featured models in `lib/listings-data.ts`; detail pages at `app/listings/[slug]/`.
 - **Reviews**: testimonials in `lib/reviews-data.ts`; use `ClientReviewsSection` with matching schema.
 - **Sitemap URLs**: register in `lib/sitemap-pages.ts` only.

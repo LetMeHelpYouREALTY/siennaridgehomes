@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { DollarSign } from 'lucide-react'
 import SeoCtaSection from '@/components/seo-cta-section'
+import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -79,6 +80,15 @@ export default function LasVegasHomeValuationPage() {
             <li>✓ Current inventory and days on market</li>
             <li>✓ Interest rates and seasonal demand</li>
           </ul>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <ScheduleConsultationSection
+            title="Discuss Your Home Valuation with Dr. Jan Duffy"
+            description="Book a 15-minute call for a personalized market analysis of your Southwest Las Vegas property."
+          />
         </div>
       </section>
 

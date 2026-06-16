@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { MapPin, Home, TrendingUp, Users } from 'lucide-react'
 import SeoCtaSection from '@/components/seo-cta-section'
+import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
@@ -119,6 +120,15 @@ export default function SpringValleyRealEstatePage() {
               />
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <ScheduleConsultationSection
+            title="Start with a 15-Minute Spring Valley Consultation"
+            description="Book time with Dr. Jan Duffy to discuss neighborhoods, pricing, and your Spring Valley home search."
+          />
         </div>
       </section>
 

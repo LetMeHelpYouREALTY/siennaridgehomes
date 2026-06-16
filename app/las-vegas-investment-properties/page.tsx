@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { DollarSign, TrendingUp, Building, BarChart3 } from 'lucide-react'
 import SeoCtaSection from '@/components/seo-cta-section'
+import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -87,6 +88,15 @@ export default function LasVegasInvestmentPropertiesPage() {
               />
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <ScheduleConsultationSection
+            title="Schedule an Investor Consultation"
+            description="Book a 15-minute call to review cash flow, cap rates, and investment opportunities in Southwest Las Vegas."
+          />
         </div>
       </section>
 
