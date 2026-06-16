@@ -1,5 +1,6 @@
 import { SITE_URL } from '@/lib/site-config'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
+import { SEO_EXPANSION_PAGES } from '@/lib/seo-pages-data'
 
 export type SitemapPage = {
   path: string
@@ -40,6 +41,14 @@ export const SITEMAP_PAGES: SitemapPage[] = [
     priority: 0.7,
   },
   { path: '/las-vegas-home-valuation', lastModified: '2026-06-16', changeFrequency: 'weekly', priority: 0.8 },
+  { path: '/neighborhoods', lastModified: '2026-06-16', changeFrequency: 'weekly', priority: 0.85 },
+  { path: '/faq', lastModified: '2026-06-16', changeFrequency: 'weekly', priority: 0.8 },
+  ...SEO_EXPANSION_PAGES.map((page) => ({
+    path: page.path,
+    lastModified: '2026-06-16',
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
+  })),
   { path: '/sitemap', lastModified: '2026-06-16', changeFrequency: 'monthly', priority: 0.3 },
   { path: '/privacy', lastModified: '2026-01-01', changeFrequency: 'monthly', priority: 0.3 },
   { path: '/terms', lastModified: '2026-01-01', changeFrequency: 'monthly', priority: 0.3 },

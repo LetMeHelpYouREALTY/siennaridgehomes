@@ -321,3 +321,176 @@ export function buildRealEstateListingSchema(listing: FeaturedListing) {
     },
   }
 }
+
+export type WebPageSchemaInput = {
+  path: string
+  name: string
+  description: string
+  dateModified?: string
+}
+
+/** WebPage schema for SEO/AEO landing pages. */
+export function buildWebPageSchema({ path, name, description, dateModified = '2026-06-16' }: WebPageSchemaInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${SITE_URL}${path}#webpage`,
+    url: `${SITE_URL}${path}`,
+    name,
+    description,
+    dateModified,
+    isPartOf: { '@id': STRUCTURED_DATA_IDS.website },
+    about: { '@id': STRUCTURED_DATA_IDS.realEstateAgent },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.lead-answer'],
+    },
+  }
+}
+
+export type ItemListEntry = {
+  name: string
+  url: string
+  description?: string
+}
+
+/** ItemList for comparisons, floor plans, guides. */
+export function buildItemListSchema(items: ItemListEntry[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: item.url.startsWith('http') ? item.url : `${SITE_URL}${item.url}`,
+      description: item.description,
+    })),
+  }
+}
+
+export type PlaceSchemaInput = {
+  name: string
+  description: string
+  path: string
+  latitude: number
+  longitude: number
+  address?: {
+    streetAddress?: string
+    postalCode?: string
+  }
+}
+
+/** Place schema for parks, neighborhoods, communities. */
+export function buildPlaceSchema(input: PlaceSchemaInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Place',
+    '@id': `${SITE_URL}${input.path}#place`,
+    name: input.name,
+    description: input.description,
+    url: `${SITE_URL}${input.path}`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: input.latitude,
+      longitude: input.longitude,
+    },
+    ...(input.address
+      ? {
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: input.address.streetAddress,
+            addressLocality: 'Las Vegas',
+            addressRegion: 'NV',
+            postalCode: input.address.postalCode,
+            addressCountry: 'US',
+          },
+        }
+      : {}),
+  }
+}
+
+/** ResidentialComplex for master-planned communities like Sienna Ridge. */
+export function buildResidentialComplexSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ResidentialComplex',
+    '@id': `${SITE_URL}/sienna-ridge-lennar-las-vegas#community`,
+    name: 'Sienna Ridge by Lennar',
+    description: `${SIENNA_RIDGE.location} Lennar new construction community in Las Vegas 89147. Base prices ${formatCommunityPriceRange()}.`,
+    url: `${SITE_URL}/sienna-ridge-lennar-las-vegas`,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: NAP.streetAddress,
+      addressLocality: NAP.city,
+      addressRegion: NAP.state,
+      postalCode: SIENNA_RIDGE.postalCode,
+      addressCountry: 'US',
+    },
+    geo: geoCoordinates,
+    amenityFeature: SIENNA_RIDGE.features.map((feature) => ({
+      '@type': 'LocationFeatureSpecification',
+      name: feature,
+      value: true,
+    })),
+  }
+}
+
+export type HowToStep = {
+  name: string
+  text: string
+}
+
+/** HowTo schema for buyer guides and process pages. */
+export function buildHowToSchema(name: string, description: string, steps: HowToStep[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name,
+    description,
+    step: steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  }
+}
+
+/** Article schema for market reports and guides. */
+export function buildArticleSchema(path: string, headline: string, description: string, dateModified = '2026-06-16') {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline,
+    description,
+    dateModified,
+    author: { '@id': STRUCTURED_DATA_IDS.person },
+    publisher: { '@id': STRUCTURED_DATA_IDS.organization },
+    mainEntityOfPage: `${SITE_URL}${path}`,
+  }
+}
+
+/** Park schema for Desert Breeze and lifestyle pages. */
+export function buildParkSchema(name: string, description: string, path: string, latitude: number, longitude: number) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Park',
+    name,
+    description,
+    url: `${SITE_URL}${path}`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude,
+      longitude,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '8275 Spring Mountain Rd',
+      addressLocality: 'Las Vegas',
+      addressRegion: 'NV',
+      postalCode: '89117',
+      addressCountry: 'US',
+    },
+  }
+}

@@ -31,11 +31,17 @@ export default function Header() {
             <Link href="/listings" className="text-gray-700 hover:text-blue-600 transition-colors">
               Listings
             </Link>
-            <Link href="/neighborhoods/89117" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Spring Valley
+            <Link href="/sienna-ridge-lennar-las-vegas" className="text-gray-700 hover:text-blue-600 transition-colors">
+              Sienna Ridge
+            </Link>
+            <Link href="/neighborhoods" className="text-gray-700 hover:text-blue-600 transition-colors">
+              Neighborhoods
+            </Link>
+            <Link href="/faq" className="text-gray-700 hover:text-blue-600 transition-colors">
+              FAQ
             </Link>
             <Link href="/about" className="text-gray-700 hover:text-blue-600 transition-colors">
-              About Dr. Duffy
+              About
             </Link>
             <div className="flex items-center space-x-4">
               <a 
@@ -75,11 +81,17 @@ export default function Header() {
               <Link href="/listings" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Listings
               </Link>
-              <Link href="/neighborhoods/89117" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
-                Spring Valley
+              <Link href="/sienna-ridge-lennar-las-vegas" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
+                Sienna Ridge
+              </Link>
+              <Link href="/neighborhoods" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
+                Neighborhoods
+              </Link>
+              <Link href="/faq" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
+                FAQ
               </Link>
               <Link href="/about" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
-                About Dr. Duffy
+                About
               </Link>
               <div className="pt-4 border-t space-y-3">
                 <a 

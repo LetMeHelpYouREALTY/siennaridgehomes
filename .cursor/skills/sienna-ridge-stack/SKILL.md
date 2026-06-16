@@ -16,6 +16,7 @@ lib/structured-data.ts  # Organization, RealEstateAgent, Review, RealEstateListi
 lib/sitemap-pages.ts    # Single source of truth for sitemap URLs
 lib/listings-data.ts    # Featured Sienna Ridge Lennar model homes
 lib/sienna-ridge-community.ts  # Location, features, base price range ($564,890–$860,000+)
+lib/seo-pages-data.ts          # SEO/AEO landing page content (guides, FAQs, comparisons)
 lib/reviews-data.ts     # Client testimonials
 components/json-ld.tsx  # Server-rendered structured data
 components/realscout-script.tsx

@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
@@ -97,6 +97,43 @@ export default function Footer() {
                 className="w-full border-blue-400 text-blue-300 hover:bg-blue-600 hover:text-white"
               />
             </div>
+          </div>
+
+          {/* Guides */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Guides & FAQ</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/sienna-ridge-lennar-las-vegas" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Sienna Ridge by Lennar
+                </Link>
+              </li>
+              <li>
+                <Link href="/neighborhoods" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Neighborhood Guides
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Real Estate FAQ
+                </Link>
+              </li>
+              <li>
+                <Link href="/89117-vs-89147-vs-89148" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Zip Code Comparison
+                </Link>
+              </li>
+              <li>
+                <Link href="/homes-near-desert-breeze-park" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Desert Breeze Park Homes
+                </Link>
+              </li>
+              <li>
+                <Link href="/lennar-buyer-agent-las-vegas" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Lennar Buyer Agent
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Service Areas & SEO Pages */}
