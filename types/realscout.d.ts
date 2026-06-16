@@ -1,34 +1,26 @@
-// types/realscout.d.ts
-import React from 'react'
+import type { CSSProperties } from 'react'
 
-declare global {
+type RealScoutBaseProps = {
+  'agent-encoded-id': string
+  style?: CSSProperties
+  className?: string
+}
+
+type RealScoutListingsProps = RealScoutBaseProps & {
+  'sort-order'?: string
+  'listing-status'?: string
+  'property-types'?: string
+  'price-min'?: string
+  'price-max'?: string
+}
+
+declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
-      'realscout-simple-search': {
-        'agent-encoded-id': string
-        style?: React.CSSProperties
-        className?: string
-      }
-      'realscout-advanced-search': {
-        'agent-encoded-id': string
-        style?: React.CSSProperties
-        className?: string
-      }
-      'realscout-office-listings': {
-        'agent-encoded-id': string
-        'sort-order'?: string
-        'listing-status'?: string
-        'property-types'?: string
-        'price-min'?: string
-        'price-max'?: string
-        style?: React.CSSProperties
-        className?: string
-      }
-      'realscout-home-value': {
-        'agent-encoded-id': string
-        style?: React.CSSProperties
-        className?: string
-      }
+      'realscout-simple-search': RealScoutBaseProps
+      'realscout-advanced-search': RealScoutBaseProps
+      'realscout-office-listings': RealScoutListingsProps
+      'realscout-home-value': RealScoutBaseProps
     }
   }
 }

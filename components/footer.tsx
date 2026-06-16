@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
@@ -83,6 +83,53 @@ export default function Footer() {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Service Areas & SEO Pages */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Homes & Guides</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/spring-valley-real-estate" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Spring Valley Real Estate
+                </Link>
+              </li>
+              <li>
+                <Link href="/southwest-las-vegas-homes" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Southwest Las Vegas Homes
+                </Link>
+              </li>
+              <li>
+                <Link href="/89117-homes-for-sale" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  89117 Homes for Sale
+                </Link>
+              </li>
+              <li>
+                <Link href="/89147-homes-for-sale" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  89147 Homes for Sale
+                </Link>
+              </li>
+              <li>
+                <Link href="/89148-homes-for-sale" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  89148 Homes for Sale
+                </Link>
+              </li>
+              <li>
+                <Link href="/las-vegas-home-valuation" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Free Home Valuation
+                </Link>
+              </li>
+              <li>
+                <Link href="/first-time-home-buyer-las-vegas" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  First-Time Home Buyer Guide
+                </Link>
+              </li>
+              <li>
+                <Link href="/las-vegas-investment-properties" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Investment Properties
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Service Areas */}
