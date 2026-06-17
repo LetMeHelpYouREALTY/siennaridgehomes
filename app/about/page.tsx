@@ -10,6 +10,7 @@ import JsonLd from '@/components/json-ld'
 import SiennaRidgeOverview from '@/components/sienna-ridge-overview'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import { buildProfilePageSchema } from '@/lib/structured-data'
+import { AGENT_HEADSHOT_PATH } from '@/lib/site-config'
 import {
   communityPriceMaxString,
   communityPriceMinString,
@@ -104,12 +105,15 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                     {/* Professional photo */}
-                    <div className="rounded-lg h-96 relative shadow-lg overflow-hidden">
+                    <div className="mx-auto aspect-square max-w-md rounded-lg bg-black p-2 shadow-lg">
                       <Image
-                        src="/images/professional-photo.jpg"
+                        src={AGENT_HEADSHOT_PATH}
                         alt="Dr. Jan Duffy - Professional Real Estate Agent"
-                        fill
-                        className="object-cover"
+                        width={1536}
+                        height={1024}
+                        className="h-full w-full object-contain"
+                        sizes="(max-width: 768px) 100vw, 448px"
+                        priority
                       />
                     </div>
               </div>
