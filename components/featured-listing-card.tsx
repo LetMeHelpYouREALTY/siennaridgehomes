@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import { MapPin, Bed, Bath, Square } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
@@ -67,7 +66,9 @@ export default function FeaturedListingCard({ listing }: FeaturedListingCardProp
         <div className="flex items-center justify-between">
           <div className="text-xl font-bold text-blue-600">{formatListingPrice(listing.price)}</div>
           <Button size="sm" className="bg-blue-600 hover:bg-blue-700" asChild>
-            <Link href={`/listings/${listing.slug}`}>View Details</Link>
+            <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer">
+              View Details
+            </a>
           </Button>
         </div>
       </CardContent>
