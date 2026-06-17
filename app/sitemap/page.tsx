@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Home, MapPin, User, FileText, Search, Phone, Mail } from 'lucide-react'
-import { NAP, formatFullAddress } from '@/lib/site-config'
+import { NAP, REALSCOUT_SEARCH_URL, formatFullAddress } from '@/lib/site-config'
 
 export const metadata: Metadata = {
   title: 'Sitemap | Southwest Las Vegas Real Estate | Dr. Jan Duffy',
@@ -64,7 +64,7 @@ export default function SitemapPage() {
     {
       title: 'Search Properties (RealScout)',
       description: 'Advanced property search with live MLS data',
-      url: 'http://drjanduffy.realscout.com/',
+      url: REALSCOUT_SEARCH_URL,
       external: true,
     },
   ]

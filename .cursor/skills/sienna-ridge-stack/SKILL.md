@@ -63,5 +63,5 @@ npm run start
 ## External links
 
 - Production: https://www.siennaridgehomes.com
-- RealScout search: https://drjanduffy.realscout.com/homesearch/map
+- RealScout search: https://drjanduffy.realscout.com/homesearch/map?for_sale=1&for_rent=0
 - GitHub: LetMeHelpYouREALTY/siennaridgehomes
