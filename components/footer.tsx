@@ -33,9 +33,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/listings" className="text-gray-300 hover:text-blue-400 transition-colors">
+                <a
+                  href={REALSCOUT_SEARCH_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
                   Available Listings
-                </Link>
+                </a>
               </li>
               <li>
                 <Link href="/neighborhoods/89117" className="text-gray-300 hover:text-blue-400 transition-colors">

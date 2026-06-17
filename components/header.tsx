@@ -28,9 +28,14 @@ export default function Header() {
             <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors">
               Home
             </Link>
-            <Link href="/listings" className="text-gray-700 hover:text-blue-600 transition-colors">
+            <a
+              href={REALSCOUT_SEARCH_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 hover:text-blue-600 transition-colors"
+            >
               Listings
-            </Link>
+            </a>
             <Link href="/sienna-ridge-lennar-las-vegas" className="text-gray-700 hover:text-blue-600 transition-colors">
               Sienna Ridge
             </Link>
@@ -78,9 +83,15 @@ export default function Header() {
               <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Home
               </Link>
-              <Link href="/listings" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
+              <a
+                href={REALSCOUT_SEARCH_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-blue-600 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Listings
-              </Link>
+              </a>
               <Link href="/sienna-ridge-lennar-las-vegas" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Sienna Ridge
               </Link>
