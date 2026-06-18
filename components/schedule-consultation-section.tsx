@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import CalendlyInlineWidget from '@/components/calendly-inline-widget'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
+import AgentHeadshot from '@/components/agent-headshot'
 
 type ScheduleConsultationSectionProps = {
   title?: string
@@ -16,6 +17,7 @@ export default function ScheduleConsultationSection({
   return (
     <Card className="w-full max-w-3xl mx-auto">
       <CardHeader className="text-center">
+        <AgentHeadshot size="sm" className="mx-auto mb-4" />
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
