@@ -11,7 +11,7 @@ export type SitemapPage = {
 
 /** Stable lastmod dates — update only when page content meaningfully changes. */
 export const SITEMAP_PAGES: SitemapPage[] = [
-  { path: '', lastModified: '2026-06-16', changeFrequency: 'weekly', priority: 1 },
+  { path: '', lastModified: '2026-06-17', changeFrequency: 'weekly', priority: 1 },
   { path: '/about', lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/listings', lastModified: '2026-06-16', changeFrequency: 'daily', priority: 0.9 },
   ...FEATURED_LISTINGS.map((listing) => ({
