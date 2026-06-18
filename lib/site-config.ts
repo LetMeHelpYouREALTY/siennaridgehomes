@@ -1,5 +1,10 @@
 export const SITE_URL = 'https://www.siennaridgehomes.com'
 export const AGENT_ENCODED_ID = 'QWdlbnQtMjI1MDUw'
+export const AGENT_HEADSHOT_PATH = '/images/dr-jan-duffy-headshot.jpg'
+
+export function agentHeadshotUrl() {
+  return `${SITE_URL}${AGENT_HEADSHOT_PATH}`
+}
 
 export const NAP = {
   name: 'Dr. Jan Duffy',
