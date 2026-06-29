@@ -41,7 +41,7 @@ function collectionFaqs(collectionName: string, priceFrom: number): FaqItem[] {
     },
     {
       question: `Where is Sienna Ridge located?`,
-      answer: `Sienna Ridge is at ${SIENNA_RIDGE_SALES_CENTER.streetAddress}, ${SIENNA_RIDGE_SALES_CENTER.city}, ${SIENNA_RIDGE_SALES_CENTER.state} ${SIENNA_RIDGE_SALES_CENTER.postalCode} — Southwest Las Vegas zip code 89147, near Desert Breeze Park and I-215.`,
+      answer: `Sienna Ridge is at ${SIENNA_RIDGE_SALES_CENTER.streetAddress}, ${SIENNA_RIDGE_SALES_CENTER.city}, ${SIENNA_RIDGE_SALES_CENTER.state} ${SIENNA_RIDGE_SALES_CENTER.postalCode} — Southwest Las Vegas zip code 89147, near Desert Breeze Park and I-215. Google Plus Code: ${SIENNA_RIDGE_SALES_CENTER.plusCodeDisplay}.`,
     },
     {
       question: 'Do I need a buyer agent for Lennar new construction?',

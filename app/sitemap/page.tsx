@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Home, MapPin, User, FileText, Search, Phone, Mail } from 'lucide-react'
-import { NAP, REALSCOUT_SEARCH_URL, formatFullAddress } from '@/lib/site-config'
+import { NAP, REALSCOUT_SEARCH_URL, formatFullAddressWithPlusCode } from '@/lib/site-config'
 import { SEO_GUIDE_PAGES } from '@/lib/seo-guide-pages'
 import { SIENNA_RIDGE_COLLECTIONS } from '@/lib/sienna-ridge-collections'
 
@@ -138,7 +138,7 @@ export default function SitemapPage() {
   const contactInfo = {
     phone: NAP.phone,
     email: NAP.email,
-    address: formatFullAddress(),
+    address: formatFullAddressWithPlusCode(),
   }
 
   return (
