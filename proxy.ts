@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server'
 
 const CANONICAL_HOST = 'www.siennaridgehomes.com'
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const host = request.headers.get('host') ?? ''
   const protocol = request.headers.get('x-forwarded-proto') ?? 'https'
   const url = request.nextUrl.clone()
@@ -23,5 +23,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|.*\\..*).*)'],
+  matcher: ['/((?!_next/static|_next/image|.*\\..*|.well-known/workflow/).*)'],
 }

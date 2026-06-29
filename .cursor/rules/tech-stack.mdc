@@ -9,7 +9,7 @@ alwaysApply: true
 
 | Layer | Choice |
 |---|---|
-| Framework | Next.js 15 App Router (Server Components default) |
+| Framework | Next.js 16 App Router (Server Components default) |
 | Language | TypeScript (strict) |
 | Styling | Tailwind CSS v3 + Radix UI + CVA |
 | Deployment | Vercel — `main` branch = production |
@@ -17,6 +17,7 @@ alwaysApply: true
 | SEO | JSON-LD in `lib/structured-data.ts`, sitemaps in `app/sitemap*.xml/` |
 | Analytics | Google Analytics `G-VB9NKRDQK1` via `components/third-party-scripts.tsx` |
 | Scheduling | Calendly inline, popup, and badge widgets via `components/calendly-*.tsx` |
+| Lead pipeline | Vercel Workflow SDK — Calendly webhook → `workflows/calendly-lead.ts` → Follow Up Boss |
 
 ## Conventions
 
@@ -24,7 +25,8 @@ alwaysApply: true
 - **Site constants**: NAP, URLs, agent ID live in `lib/site-config.ts` — never hardcode.
 - **Structured data**: build with helpers in `lib/structured-data.ts`; render via `components/json-ld.tsx`.
 - **RealScout**: load once via `components/realscout-script.tsx` (`lazyOnload`); do not duplicate `<Script>` tags on pages.
-- **Calendly**: load once via `components/calendly-scripts.tsx`; use inline widget for booking sections, popup buttons for CTAs, badge globally in layout.
+- **Calendly**: load once via `components/calendly-scripts.tsx`; use inline widget for booking sections, popup buttons for CTAs, badge globally in layout. Webhook at `app/api/webhooks/calendly/route.ts` starts the durable CRM workflow.
+- **Workflows**: `withWorkflow()` in `next.config.js`; exclude `/.well-known/workflow/` in `proxy.ts` matcher; inspect runs with `npm run workflow:web`.
 - **Listings**: featured models in `lib/listings-data.ts`; detail pages at `app/listings/[slug]/`.
 - **Reviews**: testimonials in `lib/reviews-data.ts`; use `ClientReviewsSection` with matching schema.
 - **Sitemap URLs**: register in `lib/sitemap-pages.ts` only.

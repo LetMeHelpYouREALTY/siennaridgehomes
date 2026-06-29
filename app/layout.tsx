@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { ThemeProvider } from 'next-themes'
 import JsonLd from '@/components/json-ld'
 import ThirdPartyScripts from '@/components/third-party-scripts'
 import CalendlyScripts from '@/components/calendly-scripts'
@@ -95,24 +94,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <JsonLd id="global-structured-data" data={buildGlobalStructuredDataGraph()} />
       </head>
       <body className={`${inter.className} antialiased`}>
-        <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-              storageKey="theme"
-            >
-              <Header />
-              <main>
-                {children}
-              </main>
-              <Footer />
-            </ThemeProvider>
+        <Header />
+        <main>{children}</main>
+        <Footer />
         <ThirdPartyScripts />
         <CalendlyScripts />
         <CalendlyBadgeWidget />
