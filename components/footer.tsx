@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Phone, Mail, MapPin, Search } from 'lucide-react'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
 import AgentHeadshot from '@/components/agent-headshot'
-import { NAP, OFFICE_MAPS_URL, formatCityStateZip } from '@/lib/site-config'
+import { NAP, OFFICE_MAPS_URL, REALSCOUT_SEARCH_URL, formatCityStateZip } from '@/lib/site-config'
 
 export default function Footer() {
   return (
@@ -40,9 +40,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/listings" className="text-gray-300 hover:text-blue-400 transition-colors">
+                <a
+                  href={REALSCOUT_SEARCH_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
                   Available Listings
-                </Link>
+                </a>
               </li>
               <li>
                 <Link href="/neighborhoods/89117" className="text-gray-300 hover:text-blue-400 transition-colors">
@@ -56,7 +61,7 @@ export default function Footer() {
               </li>
               <li>
                 <a 
-                  href="http://drjanduffy.realscout.com/" 
+                  href={REALSCOUT_SEARCH_URL}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-blue-400 transition-colors flex items-center"

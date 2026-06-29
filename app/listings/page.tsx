@@ -15,7 +15,7 @@ import ScheduleConsultationSection from '@/components/schedule-consultation-sect
 import CalendlyPopupButton from '@/components/calendly-popup-button'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
-import { NAP, formatCityStateZip } from '@/lib/site-config'
+import { NAP, formatCityStateZip, REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 import {
   communityPriceMaxString,
   communityPriceMinString,
@@ -202,13 +202,17 @@ export default function ListingsPage() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 mt-6">
-                  <Button className="bg-blue-600 hover:bg-blue-700">
-                    <Search className="h-4 w-4 mr-2" />
-                    Search Properties
+                  <Button className="bg-blue-600 hover:bg-blue-700" asChild>
+                    <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer">
+                      <Search className="h-4 w-4 mr-2" />
+                      Search Properties
+                    </a>
                   </Button>
-                  <Button variant="outline">
-                    <Filter className="h-4 w-4 mr-2" />
-                    More Filters
+                  <Button variant="outline" asChild>
+                    <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer">
+                      <Filter className="h-4 w-4 mr-2" />
+                      More Filters
+                    </a>
                   </Button>
                 </div>
               </CardContent>
@@ -357,12 +361,12 @@ export default function ListingsPage() {
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold mb-4">Don't See What You're Looking For?</h3>
                   <p className="text-gray-600 mb-6">
-                    Dr. Janet Duffy can help you find off-market properties and pre-construction opportunities in Sienna Ridge
+                    Dr. Jan Duffy can help you find off-market properties and pre-construction opportunities in Sienna Ridge
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <CalendlyPopupButton size="lg" className="bg-blue-600 hover:bg-blue-700" />
                     <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white" asChild>
-                      <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                      <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer" className="flex items-center">
                         <Home className="h-4 w-4 mr-2" />
                         Search Properties
                       </a>

@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
 import AgentHeadshot from '@/components/agent-headshot'
 import { Menu, X, Phone, Search } from 'lucide-react'
-import { NAP } from '@/lib/site-config'
+import { NAP, REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -29,9 +29,14 @@ export default function Header() {
             <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors">
               Home
             </Link>
-            <Link href="/listings" className="text-gray-700 hover:text-blue-600 transition-colors">
+            <a
+              href={REALSCOUT_SEARCH_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 hover:text-blue-600 transition-colors"
+            >
               Listings
-            </Link>
+            </a>
             <Link href="/sienna-ridge-lennar-las-vegas" className="text-gray-700 hover:text-blue-600 transition-colors">
               Sienna Ridge
             </Link>
@@ -46,7 +51,7 @@ export default function Header() {
             </Link>
             <div className="flex items-center space-x-4">
               <a 
-                href="http://drjanduffy.realscout.com/" 
+                href={REALSCOUT_SEARCH_URL}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center text-blue-600 hover:text-blue-700 transition-colors"
@@ -79,9 +84,15 @@ export default function Header() {
               <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Home
               </Link>
-              <Link href="/listings" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
+              <a
+                href={REALSCOUT_SEARCH_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-blue-600 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Listings
-              </Link>
+              </a>
               <Link href="/sienna-ridge-lennar-las-vegas" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Sienna Ridge
               </Link>
@@ -96,7 +107,7 @@ export default function Header() {
               </Link>
               <div className="pt-4 border-t space-y-3">
                 <a 
-                  href="http://drjanduffy.realscout.com/" 
+                  href={REALSCOUT_SEARCH_URL}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center text-blue-600 hover:text-blue-700 transition-colors"

@@ -8,7 +8,7 @@ import SeoCtaSection from '@/components/seo-cta-section'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
 import BreadcrumbSchema from '@/components/breadcrumb-schema'
-import { AGENT_ENCODED_ID } from '@/lib/site-config'
+import { AGENT_ENCODED_ID, REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 import type { BreadcrumbItem } from '@/lib/structured-data'
 
 export type ZipCodeLandingProps = {
@@ -71,9 +71,9 @@ export default function ZipCodeLanding({
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <CalendlyPopupButton size="lg" className="bg-white text-blue-700 hover:bg-blue-50" />
               <Button size="lg" variant="outline" className="border-white/60 text-white hover:bg-white/10 bg-transparent" asChild>
-                <Link href="/listings">
+                <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer">
                   Browse Listings <ArrowRight className="h-4 w-4 ml-2" />
-                </Link>
+                </a>
               </Button>
             </div>
           </div>

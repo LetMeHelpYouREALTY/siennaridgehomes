@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
-import { NAP } from '@/lib/site-config'
+import { NAP, REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Home, Search, ArrowLeft, MapPin, Phone, Mail } from 'lucide-react'
 
@@ -60,7 +60,7 @@ export default function NotFound() {
                 <Link href="/">Go Home</Link>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
-                <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer">
+                <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer">
                   Search Properties
                 </a>
               </Button>
@@ -92,11 +92,11 @@ export default function NotFound() {
                   <p className="text-gray-600 mb-4">
                     Explore available properties in Sienna Ridge with our comprehensive search tools and live MLS listings.
                   </p>
-                  <Button className="w-full">
-                    <Link href="/listings" className="flex items-center justify-center">
+                  <Button className="w-full" asChild>
+                    <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
                       <Search className="h-4 w-4 mr-2" />
                       View Listings
-                    </Link>
+                    </a>
                   </Button>
                 </CardContent>
               </Card>
@@ -133,13 +133,17 @@ export default function NotFound() {
                     Get personalized assistance from Las Vegas's premier Sienna Ridge real estate expert.
                   </p>
                   <div className="space-y-2">
-                    <Button variant="outline" className="w-full">
-                      <Phone className="h-4 w-4 mr-2" />
-                      Call (702) 903-3336
+                    <Button variant="outline" className="w-full" asChild>
+                      <a href={`tel:${NAP.phoneTel}`}>
+                        <Phone className="h-4 w-4 mr-2" />
+                        Call {NAP.phone}
+                      </a>
                     </Button>
-                    <Button variant="outline" className="w-full">
-                      <Mail className="h-4 w-4 mr-2" />
-                      Email DrJanSells@SiennaRidgeHomes.com
+                    <Button variant="outline" className="w-full" asChild>
+                      <a href={`mailto:${NAP.email}`}>
+                        <Mail className="h-4 w-4 mr-2" />
+                        Email {NAP.email}
+                      </a>
                     </Button>
                   </div>
                 </CardContent>
@@ -207,12 +211,12 @@ export default function NotFound() {
                     <span className="text-xs text-gray-600">Main Page</span>
                   </Link>
                 </Button>
-                <Button variant="outline" className="h-auto p-4">
-                  <Link href="/listings" className="flex flex-col items-center text-center">
+                <Button variant="outline" className="h-auto p-4" asChild>
+                  <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center">
                     <Search className="h-6 w-6 mb-2" />
                     <span className="font-semibold">Listings</span>
                     <span className="text-xs text-gray-600">Available Homes</span>
-                  </Link>
+                  </a>
                 </Button>
                 <Button variant="outline" className="h-auto p-4">
                   <Link href="/about" className="flex flex-col items-center text-center">
@@ -222,7 +226,7 @@ export default function NotFound() {
                   </Link>
                 </Button>
                 <Button variant="outline" className="h-auto p-4">
-                  <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center h-full">
+                  <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center h-full">
                     <Search className="h-6 w-6 mb-2" />
                     <span className="font-semibold">RealScout</span>
                     <span className="text-xs text-gray-600">Property Search</span>

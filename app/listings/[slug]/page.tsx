@@ -73,7 +73,21 @@ export default async function ListingDetailPage({ params }: ListingPageProps) {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div className="relative h-80 lg:h-[28rem] rounded-lg overflow-hidden shadow-lg">
-              <Image src={listing.image} alt={listing.imageAlt} fill className="object-cover" priority />
+              <a
+                href={REALSCOUT_SEARCH_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block relative h-full group cursor-pointer"
+                aria-label={`Search homes like ${listing.name} on MLS`}
+              >
+                <Image
+                  src={listing.image}
+                  alt={listing.imageAlt}
+                  fill
+                  className="object-cover transition-transform group-hover:scale-105"
+                  priority
+                />
+              </a>
             </div>
 
             <div>

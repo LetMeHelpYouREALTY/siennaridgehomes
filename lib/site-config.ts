@@ -39,7 +39,8 @@ export function formatFullAddress() {
 
 export const SERVICE_ZIP_CODES = ['89117', '89147', '89148'] as const
 
-export const REALSCOUT_SEARCH_URL = 'https://drjanduffy.realscout.com/homesearch/map'
+export const REALSCOUT_SEARCH_URL =
+  'https://drjanduffy.realscout.com/homesearch/map?for_sale=1&for_rent=0'
 
 export const REVIEW_PROFILES = {
   google: {
