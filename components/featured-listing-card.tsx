@@ -1,11 +1,11 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { MapPin, Bed, Bath, Square } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import type { FeaturedListing } from '@/lib/listings-data'
 import { formatListingPrice } from '@/lib/listings-data'
-import { REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 
 type FeaturedListingCardProps = {
   listing: FeaturedListing
@@ -20,13 +20,11 @@ export default function FeaturedListingCard({ listing }: FeaturedListingCardProp
         : 'bg-purple-100 text-purple-800'
 
   return (
-    <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-      <a
-        href={REALSCOUT_SEARCH_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+    <Card className="overflow-hidden border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+      <Link
+        href={`/listings/${listing.slug}`}
         className="block h-48 relative group cursor-pointer"
-        aria-label={`Search homes like ${listing.name} on MLS`}
+        aria-label={`View ${listing.name} floor plan details`}
       >
         <Image
           src={listing.image}
@@ -34,7 +32,7 @@ export default function FeaturedListingCard({ listing }: FeaturedListingCardProp
           fill
           className="object-cover transition-transform group-hover:scale-105"
         />
-      </a>
+      </Link>
       <CardContent className="p-4">
         <div className="flex items-center justify-between mb-2">
           <Badge variant="secondary" className={statusClass}>
@@ -66,9 +64,7 @@ export default function FeaturedListingCard({ listing }: FeaturedListingCardProp
         <div className="flex items-center justify-between">
           <div className="text-xl font-bold text-blue-600">{formatListingPrice(listing.price)}</div>
           <Button size="sm" className="bg-blue-600 hover:bg-blue-700" asChild>
-            <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer">
-              View Details
-            </a>
+            <Link href={`/listings/${listing.slug}`}>View Details</Link>
           </Button>
         </div>
       </CardContent>

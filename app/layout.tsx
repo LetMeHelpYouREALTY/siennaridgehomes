@@ -108,7 +108,7 @@ export default function RootLayout({
               storageKey="theme"
             >
               <Header />
-              <main>
+              <main id="main-content">
                 {children}
               </main>
               <Footer />

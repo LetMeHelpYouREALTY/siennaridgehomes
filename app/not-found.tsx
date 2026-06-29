@@ -112,8 +112,8 @@ export default function NotFound() {
                   <p className="text-gray-600 mb-4">
                     Learn about the premier master-planned community of Sienna Ridge and what makes it special.
                   </p>
-                  <Button variant="outline" className="w-full">
-                    <Link href="/about" className="flex items-center justify-center">
+                  <Button variant="outline" className="w-full" asChild>
+                    <Link href="/about">
                       <ArrowLeft className="h-4 w-4 mr-2" />
                       Learn More
                     </Link>
@@ -204,7 +204,7 @@ export default function NotFound() {
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-6">Popular Pages</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <Button variant="outline" className="h-auto p-4">
+                <Button variant="outline" className="h-auto p-4" asChild>
                   <Link href="/" className="flex flex-col items-center text-center">
                     <Home className="h-6 w-6 mb-2" />
                     <span className="font-semibold">Home</span>
@@ -218,14 +218,14 @@ export default function NotFound() {
                     <span className="text-xs text-gray-600">Available Homes</span>
                   </a>
                 </Button>
-                <Button variant="outline" className="h-auto p-4">
+                <Button variant="outline" className="h-auto p-4" asChild>
                   <Link href="/about" className="flex flex-col items-center text-center">
                     <MapPin className="h-6 w-6 mb-2" />
                     <span className="font-semibold">About</span>
                     <span className="text-xs text-gray-600">Dr. Jan Duffy</span>
                   </Link>
                 </Button>
-                <Button variant="outline" className="h-auto p-4">
+                <Button variant="outline" className="h-auto p-4" asChild>
                   <a href={REALSCOUT_SEARCH_URL} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-center h-full">
                     <Search className="h-6 w-6 mb-2" />
                     <span className="font-semibold">RealScout</span>
