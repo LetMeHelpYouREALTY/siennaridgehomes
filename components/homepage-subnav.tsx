@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils'
 const SECTIONS = [
   { id: 'search', label: 'Search' },
   { id: 'agent', label: 'About Agent' },
+  { id: 'guides', label: 'Guides' },
   { id: 'market', label: 'Market' },
   { id: 'sienna-ridge', label: 'Sienna Ridge' },
   { id: 'models', label: 'Models' },

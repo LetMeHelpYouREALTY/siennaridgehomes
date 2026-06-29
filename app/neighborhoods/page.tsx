@@ -11,6 +11,7 @@ import ScheduleConsultationSection from '@/components/schedule-consultation-sect
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { buildItemListSchema, buildWebPageSchema } from '@/lib/structured-data'
 import { SITE_URL } from '@/lib/site-config'
+import { SEO_GUIDE_PAGES } from '@/lib/seo-guide-pages'
 
 export const metadata: Metadata = {
   title: 'Southwest Las Vegas Neighborhoods | 89117 89147 89148 Guides',
@@ -102,10 +103,34 @@ export default function NeighborhoodsHubPage() {
               </Card>
             ))}
           </div>
-          <div className="text-center mt-10">
-            <Link href="/89117-vs-89147-vs-89148" className="text-blue-600 hover:underline font-medium">
+          <div className="text-center mt-10 space-y-3">
+            <Link href="/89117-vs-89147-vs-89148" className="text-blue-600 hover:underline font-medium block">
               Compare all three zip codes →
             </Link>
+            <Link href="/spring-valley-real-estate" className="text-blue-600 hover:underline font-medium block">
+              Spring Valley real estate overview →
+            </Link>
+            <Link href="/southwest-las-vegas-homes" className="text-blue-600 hover:underline font-medium block">
+              Southwest Las Vegas homes hub →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-slate-50 border-t border-slate-200">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-2xl font-bold text-center mb-8">Buyer Guides & Tools</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {SEO_GUIDE_PAGES.filter((page) => page.category === 'buyer').map((page) => (
+              <Link
+                key={page.href}
+                href={page.href}
+                className="rounded-xl border border-slate-200 bg-white p-4 hover:border-blue-200 hover:shadow-sm transition-all"
+              >
+                <p className="font-semibold text-slate-900">{page.label}</p>
+                <p className="text-sm text-slate-500 mt-1">{page.description}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

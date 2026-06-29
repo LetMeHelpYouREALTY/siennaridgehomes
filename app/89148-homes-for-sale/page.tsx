@@ -32,6 +32,8 @@ export default function Homes89148Page() {
       ]}
       heroImageAlt="89148 newer Southwest Las Vegas homes for sale"
       breadcrumbs={breadcrumbTrail({ name: '89148 Homes for Sale', path: '/89148-homes-for-sale' })}
+      schemaName="89148 Homes for Sale | Southwest Las Vegas New Homes"
+      schemaDescription="Find 89148 homes for sale including newer Southwest Las Vegas developments. Dr. Jan Duffy helps buyers navigate new construction and resale options in 89148."
     />
   )
 }

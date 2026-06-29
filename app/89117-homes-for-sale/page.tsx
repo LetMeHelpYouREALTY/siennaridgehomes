@@ -32,6 +32,8 @@ export default function Homes89117Page() {
       ]}
       heroImageAlt="89117 Spring Valley homes for sale in Southwest Las Vegas"
       breadcrumbs={breadcrumbTrail({ name: '89117 Homes for Sale', path: '/89117-homes-for-sale' })}
+      schemaName="89117 Homes for Sale | Spring Valley Las Vegas"
+      schemaDescription="Browse 89117 homes for sale in Spring Valley, Las Vegas. Dr. Jan Duffy helps buyers find established homes and newer developments in zip code 89117."
     />
   )
 }

@@ -16,6 +16,7 @@ import SectionHeading from '@/components/section-heading'
 import SiteCtaBand from '@/components/site-cta-band'
 import SeoFaqSection from '@/components/seo-faq-section'
 import HomepageSubnav from '@/components/homepage-subnav'
+import SeoGuidesHub from '@/components/seo-guides-hub'
 import RealScoutSearchTabs from '@/components/realscout-search-tabs'
 import {
   RealScoutOfficeListings,
@@ -192,6 +193,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <SeoGuidesHub />
 
       {/* Market Overview */}
       <section id="market" className="section-padding section-default scroll-mt-section">

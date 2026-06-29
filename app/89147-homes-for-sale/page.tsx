@@ -32,6 +32,8 @@ export default function Homes89147Page() {
       ]}
       heroImageAlt="89147 Southwest Las Vegas homes for sale"
       breadcrumbs={breadcrumbTrail({ name: '89147 Homes for Sale', path: '/89147-homes-for-sale' })}
+      schemaName="89147 Homes for Sale | Southwest Las Vegas"
+      schemaDescription="Search 89147 homes for sale in Southwest Las Vegas. Dr. Jan Duffy specializes in buyer representation for families and investors in zip code 89147."
     />
   )
 }

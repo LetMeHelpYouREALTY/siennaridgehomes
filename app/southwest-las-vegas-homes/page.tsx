@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import SeoCtaSection from '@/components/seo-cta-section'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
+import SeoPageJsonLd from '@/components/seo-page-json-ld'
+import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -16,8 +18,16 @@ export const metadata: Metadata = {
 }
 
 export default function SouthwestLasVegasHomesPage() {
+  const breadcrumbs = breadcrumbTrail({ name: 'Southwest Las Vegas Homes', path: '/southwest-las-vegas-homes' })
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <SeoPageJsonLd
+        path="/southwest-las-vegas-homes"
+        name="Southwest Las Vegas Homes for Sale | 89117 89147 89148"
+        description="Find Southwest Las Vegas homes for sale in zip codes 89117, 89147, and 89148. Dr. Jan Duffy provides expert buyer guidance across Spring Valley and surrounding communities."
+        breadcrumbs={breadcrumbs}
+      />
       <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-700/80" />
         <div className="absolute inset-0">

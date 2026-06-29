@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import SeoCtaSection from '@/components/seo-cta-section'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
-import BreadcrumbSchema from '@/components/breadcrumb-schema'
+import SeoPageJsonLd from '@/components/seo-page-json-ld'
 import { AGENT_ENCODED_ID, REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 import type { BreadcrumbItem } from '@/lib/structured-data'
 
@@ -24,6 +24,8 @@ export type ZipCodeLandingProps = {
   highlights: string[]
   heroImageAlt: string
   breadcrumbs?: BreadcrumbItem[]
+  schemaName: string
+  schemaDescription: string
 }
 
 export default function ZipCodeLanding({
@@ -39,10 +41,19 @@ export default function ZipCodeLanding({
   highlights,
   heroImageAlt,
   breadcrumbs,
+  schemaName,
+  schemaDescription,
 }: ZipCodeLandingProps) {
   return (
     <div className="min-h-screen bg-slate-50">
-      {breadcrumbs ? <BreadcrumbSchema items={breadcrumbs} /> : null}
+      {breadcrumbs ? (
+        <SeoPageJsonLd
+          path={breadcrumbs[breadcrumbs.length - 1]?.path ?? '/'}
+          name={schemaName}
+          description={schemaDescription}
+          breadcrumbs={breadcrumbs}
+        />
+      ) : null}
 
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-blue-950/85 to-blue-800/80" />

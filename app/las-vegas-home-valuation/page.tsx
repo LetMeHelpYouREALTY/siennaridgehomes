@@ -4,6 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { DollarSign } from 'lucide-react'
 import SeoCtaSection from '@/components/seo-cta-section'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
+import SeoPageJsonLd from '@/components/seo-page-json-ld'
+import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { AGENT_ENCODED_ID, REALSCOUT_SEARCH_URL, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -16,8 +18,16 @@ export const metadata: Metadata = {
 }
 
 export default function LasVegasHomeValuationPage() {
+  const breadcrumbs = breadcrumbTrail({ name: 'Las Vegas Home Valuation', path: '/las-vegas-home-valuation' })
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <SeoPageJsonLd
+        path="/las-vegas-home-valuation"
+        name="Las Vegas Home Valuation | Free Property Estimate"
+        description="Get a free Las Vegas home valuation for properties in Spring Valley and Southwest Las Vegas (89117, 89147, 89148). Instant estimate plus expert market analysis from Dr. Jan Duffy."
+        breadcrumbs={breadcrumbs}
+      />
       <section className="py-16 bg-blue-900 text-white">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Las Vegas Home Valuation</h1>

@@ -4,6 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { CheckCircle, Home, FileText, Handshake, Key } from 'lucide-react'
 import SeoCtaSection from '@/components/seo-cta-section'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
+import SeoPageJsonLd from '@/components/seo-page-json-ld'
+import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -23,8 +25,16 @@ const steps = [
 ]
 
 export default function FirstTimeHomeBuyerPage() {
+  const breadcrumbs = breadcrumbTrail({ name: 'First-Time Home Buyer Guide', path: '/first-time-home-buyer-las-vegas' })
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <SeoPageJsonLd
+        path="/first-time-home-buyer-las-vegas"
+        name="First-Time Home Buyer Las Vegas | Spring Valley Guide"
+        description="First-time home buyer guide for Las Vegas and Spring Valley. Dr. Jan Duffy explains financing, neighborhoods (89117, 89147, 89148), and the step-by-step buying process."
+        breadcrumbs={breadcrumbs}
+      />
       <section className="py-16 bg-blue-900 text-white">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">First-Time Home Buyer Guide — Las Vegas</h1>

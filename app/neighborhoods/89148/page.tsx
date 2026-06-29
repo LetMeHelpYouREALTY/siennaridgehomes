@@ -32,9 +32,11 @@ export default function Neighborhood89148Page() {
       ]}
       heroImageAlt="89148 newer Southwest Las Vegas real estate"
       breadcrumbs={breadcrumbTrail(
-        { name: 'Neighborhoods', path: '/neighborhoods/89117' },
+        { name: 'Neighborhoods', path: '/neighborhoods' },
         { name: '89148', path: '/neighborhoods/89148' },
       )}
+      schemaName="89148 Real Estate | New Southwest Las Vegas Homes"
+      schemaDescription="89148 real estate featuring newer Southwest Las Vegas developments. Dr. Jan Duffy helps buyers find modern homes in master-planned communities in zip code 89148."
     />
   )
 }

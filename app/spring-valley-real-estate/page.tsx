@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { MapPin, Home, TrendingUp, Users } from 'lucide-react'
 import SeoCtaSection from '@/components/seo-cta-section'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
-import BreadcrumbSchema from '@/components/breadcrumb-schema'
+import SeoPageJsonLd from '@/components/seo-page-json-ld'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
 
@@ -20,10 +20,15 @@ export const metadata: Metadata = {
 }
 
 export default function SpringValleyRealEstatePage() {
+  const breadcrumbs = breadcrumbTrail({ name: 'Spring Valley Real Estate', path: '/spring-valley-real-estate' })
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <BreadcrumbSchema
-        items={breadcrumbTrail({ name: 'Spring Valley Real Estate', path: '/spring-valley-real-estate' })}
+      <SeoPageJsonLd
+        path="/spring-valley-real-estate"
+        name="Spring Valley Real Estate | Southwest Las Vegas Homes"
+        description="Spring Valley real estate specialist Dr. Jan Duffy helps buyers find homes in 89117, 89147, and 89148. Local market expertise, MLS search, and free home valuations."
+        breadcrumbs={breadcrumbs}
       />
 
       <section className="relative py-16 overflow-hidden">

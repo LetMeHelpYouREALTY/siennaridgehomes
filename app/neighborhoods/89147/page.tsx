@@ -32,9 +32,11 @@ export default function Neighborhood89147Page() {
       ]}
       heroImageAlt="89147 Southwest Las Vegas real estate neighborhood"
       breadcrumbs={breadcrumbTrail(
-        { name: 'Neighborhoods', path: '/neighborhoods/89117' },
+        { name: 'Neighborhoods', path: '/neighborhoods' },
         { name: '89147', path: '/neighborhoods/89147' },
       )}
+      schemaName="89147 Real Estate | Southwest Las Vegas Homes"
+      schemaDescription="89147 real estate in Southwest Las Vegas. Dr. Jan Duffy helps buyers find established homes near Caldera Hills with expert local knowledge and personalized service."
     />
   )
 }

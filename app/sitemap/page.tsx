@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Home, MapPin, User, FileText, Search, Phone, Mail } from 'lucide-react'
 import { NAP, REALSCOUT_SEARCH_URL, formatFullAddress } from '@/lib/site-config'
+import { SEO_GUIDE_PAGES } from '@/lib/seo-guide-pages'
 
 export const metadata: Metadata = {
   title: 'Sitemap | Southwest Las Vegas Real Estate | Dr. Jan Duffy',
@@ -38,12 +39,37 @@ export default function SitemapPage() {
 
   const neighborhoodPages = [
     {
+      title: 'All Neighborhood Guides',
+      description: 'Compare 89117, 89147, and 89148 zip codes',
+      url: '/neighborhoods',
+      icon: MapPin,
+    },
+    {
       title: 'Spring Valley Real Estate (89117)',
       description: 'Comprehensive guide to Spring Valley homes and neighborhoods',
       url: '/neighborhoods/89117',
       icon: MapPin,
     },
+    {
+      title: '89147 Neighborhood Guide',
+      description: 'Sienna Ridge and Caldera Hills area guide',
+      url: '/neighborhoods/89147',
+      icon: MapPin,
+    },
+    {
+      title: '89148 Neighborhood Guide',
+      description: '215 corridor and newer Southwest Las Vegas builds',
+      url: '/neighborhoods/89148',
+      icon: MapPin,
+    },
   ]
+
+  const guidePages = SEO_GUIDE_PAGES.map((page) => ({
+    title: page.label,
+    description: page.description,
+    url: page.href,
+    icon: page.category === 'buyer' ? FileText : page.category === 'zip' ? Home : MapPin,
+  }))
 
   const legalPages = [
     {
@@ -135,6 +161,34 @@ export default function SitemapPage() {
                     <Link href={page.url}>
                       <Button variant="outline" className="w-full">
                         Explore Neighborhood
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Buyer Guides */}
+          <div className="mb-12">
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <FileText className="h-6 w-6 text-blue-600" />
+              Buyer Guides & Listings
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {guidePages.map((page) => (
+                <Card key={page.url} className="hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-base">
+                      <page.icon className="h-5 w-5 text-blue-600 shrink-0" />
+                      {page.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 mb-4 text-sm">{page.description}</p>
+                    <Link href={page.url}>
+                      <Button variant="outline" className="w-full">
+                        Visit Page
                       </Button>
                     </Link>
                   </CardContent>
