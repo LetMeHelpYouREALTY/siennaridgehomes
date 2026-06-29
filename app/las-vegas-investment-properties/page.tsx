@@ -5,7 +5,9 @@ import { DollarSign, TrendingUp, Building, BarChart3 } from 'lucide-react'
 import SeoCtaSection from '@/components/seo-cta-section'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import SeoPageJsonLd from '@/components/seo-page-json-ld'
+import SeoGuideAeoSection from '@/components/seo-guide-aeo-section'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
+import { getSeoGuideByPath } from '@/lib/seo-guide-pages'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
 
 export default function LasVegasInvestmentPropertiesPage() {
   const breadcrumbs = breadcrumbTrail({ name: 'Las Vegas Investment Properties', path: '/las-vegas-investment-properties' })
+  const guide = getSeoGuideByPath('/las-vegas-investment-properties')
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -27,12 +30,14 @@ export default function LasVegasInvestmentPropertiesPage() {
         name="Las Vegas Investment Properties | Southwest LV Rentals"
         description="Las Vegas investment properties in Southwest Las Vegas (89117, 89147, 89148). Dr. Jan Duffy helps investors analyze cash flow, cap rates, and rental demand in Spring Valley."
         breadcrumbs={breadcrumbs}
+        faqs={guide?.faqs}
       />
       <section className="py-16 bg-blue-900 text-white">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Las Vegas Investment Properties</h1>
-          <p className="text-xl text-blue-100">
-            Build your portfolio in Southwest Las Vegas with expert guidance on rental demand, cash flow, and neighborhood selection
+          <p className="lead-answer aeo-answer text-xl text-blue-100">
+            {guide?.leadAnswer ??
+              'Build your portfolio in Southwest Las Vegas with expert guidance on rental demand, cash flow, and neighborhood selection'}
           </p>
         </div>
       </section>
@@ -78,6 +83,8 @@ export default function LasVegasInvestmentPropertiesPage() {
           </p>
         </div>
       </section>
+
+      {guide ? <SeoGuideAeoSection leadAnswer={guide.leadAnswer} faqs={guide.faqs} /> : null}
 
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">

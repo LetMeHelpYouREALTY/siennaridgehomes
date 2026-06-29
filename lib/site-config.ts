@@ -60,3 +60,16 @@ export const REVIEW_PROFILES = {
     writeUrl: 'https://www.bhhsnv.com/real-estate-agent/4986/a1-dr-jan-duffy',
   },
 } as const
+
+/** Entity disambiguation for schema sameAs — must match visible profiles. */
+export const SAME_AS_PROFILES = [
+  REVIEW_PROFILES.google.readUrl,
+  REVIEW_PROFILES.bhhs.readUrl,
+  REALSCOUT_SEARCH_URL,
+  `${SITE_URL}/about`,
+] as const
+
+export const GOOGLE_SITE_VERIFICATION =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ??
+  process.env.GOOGLE_SITE_VERIFICATION ??
+  ''

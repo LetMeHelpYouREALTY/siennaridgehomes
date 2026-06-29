@@ -1,4 +1,13 @@
-import { AGENT_ENCODED_ID, agentHeadshotUrl, NAP, OFFICE_GEO, SITE_URL } from '@/lib/site-config'
+import {
+  AGENT_ENCODED_ID,
+  agentHeadshotUrl,
+  NAP,
+  OFFICE_GEO,
+  OFFICE_MAPS_URL,
+  REALSCOUT_SEARCH_URL,
+  SAME_AS_PROFILES,
+  SITE_URL,
+} from '@/lib/site-config'
 import type { ClientReview } from '@/lib/reviews-data'
 import type { FeaturedListing } from '@/lib/listings-data'
 import { listingUrl } from '@/lib/listings-data'
@@ -99,6 +108,7 @@ function organizationSchema() {
     email: NAP.email,
     address: postalAddress,
     contactPoint,
+    sameAs: [...SAME_AS_PROFILES],
   }
 }
 
@@ -145,6 +155,8 @@ function realEstateAgentSchema() {
       '@type': 'Organization',
       name: NAP.brokerage,
     },
+    sameAs: [...SAME_AS_PROFILES],
+    hasMap: OFFICE_MAPS_URL,
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -175,7 +187,7 @@ function websiteSchema() {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${SITE_URL}/listings?q={search_term_string}`,
+        urlTemplate: `${REALSCOUT_SEARCH_URL}&q={search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },
@@ -186,7 +198,12 @@ function websiteSchema() {
 export function buildGlobalStructuredDataGraph() {
   return {
     '@context': 'https://schema.org',
-    '@graph': [organizationSchema(), realEstateAgentSchema(), websiteSchema()],
+    '@graph': [
+      organizationSchema(),
+      realEstateAgentSchema(),
+      websiteSchema(),
+      realEstateServiceSchema(),
+    ],
   }
 }
 
@@ -330,7 +347,7 @@ export type WebPageSchemaInput = {
 }
 
 /** WebPage schema for SEO/AEO landing pages. */
-export function buildWebPageSchema({ path, name, description, dateModified = '2026-06-16' }: WebPageSchemaInput) {
+export function buildWebPageSchema({ path, name, description, dateModified = '2026-06-29' }: WebPageSchemaInput) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -338,13 +355,47 @@ export function buildWebPageSchema({ path, name, description, dateModified = '20
     url: `${SITE_URL}${path}`,
     name,
     description,
+    datePublished: '2026-06-16',
     dateModified,
+    inLanguage: 'en-US',
     isPartOf: { '@id': STRUCTURED_DATA_IDS.website },
     about: { '@id': STRUCTURED_DATA_IDS.realEstateAgent },
+    author: { '@id': STRUCTURED_DATA_IDS.person },
+    publisher: { '@id': STRUCTURED_DATA_IDS.organization },
+    mainEntity: { '@id': STRUCTURED_DATA_IDS.realEstateAgent },
     speakable: {
       '@type': 'SpeakableSpecification',
-      cssSelector: ['h1', '.lead-answer'],
+      cssSelector: ['h1', '.lead-answer', '.aeo-answer'],
     },
+  }
+}
+
+/** Service schema for buyer representation — supports local + AEO entity clarity. */
+function realEstateServiceSchema() {
+  return {
+    '@type': 'Service',
+    '@id': `${SITE_URL}/#buyer-representation`,
+    name: 'Southwest Las Vegas Buyer Representation',
+    description:
+      'Expert buyer agent services for Spring Valley and Southwest Las Vegas homes in zip codes 89117, 89147, and 89148.',
+    provider: { '@id': STRUCTURED_DATA_IDS.realEstateAgent },
+    areaServed: [
+      { '@type': 'PostalCode', postalCode: '89117' },
+      { '@type': 'PostalCode', postalCode: '89147' },
+      { '@type': 'PostalCode', postalCode: '89148' },
+      { '@type': 'City', name: 'Spring Valley' },
+      { '@type': 'City', name: 'Las Vegas' },
+    ],
+    serviceType: 'Real estate buyer representation',
+    url: SITE_URL,
+  }
+}
+
+/** Standalone Service JSON-LD for pages that need it outside the global graph. */
+export function buildRealEstateServiceSchema() {
+  return {
+    '@context': 'https://schema.org',
+    ...realEstateServiceSchema(),
   }
 }
 

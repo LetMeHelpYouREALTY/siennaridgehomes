@@ -8,8 +8,9 @@ import SeoCtaSection from '@/components/seo-cta-section'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
 import SeoPageJsonLd from '@/components/seo-page-json-ld'
+import SeoGuideAeoSection from '@/components/seo-guide-aeo-section'
 import { AGENT_ENCODED_ID, REALSCOUT_SEARCH_URL } from '@/lib/site-config'
-import type { BreadcrumbItem } from '@/lib/structured-data'
+import type { BreadcrumbItem, FaqItem } from '@/lib/structured-data'
 
 export type ZipCodeLandingProps = {
   zipCode: string
@@ -26,6 +27,8 @@ export type ZipCodeLandingProps = {
   breadcrumbs?: BreadcrumbItem[]
   schemaName: string
   schemaDescription: string
+  leadAnswer?: string
+  faqs?: FaqItem[]
 }
 
 export default function ZipCodeLanding({
@@ -43,6 +46,8 @@ export default function ZipCodeLanding({
   breadcrumbs,
   schemaName,
   schemaDescription,
+  leadAnswer,
+  faqs = [],
 }: ZipCodeLandingProps) {
   return (
     <div className="min-h-screen bg-slate-50">
@@ -52,6 +57,7 @@ export default function ZipCodeLanding({
           name={schemaName}
           description={schemaDescription}
           breadcrumbs={breadcrumbs}
+          faqs={faqs.length ? faqs : undefined}
         />
       ) : null}
 
@@ -78,7 +84,7 @@ export default function ZipCodeLanding({
               </Badge>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-balance">{heroTitle}</h1>
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed max-w-3xl mx-auto">{heroDescription}</p>
+            <p className="lead-answer aeo-answer text-xl text-blue-100 mb-8 leading-relaxed max-w-3xl mx-auto">{heroDescription}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <CalendlyPopupButton size="lg" className="bg-white text-blue-700 hover:bg-blue-50" />
               <Button size="lg" variant="outline" className="border-white/60 text-white hover:bg-white/10 bg-transparent" asChild>
@@ -181,6 +187,10 @@ export default function ZipCodeLanding({
           </div>
         </div>
       </section>
+
+      {leadAnswer && faqs.length > 0 ? (
+        <SeoGuideAeoSection leadAnswer={leadAnswer} faqs={faqs} />
+      ) : null}
 
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">

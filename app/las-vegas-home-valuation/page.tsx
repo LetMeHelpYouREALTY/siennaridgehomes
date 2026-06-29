@@ -5,7 +5,9 @@ import { DollarSign } from 'lucide-react'
 import SeoCtaSection from '@/components/seo-cta-section'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import SeoPageJsonLd from '@/components/seo-page-json-ld'
+import SeoGuideAeoSection from '@/components/seo-guide-aeo-section'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
+import { getSeoGuideByPath } from '@/lib/seo-guide-pages'
 import { AGENT_ENCODED_ID, REALSCOUT_SEARCH_URL, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
 
 export default function LasVegasHomeValuationPage() {
   const breadcrumbs = breadcrumbTrail({ name: 'Las Vegas Home Valuation', path: '/las-vegas-home-valuation' })
+  const guide = getSeoGuideByPath('/las-vegas-home-valuation')
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -27,12 +30,14 @@ export default function LasVegasHomeValuationPage() {
         name="Las Vegas Home Valuation | Free Property Estimate"
         description="Get a free Las Vegas home valuation for properties in Spring Valley and Southwest Las Vegas (89117, 89147, 89148). Instant estimate plus expert market analysis from Dr. Jan Duffy."
         breadcrumbs={breadcrumbs}
+        faqs={guide?.faqs}
       />
       <section className="py-16 bg-blue-900 text-white">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Las Vegas Home Valuation</h1>
-          <p className="text-xl text-blue-100">
-            Get an instant property estimate for your Southwest Las Vegas home, plus expert market analysis from Dr. Jan Duffy
+          <p className="lead-answer aeo-answer text-xl text-blue-100">
+            {guide?.leadAnswer ??
+              'Get an instant property estimate for your Southwest Las Vegas home, plus expert market analysis from Dr. Jan Duffy'}
           </p>
         </div>
       </section>
@@ -83,6 +88,8 @@ export default function LasVegasHomeValuationPage() {
           </p>
         </div>
       </section>
+
+      {guide ? <SeoGuideAeoSection leadAnswer={guide.leadAnswer} faqs={guide.faqs} /> : null}
 
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-4xl">

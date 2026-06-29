@@ -7,6 +7,7 @@ import RealScoutScript from '@/components/realscout-script'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import { buildGlobalStructuredDataGraph } from '@/lib/structured-data'
+import { GOOGLE_SITE_VERIFICATION } from '@/lib/site-config'
 import { inter, playfairDisplay } from '@/lib/fonts'
 import './globals.css'
 
@@ -50,9 +51,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE', // Replace with your actual verification code
-  },
+  verification: GOOGLE_SITE_VERIFICATION
+    ? { google: GOOGLE_SITE_VERIFICATION }
+    : undefined,
   openGraph: {
     title: 'Spring Valley Real Estate Agent | Dr. Jan Duffy | Southwest Las Vegas Homes',
     description: 'Top Spring Valley real estate agent Dr. Jan Duffy specializes in Southwest Las Vegas homes (89117, 89147, 89148). Expert buyer agent for families, investors & first-time buyers.',

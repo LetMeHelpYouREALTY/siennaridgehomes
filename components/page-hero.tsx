@@ -55,7 +55,7 @@ export default function PageHero({
           </h1>
           {subtitle ? <p className="text-xl text-blue-100 mb-4">{subtitle}</p> : null}
           {description ? (
-            <p className="text-lg md:text-xl text-blue-50/95 leading-relaxed max-w-3xl mx-auto mb-8">
+            <p className="lead-answer aeo-answer text-lg md:text-xl text-blue-50/95 leading-relaxed max-w-3xl mx-auto mb-8">
               {description}
             </p>
           ) : null}

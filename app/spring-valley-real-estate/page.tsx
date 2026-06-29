@@ -7,7 +7,9 @@ import { MapPin, Home, TrendingUp, Users } from 'lucide-react'
 import SeoCtaSection from '@/components/seo-cta-section'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import SeoPageJsonLd from '@/components/seo-page-json-ld'
+import SeoGuideAeoSection from '@/components/seo-guide-aeo-section'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
+import { getSeoGuideByPath } from '@/lib/seo-guide-pages'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -21,6 +23,7 @@ export const metadata: Metadata = {
 
 export default function SpringValleyRealEstatePage() {
   const breadcrumbs = breadcrumbTrail({ name: 'Spring Valley Real Estate', path: '/spring-valley-real-estate' })
+  const guide = getSeoGuideByPath('/spring-valley-real-estate')
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -29,6 +32,7 @@ export default function SpringValleyRealEstatePage() {
         name="Spring Valley Real Estate | Southwest Las Vegas Homes"
         description="Spring Valley real estate specialist Dr. Jan Duffy helps buyers find homes in 89117, 89147, and 89148. Local market expertise, MLS search, and free home valuations."
         breadcrumbs={breadcrumbs}
+        faqs={guide?.faqs}
       />
 
       <section className="relative py-16 overflow-hidden">
@@ -45,8 +49,9 @@ export default function SpringValleyRealEstatePage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Spring Valley Real Estate</h1>
-            <p className="text-xl mb-8 text-blue-100">
-              Your guide to buying in Spring Valley and surrounding Southwest Las Vegas neighborhoods with Dr. Jan Duffy
+            <p className="lead-answer aeo-answer text-xl mb-8 text-blue-100">
+              {guide?.leadAnswer ??
+                'Your guide to buying in Spring Valley and surrounding Southwest Las Vegas neighborhoods with Dr. Jan Duffy'}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Badge variant="secondary" className="bg-white text-blue-600 px-4 py-2">
@@ -110,6 +115,8 @@ export default function SpringValleyRealEstatePage() {
           </div>
         </div>
       </section>
+
+      {guide ? <SeoGuideAeoSection leadAnswer={guide.leadAnswer} faqs={guide.faqs} /> : null}
 
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">

@@ -140,7 +140,7 @@ export default function SeoContentPage({
               {title}
             </h1>
             {subtitle ? <p className="text-xl text-blue-100 mb-6">{subtitle}</p> : null}
-            <p className="text-lg md:text-xl text-blue-50/95 leading-relaxed max-w-3xl mx-auto mb-8">
+            <p className="lead-answer aeo-answer text-lg md:text-xl text-blue-50/95 leading-relaxed max-w-3xl mx-auto mb-8">
               {leadAnswer}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

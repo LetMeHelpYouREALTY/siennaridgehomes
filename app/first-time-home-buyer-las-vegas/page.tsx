@@ -5,7 +5,9 @@ import { CheckCircle, Home, FileText, Handshake, Key } from 'lucide-react'
 import SeoCtaSection from '@/components/seo-cta-section'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import SeoPageJsonLd from '@/components/seo-page-json-ld'
+import SeoGuideAeoSection from '@/components/seo-guide-aeo-section'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
+import { getSeoGuideByPath } from '@/lib/seo-guide-pages'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -26,6 +28,7 @@ const steps = [
 
 export default function FirstTimeHomeBuyerPage() {
   const breadcrumbs = breadcrumbTrail({ name: 'First-Time Home Buyer Guide', path: '/first-time-home-buyer-las-vegas' })
+  const guide = getSeoGuideByPath('/first-time-home-buyer-las-vegas')
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -34,12 +37,19 @@ export default function FirstTimeHomeBuyerPage() {
         name="First-Time Home Buyer Las Vegas | Spring Valley Guide"
         description="First-time home buyer guide for Las Vegas and Spring Valley. Dr. Jan Duffy explains financing, neighborhoods (89117, 89147, 89148), and the step-by-step buying process."
         breadcrumbs={breadcrumbs}
+        faqs={guide?.faqs}
+        howTo={{
+          name: 'How to buy your first home in Las Vegas',
+          description: guide?.leadAnswer ?? 'Step-by-step first-time home buyer process in Southwest Las Vegas.',
+          steps: steps.map((step) => ({ name: step.title, text: step.description })),
+        }}
       />
       <section className="py-16 bg-blue-900 text-white">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">First-Time Home Buyer Guide — Las Vegas</h1>
-          <p className="text-xl text-blue-100">
-            Buying your first home in Spring Valley or Southwest Las Vegas? Dr. Jan Duffy makes the process clear, stress-free, and buyer-focused.
+          <p className="lead-answer aeo-answer text-xl text-blue-100">
+            {guide?.leadAnswer ??
+              'Buying your first home in Spring Valley or Southwest Las Vegas? Dr. Jan Duffy makes the process clear, stress-free, and buyer-focused.'}
           </p>
         </div>
       </section>
@@ -78,6 +88,8 @@ export default function FirstTimeHomeBuyerPage() {
           </ul>
         </div>
       </section>
+
+      {guide ? <SeoGuideAeoSection leadAnswer={guide.leadAnswer} faqs={guide.faqs} /> : null}
 
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
