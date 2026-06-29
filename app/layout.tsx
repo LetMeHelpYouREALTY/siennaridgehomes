@@ -80,6 +80,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.siennaridgehomes.com',
   },
+  icons: {
+    icon: [{ url: '/favicon.ico', sizes: 'any' }],
+    shortcut: ['/favicon.ico'],
+  },
 }
 
 export default function RootLayout({
