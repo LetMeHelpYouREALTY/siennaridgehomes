@@ -3,9 +3,10 @@ import { Star, ExternalLink } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import JsonLd from '@/components/json-ld'
+import AgentHeadshot from '@/components/agent-headshot'
 import { CLIENT_REVIEWS } from '@/lib/reviews-data'
 import { buildReviewsSchema } from '@/lib/structured-data'
-import { REVIEW_PROFILES } from '@/lib/site-config'
+import { NAP, REVIEW_PROFILES } from '@/lib/site-config'
 
 type ClientReviewsSectionProps = {
   title?: string
@@ -25,9 +26,15 @@ export default function ClientReviewsSection({
       <JsonLd id="client-reviews-schema" data={buildReviewsSchema(reviews)} />
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold mb-4">{title}</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">{subtitle}</p>
+          <div className="mb-10 grid grid-cols-1 items-center gap-8 lg:grid-cols-[220px_1fr]">
+            <AgentHeadshot size="md" className="mx-auto lg:mx-0" />
+            <div className="text-center lg:text-left">
+              <h2 className="text-3xl font-bold mb-4">{title}</h2>
+              <p className="text-lg text-gray-600">{subtitle}</p>
+              <p className="mt-3 text-sm text-gray-500">
+                {NAP.name} · License {NAP.license}
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
