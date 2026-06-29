@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Phone, Mail, Calendar } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
-import { NAP, formatFullAddressWithPlusCode } from '@/lib/site-config'
+import { NAP, formatFullAddress } from '@/lib/site-config'
 
 type SeoCtaSectionProps = {
   title: string
@@ -38,7 +38,7 @@ export default function SeoCtaSection({ title, description }: SeoCtaSectionProps
           </div>
           <p className="mt-6 text-blue-100 text-sm">
             <Calendar className="inline h-4 w-4 mr-1 align-text-bottom" />
-            15-minute private conversation · {formatFullAddressWithPlusCode()}
+            15-minute private conversation · {formatFullAddress()}
           </p>
         </div>
       </div>

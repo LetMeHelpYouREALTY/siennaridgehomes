@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin, Search } from 'lucide-react'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
 import AgentHeadshot from '@/components/agent-headshot'
 import FooterAccordionSection, { FooterLinkList } from '@/components/footer-accordion-section'
-import { NAP, OFFICE_DIRECTIONS_URL, OFFICE_MAPS_URL, REALSCOUT_SEARCH_URL, formatCityStateZip, formatOfficePlusCode } from '@/lib/site-config'
+import { NAP, OFFICE_DIRECTIONS_URL, OFFICE_MAPS_URL, REALSCOUT_SEARCH_URL, formatCityStateZip } from '@/lib/site-config'
 
 export default function Footer() {
   return (
@@ -99,7 +99,6 @@ export default function Footer() {
                     >
                       <p className="text-sm">{NAP.streetAddress}</p>
                       <p className="text-sm">{formatCityStateZip()}</p>
-                      <p className="text-sm mt-1">Plus Code: {formatOfficePlusCode()}</p>
                     </a>
                     <a
                       href={OFFICE_DIRECTIONS_URL}

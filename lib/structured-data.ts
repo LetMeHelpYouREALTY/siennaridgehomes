@@ -4,7 +4,6 @@ import {
   NAP,
   OFFICE_GEO,
   OFFICE_MAPS_URL,
-  OFFICE_PLUS_CODE,
   REALSCOUT_SEARCH_URL,
   SAME_AS_PROFILES,
   SITE_URL,
@@ -44,13 +43,6 @@ const geoCoordinates = {
   '@type': 'GeoCoordinates' as const,
   latitude: OFFICE_GEO.latitude,
   longitude: OFFICE_GEO.longitude,
-}
-
-const plusCodeProperty = {
-  '@type': 'PropertyValue' as const,
-  propertyID: 'plus_code',
-  name: 'Plus Code',
-  value: OFFICE_PLUS_CODE.full,
 }
 
 const contactPoint = {
@@ -118,7 +110,6 @@ function organizationSchema() {
     contactPoint,
     geo: geoCoordinates,
     hasMap: OFFICE_MAPS_URL,
-    additionalProperty: plusCodeProperty,
     sameAs: [...SAME_AS_PROFILES],
   }
 }
@@ -168,7 +159,6 @@ function realEstateAgentSchema() {
     },
     sameAs: [...SAME_AS_PROFILES],
     hasMap: OFFICE_MAPS_URL,
-    additionalProperty: plusCodeProperty,
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -492,7 +482,6 @@ export function buildResidentialComplexSchema() {
     },
     geo: geoCoordinates,
     hasMap: OFFICE_MAPS_URL,
-    additionalProperty: plusCodeProperty,
     amenityFeature: SIENNA_RIDGE.features.map((feature) => ({
       '@type': 'LocationFeatureSpecification',
       name: feature,

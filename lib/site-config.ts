@@ -21,26 +21,11 @@ export const NAP = {
   brokerage: 'Berkshire Hathaway HomeServices Nevada Properties',
 } as const
 
-/** Google Plus Code — Sienna Ridge sales center at 8370 Caldera Hls Ave */
-export const OFFICE_PLUS_CODE = {
-  short: '4P6G+6C',
-  full: '85864P6G+6C',
-  locality: 'Las Vegas, NV',
-} as const
-
-/** Sienna Ridge sales office — matches Google Maps Plus Code pin */
+/** Sienna Ridge sales office — 8370 Caldera Hls Ave, Las Vegas, NV 89147 */
 export const OFFICE_GEO = {
-  latitude: 36.110563,
-  longitude: -115.273937,
+  latitude: 36.11058,
+  longitude: -115.274467,
 } as const
-
-const OFFICE_MAPS_QUERY = encodeURIComponent(
-  `${OFFICE_PLUS_CODE.short} ${OFFICE_PLUS_CODE.locality} ${NAP.postalCode}`,
-)
-
-export const OFFICE_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${OFFICE_MAPS_QUERY}`
-
-export const OFFICE_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${OFFICE_MAPS_QUERY}`
 
 export function formatCityStateZip() {
   return `${NAP.city}, ${NAP.state} ${NAP.postalCode}`
@@ -50,17 +35,11 @@ export function formatFullAddress() {
   return `${NAP.streetAddress}, ${formatCityStateZip()}`
 }
 
-export function formatOfficePlusCode(includeLocality = true) {
-  if (includeLocality) {
-    return `${OFFICE_PLUS_CODE.short} ${OFFICE_PLUS_CODE.locality}`
-  }
+const OFFICE_MAPS_QUERY = encodeURIComponent(formatFullAddress())
 
-  return OFFICE_PLUS_CODE.short
-}
+export const OFFICE_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${OFFICE_MAPS_QUERY}`
 
-export function formatFullAddressWithPlusCode() {
-  return `${formatFullAddress()} · Plus Code: ${formatOfficePlusCode()}`
-}
+export const OFFICE_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${OFFICE_MAPS_QUERY}`
 
 export const SERVICE_ZIP_CODES = ['89117', '89147', '89148'] as const
 

@@ -55,7 +55,7 @@ export const SIENNA_RIDGE_LENNAR_PAGE: SeoPageConfig = {
     badges: ['Lennar New Construction', '89147', 'Spring Valley Area'],
     title: 'Sienna Ridge by Lennar — Las Vegas New Homes',
     subtitle: 'Master-planned community near Desert Breeze Park & I-215',
-    leadAnswer: `Sienna Ridge by Lennar is a new construction community at 8370 Caldera Hills Avenue, Las Vegas NV 89147, with four active floor plan collections — Kingsbury, Skyland, Glenbrook, and Bellevue Next Gen® — priced from ${siennaRidgeCommunityPriceRange()}. Dr. Jan Duffy represents buyers at the sales center, not the builder.`,
+    leadAnswer: `Sienna Ridge by Lennar is a new construction community at 8370 Caldera Hls Ave, Las Vegas NV 89147, with four active floor plan collections — Kingsbury, Skyland, Glenbrook, and Bellevue Next Gen® — priced from ${siennaRidgeCommunityPriceRange()}. Dr. Jan Duffy represents buyers at the sales center, not the builder.`,
     stats: [
       { label: 'Community From', value: formatCollectionPrice(581_990) },
       { label: 'Top Plan From', value: formatCollectionPrice(662_990) },

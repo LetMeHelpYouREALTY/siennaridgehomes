@@ -1,5 +1,3 @@
-import { OFFICE_PLUS_CODE, formatOfficePlusCode } from '@/lib/site-config'
-
 /** Lennar Sienna Ridge floor plan collections — synced with lennar.com community page. */
 export type SiennaRidgeCollection = {
   slug: string
@@ -18,13 +16,10 @@ export type SiennaRidgeCollection = {
 }
 
 export const SIENNA_RIDGE_SALES_CENTER = {
-  streetAddress: '8370 Caldera Hills Avenue',
+  streetAddress: '8370 Caldera Hls Ave',
   city: 'Las Vegas',
   state: 'NV',
   postalCode: '89147',
-  plusCode: OFFICE_PLUS_CODE.short,
-  plusCodeFull: OFFICE_PLUS_CODE.full,
-  plusCodeDisplay: formatOfficePlusCode(),
   phone: '800-509-9720',
   hours: 'Daily 8:30 AM – 7:00 PM',
 } as const

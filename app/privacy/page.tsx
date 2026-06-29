@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { NAP, formatFullAddressWithPlusCode } from '@/lib/site-config'
+import { NAP, formatFullAddress } from '@/lib/site-config'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Southwest Las Vegas Real Estate | Dr. Jan Duffy',
@@ -65,7 +65,7 @@ export default function PrivacyPolicyPage() {
                   <p className="font-semibold">{NAP.name}</p>
                   <p>Email: {NAP.email}</p>
                   <p>Phone: {NAP.phone}</p>
-                  <p>Address: {formatFullAddressWithPlusCode()}</p>
+                  <p>Address: {formatFullAddress()}</p>
                 </div>
               </div>
             </CardContent>

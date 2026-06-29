@@ -41,7 +41,7 @@ function collectionFaqs(collectionName: string, priceFrom: number): FaqItem[] {
     },
     {
       question: `Where is Sienna Ridge located?`,
-      answer: `Sienna Ridge is at ${SIENNA_RIDGE_SALES_CENTER.streetAddress}, ${SIENNA_RIDGE_SALES_CENTER.city}, ${SIENNA_RIDGE_SALES_CENTER.state} ${SIENNA_RIDGE_SALES_CENTER.postalCode} — Southwest Las Vegas zip code 89147, near Desert Breeze Park and I-215. Google Plus Code: ${SIENNA_RIDGE_SALES_CENTER.plusCodeDisplay}.`,
+      answer: `Sienna Ridge is at ${SIENNA_RIDGE_SALES_CENTER.streetAddress}, ${SIENNA_RIDGE_SALES_CENTER.city}, ${SIENNA_RIDGE_SALES_CENTER.state} ${SIENNA_RIDGE_SALES_CENTER.postalCode} — Southwest Las Vegas zip code 89147, near Desert Breeze Park and I-215.`,
     },
     {
       question: 'Do I need a buyer agent for Lennar new construction?',
@@ -138,7 +138,7 @@ export const SIENA_HOMES_PAGE: SiennaRidgeKeywordPageConfig = {
     title: 'Siena Homes for Sale in Las Vegas',
     subtitle: 'Looking for "Siena"? You mean Sienna Ridge by Lennar',
     leadAnswer:
-      'If you searched for Siena homes for sale in Las Vegas, you are likely looking for Sienna Ridge by Lennar — a new construction community at 8370 Caldera Hills Avenue, Las Vegas NV 89147 with floor plans from $588,990 including Kingsbury, Skyland, Glenbrook, and Bellevue Next Gen®.',
+      'If you searched for Siena homes for sale in Las Vegas, you are likely looking for Sienna Ridge by Lennar — a new construction community at 8370 Caldera Hls Ave, Las Vegas NV 89147 with floor plans from $588,990 including Kingsbury, Skyland, Glenbrook, and Bellevue Next Gen®.',
     stats: [
       { label: 'Correct Name', value: 'Sienna Ridge' },
       { label: 'Builder', value: 'Lennar' },
@@ -164,7 +164,7 @@ export const SIENA_HOMES_PAGE: SiennaRidgeKeywordPageConfig = {
     faqs: [
       {
         question: 'Are Siena and Sienna Ridge the same community?',
-        answer: 'Yes. "Siena" is a common misspelling. The official Lennar community is Sienna Ridge at 8370 Caldera Hills Avenue, Las Vegas NV 89147.',
+        answer: 'Yes. "Siena" is a common misspelling. The official Lennar community is Sienna Ridge at 8370 Caldera Hls Ave, Las Vegas NV 89147.',
       },
       {
         question: 'Is Sienna Ridge in Summerlin?',
