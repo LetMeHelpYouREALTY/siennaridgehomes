@@ -142,7 +142,7 @@ export default function NeighborhoodsHubPage() {
             <CardContent className="p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
                 <h3 className="text-xl font-bold mb-2">Sienna Ridge by Lennar</h3>
-                <p className="text-slate-600">New construction in 89147 — Next Gen suites, solar, from $564,890.</p>
+                <p className="text-slate-600">New construction in 89147 — Kingsbury, Skyland, Glenbrook, Bellevue Next Gen® from $581,990.</p>
               </div>
               <Link href="/sienna-ridge-lennar-las-vegas" className="inline-flex items-center font-semibold text-blue-600 hover:underline">
                 Community guide <ArrowRight className="h-4 w-4 ml-1" />

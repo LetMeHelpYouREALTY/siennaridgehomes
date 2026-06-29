@@ -50,8 +50,8 @@ export default function SiennaRidgeOverview() {
         <CardContent>
           <p className="text-2xl font-bold text-blue-600 mb-2">{formatCommunityPriceRange()}</p>
           <p className="text-gray-600">
-            New construction floor plans from 1,594 to 2,270+ sq ft. Pricing varies by plan, elevation,
-            and lot — contact Dr. Jan Duffy for current availability and incentives.
+            Four Lennar collections from 1,966 to 2,640 sq ft — Kingsbury, Skyland, Glenbrook, and Bellevue Next Gen®.
+            Pricing varies by plan, elevation, and lot — contact Dr. Jan Duffy for current availability and incentives.
           </p>
         </CardContent>
       </Card>

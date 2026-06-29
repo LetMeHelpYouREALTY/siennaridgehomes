@@ -11,6 +11,7 @@ import ClientReviewsSection from '@/components/client-reviews-section'
 import FeaturedListingCard from '@/components/featured-listing-card'
 import AgentHeadshot from '@/components/agent-headshot'
 import SiennaRidgeOverview from '@/components/sienna-ridge-overview'
+import SiennaRidgeCollectionsHub from '@/components/sienna-ridge-collections-hub'
 import PageHero from '@/components/page-hero'
 import SectionHeading from '@/components/section-heading'
 import SiteCtaBand from '@/components/site-cta-band'
@@ -223,13 +224,14 @@ export default function HomePage() {
                 {
                   image: '/images/property-sample-2.jpg',
                   alt: 'Newer developments in Southwest Las Vegas',
-                  label: 'Two Story',
-                  size: '2,200 - 3,200 sq ft',
+                  label: 'Lennar New',
+                  size: '1,966 - 2,640 sq ft',
                   title: 'Sienna Ridge by Lennar (89147)',
-                  description: 'New Lennar construction near Desert Breeze Park and I-215 with Next Gen® suites and solar options.',
+                  description: 'Kingsbury, Skyland, Glenbrook, and Bellevue Next Gen® near Desert Breeze Park and I-215.',
+                  href: '/sienna-ridge-lennar-las-vegas',
                   details: [
-                    ['Bedrooms', '3-5'],
-                    ['Square Feet', '1,594 - 2,270+'],
+                    ['Collections', '4 Plans'],
+                    ['Square Feet', '1,966 - 2,640'],
                     ['Price Range', formatCommunityPriceRange()],
                   ],
                 },
@@ -248,27 +250,49 @@ export default function HomePage() {
                 },
               ].map((item) => (
                 <Card key={item.title} className="overflow-hidden border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                  <a
-                    href={REALSCOUT_SEARCH_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block h-48 relative group cursor-pointer"
-                    aria-label={`Search ${item.title}`}
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      fill
-                      className="object-cover transition-transform group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                      <div className="text-center text-white">
-                        <Home className="h-12 w-12 mx-auto mb-3" />
-                        <p className="text-lg font-semibold">{item.label}</p>
-                        <p className="text-sm">{item.size}</p>
+                  {'href' in item && item.href ? (
+                    <Link
+                      href={item.href}
+                      className="block h-48 relative group cursor-pointer"
+                      aria-label={`View ${item.title}`}
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        fill
+                        className="object-cover transition-transform group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <div className="text-center text-white">
+                          <Home className="h-12 w-12 mx-auto mb-3" />
+                          <p className="text-lg font-semibold">{item.label}</p>
+                          <p className="text-sm">{item.size}</p>
+                        </div>
                       </div>
-                    </div>
-                  </a>
+                    </Link>
+                  ) : (
+                    <a
+                      href={REALSCOUT_SEARCH_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block h-48 relative group cursor-pointer"
+                      aria-label={`Search ${item.title}`}
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        fill
+                        className="object-cover transition-transform group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <div className="text-center text-white">
+                          <Home className="h-12 w-12 mx-auto mb-3" />
+                          <p className="text-lg font-semibold">{item.label}</p>
+                          <p className="text-sm">{item.size}</p>
+                        </div>
+                      </div>
+                    </a>
+                  )}
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                     <p className="text-slate-600 mb-4">{item.description}</p>
@@ -319,6 +343,16 @@ export default function HomePage() {
               description="Southwest Las Vegas new construction in zip code 89147 — plus established Spring Valley neighborhoods in 89117 and 89148."
             />
             <SiennaRidgeOverview />
+            <div className="mt-12">
+              <SiennaRidgeCollectionsHub showHeading={false} />
+            </div>
+            <div className="text-center mt-8">
+              <Button asChild>
+                <Link href="/sienna-ridge-lennar-las-vegas">
+                  Full Sienna Ridge Guide <ArrowRight className="h-4 w-4 ml-2" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

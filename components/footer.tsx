@@ -120,6 +120,31 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/kingsbury-homes-sienna-ridge" className="text-gray-300 hover:text-blue-400 transition-colors">
+                    Kingsbury Homes
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/bellevue-nextgen-sienna-ridge" className="text-gray-300 hover:text-blue-400 transition-colors">
+                    Bellevue Next Gen®
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/skyland-sienna-ridge" className="text-gray-300 hover:text-blue-400 transition-colors">
+                    Skyland at Sienna Ridge
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/glenbrook-homes-sienna-ridge" className="text-gray-300 hover:text-blue-400 transition-colors">
+                    Glenbrook Homes
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/siena-homes-for-sale-las-vegas" className="text-gray-300 hover:text-blue-400 transition-colors">
+                    Siena Homes (Las Vegas)
+                  </Link>
+                </li>
+                <li>
                   <Link href="/neighborhoods" className="text-gray-300 hover:text-blue-400 transition-colors">
                     Neighborhood Guides
                   </Link>

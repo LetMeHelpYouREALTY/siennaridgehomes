@@ -2,6 +2,12 @@ import type { Metadata } from 'next'
 import type { SeoContentPageProps } from '@/components/seo-content-page'
 import { SITE_URL } from '@/lib/site-config'
 import { formatCommunityPriceRange, SIENNA_RIDGE } from '@/lib/sienna-ridge-community'
+import { SIENNA_RIDGE_KEYWORD_PAGES } from '@/lib/sienna-ridge-keyword-pages'
+import {
+  formatCollectionPrice,
+  SIENNA_RIDGE_COLLECTIONS,
+  siennaRidgeCommunityPriceRange,
+} from '@/lib/sienna-ridge-collections'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
 import {
   buildHowToSchema,
@@ -40,7 +46,7 @@ export const SIENNA_RIDGE_LENNAR_PAGE: SeoPageConfig = {
   path: '/sienna-ridge-lennar-las-vegas',
   metadata: meta(
     'Sienna Ridge by Lennar Las Vegas | New Homes 89147 | Dr. Jan Duffy',
-    `Sienna Ridge by Lennar in Las Vegas 89147 — new construction from ${formatCommunityPriceRange()}. Next Gen suites, solar options, near Desert Breeze Park and I-215. Buyer agent Dr. Jan Duffy.`,
+    `Sienna Ridge by Lennar in Las Vegas 89147 — Kingsbury, Skyland, Glenbrook, and Bellevue Next Gen® from ${siennaRidgeCommunityPriceRange()}. Buyer agent Dr. Jan Duffy.`,
     '/sienna-ridge-lennar-las-vegas',
   ),
   props: {
@@ -49,11 +55,11 @@ export const SIENNA_RIDGE_LENNAR_PAGE: SeoPageConfig = {
     badges: ['Lennar New Construction', '89147', 'Spring Valley Area'],
     title: 'Sienna Ridge by Lennar — Las Vegas New Homes',
     subtitle: 'Master-planned community near Desert Breeze Park & I-215',
-    leadAnswer: `Sienna Ridge by Lennar is a new construction community at 8370 Caldera Hls Ave, Las Vegas NV 89147, with floor plans from 1,594 to 2,270+ sq ft and base prices from ${formatCommunityPriceRange()}. Dr. Jan Duffy represents buyers at the sales center — not the builder.`,
+    leadAnswer: `Sienna Ridge by Lennar is a new construction community at 8370 Caldera Hills Avenue, Las Vegas NV 89147, with four active floor plan collections — Kingsbury, Skyland, Glenbrook, and Bellevue Next Gen® — priced from ${siennaRidgeCommunityPriceRange()}. Dr. Jan Duffy represents buyers at the sales center, not the builder.`,
     stats: [
-      { label: 'Base Price From', value: '$564,890' },
-      { label: 'Price Range', value: '$860K+' },
-      { label: 'Sq Ft Range', value: '1,594–2,270' },
+      { label: 'Community From', value: formatCollectionPrice(581_990) },
+      { label: 'Top Plan From', value: formatCollectionPrice(662_990) },
+      { label: 'Collections', value: '4 Plans' },
       { label: 'Zip Code', value: '89147' },
     ],
     features: [
@@ -79,11 +85,23 @@ export const SIENNA_RIDGE_LENNAR_PAGE: SeoPageConfig = {
     faqs: [
       {
         question: 'How much do Sienna Ridge homes cost?',
-        answer: `Base prices start around $564,890 and reach $860,000+ depending on floor plan, elevation, and lot. Contact Dr. Jan Duffy for current Lennar incentives.`,
+        answer: `Lennar lists Sienna Ridge from $581,990 to $662,990+ depending on collection — Kingsbury, Skyland, Glenbrook, and Bellevue Next Gen®. Contact Dr. Jan Duffy for current incentives.`,
       },
       {
         question: 'What floor plans are available at Sienna Ridge?',
-        answer: 'Featured models include 1594, 1760, and 2270 sq ft plans. See our floor plan guide and listing pages for beds, baths, and pricing.',
+        answer: 'Lennar currently offers Kingsbury (2,051 sq ft), Skyland (2,270 sq ft), Glenbrook (1,966 sq ft), and Bellevue Next Gen® (2,640 sq ft). See our collection guides for pricing and layouts.',
+      },
+      {
+        question: 'Is Sienna Ridge the same as Sienna senior apartments?',
+        answer: 'No. Sienna Ridge by Lennar is single-family new construction in 89147. Sienna senior apartments is a separate product — this site covers Lennar homes for sale only.',
+      },
+      {
+        question: 'Is Sienna Ridge in Summerlin?',
+        answer: 'No. Sienna Ridge is in Southwest Las Vegas zip code 89147 near Caldera Hills and I-215 — not the Summerlin master plan. Buyers searching "Siena Summerlin homes" should verify the correct community name and location.',
+      },
+      {
+        question: 'What are Sienna Ridge reviews like?',
+        answer: 'Sienna Ridge buyers value Lennar new construction warranties, Next Gen® floor plan options, and proximity to Desert Breeze Park and I-215. Dr. Jan Duffy helps you compare builder reviews with resale options in 89147 before you buy.',
       },
       {
         question: 'Is Sienna Ridge in Spring Valley?',
@@ -103,7 +121,12 @@ export const SIENNA_RIDGE_LENNAR_PAGE: SeoPageConfig = {
       },
     ] satisfies FaqItem[],
     relatedLinks: [
-      { href: '/sienna-ridge-floor-plans', label: 'Sienna Ridge Floor Plans', description: 'Compare 1594, 1760, 2270 models' },
+      { href: '/kingsbury-homes-sienna-ridge', label: 'Kingsbury Homes', description: '2,051 sq ft from $589,990' },
+      { href: '/bellevue-nextgen-sienna-ridge', label: 'Bellevue Next Gen®', description: 'Multi-gen 2,640 sq ft' },
+      { href: '/skyland-sienna-ridge', label: 'Skyland', description: '4 bed executive plan' },
+      { href: '/glenbrook-homes-sienna-ridge', label: 'Glenbrook', description: 'Entry single-family plan' },
+      { href: '/siena-homes-for-sale-las-vegas', label: 'Siena Homes (Misspelling)', description: 'Common search alias' },
+      { href: '/sienna-ridge-floor-plans', label: 'All Floor Plans', description: 'Compare collections' },
       { href: '/next-gen-homes-sienna-ridge', label: 'Next Gen® Homes', description: 'Multi-generational Lennar plans' },
       { href: '/lennar-buyer-agent-las-vegas', label: 'Lennar Buyer Agent Guide', description: 'Why you need representation' },
       ...relatedZipLinks.slice(1, 4),
@@ -154,7 +177,7 @@ export const DESERT_BREEZE_PARK_PAGE: SeoPageConfig = {
     ],
     faqs: [
       { question: 'What zip code is Desert Breeze Park in?', answer: 'Desert Breeze Park is located at 8275 Spring Mountain Rd, Las Vegas NV 89117, in the Spring Valley area of Southwest Las Vegas.' },
-      { question: 'Are there new homes near Desert Breeze Park?', answer: 'Yes — Sienna Ridge by Lennar in 89147 offers new construction a short drive from Desert Breeze, with floor plans from $564,890.' },
+      { question: 'Are there new homes near Desert Breeze Park?', answer: 'Yes — Sienna Ridge by Lennar in 89147 offers new construction a short drive from Desert Breeze, with floor plans from $581,990.' },
       { question: 'Is 89117 good for families?', answer: '89117 is popular with families for park access, CCSD schools, and established neighborhoods with space and value.' },
       { question: 'How far is Desert Breeze from Sienna Ridge?', answer: 'Sienna Ridge at Caldera Hills is roughly 10–15 minutes from Desert Breeze Park via surface streets and I-215.' },
     ],
@@ -271,19 +294,22 @@ export const NEXT_GEN_PAGE: SeoPageConfig = {
     badges: ['Next Gen®', 'Multi-Generational', '89147'],
     title: 'Next Gen® Homes at Sienna Ridge',
     leadAnswer:
-      'Lennar\'s Next Gen® suite at Sienna Ridge provides a private living space within the same home — ideal for aging parents, adult children, or home-office guests. Plans like Bellevue and Mitchell Next Gen® are available in the 89147 community with pricing from the community base range.',
+      'Lennar\'s Next Gen® suite at Sienna Ridge is featured in the Bellevue Next Gen® plan — 2,640 sq ft with a private suite for multi-generational living in Las Vegas 89147, starting from $662,990. Ideal for aging parents, adult children, or home-office guests.',
     features: [
+      { title: 'Bellevue Next Gen® Plan', description: '2,640 sq ft with 4 beds, 3 baths, and a private suite at Sienna Ridge — Lennar\'s top Next Gen collection in 89147.' },
       { title: 'Private Suite', description: 'Separate entrance, bedroom, and living area within one home.' },
-      { title: 'Rental Potential', description: 'Some buyers use the suite for long-term rental income where permitted.' },
+      { title: 'Rental Potential', description: 'Some buyers use the suite for long-term rental income where permitted by HOA and city rules.' },
       { title: 'Family Flexibility', description: 'Keep loved ones close while maintaining privacy and independence.' },
     ],
     faqs: [
       { question: 'What is a Lennar Next Gen home?', answer: 'Next Gen is Lennar\'s multi-generational floor plan with a private suite including its own entrance and living space.' },
-      { question: 'Are Next Gen plans available at Sienna Ridge?', answer: 'Select Sienna Ridge elevations offer Next Gen configurations. Contact Dr. Jan Duffy for current availability and pricing.' },
+      { question: 'Which Next Gen plan is at Sienna Ridge?', answer: 'Bellevue Next Gen® is the active Next Gen collection at Sienna Ridge — 2,640 sq ft from $662,990 with 4 beds and 3 baths.' },
+      { question: 'Are Lennar Next Gen floor plans available in Las Vegas?', answer: 'Yes. Sienna Ridge in 89147 offers Bellevue Next Gen®. Dr. Jan Duffy can compare Next Gen with standard Kingsbury, Skyland, and Glenbrook plans.' },
     ],
     relatedLinks: [
+      { href: '/bellevue-nextgen-sienna-ridge', label: 'Bellevue Next Gen® Guide', description: 'Full plan details' },
       { href: '/sienna-ridge-lennar-las-vegas', label: 'Sienna Ridge Overview', description: 'Community guide' },
-      { href: '/sienna-ridge-floor-plans', label: 'Floor Plans', description: 'All model comparisons' },
+      { href: '/sienna-ridge-floor-plans', label: 'All Floor Plans', description: 'Compare collections' },
     ],
     ctaTitle: 'Explore Next Gen® at Sienna Ridge',
     ctaDescription: 'Book a consultation to tour Next Gen models and compare floor plans.',
@@ -303,23 +329,37 @@ export const SIENNA_RIDGE_FLOOR_PLANS_PAGE: SeoPageConfig = {
     badges: ['Floor Plans', 'Lennar', '89147'],
     title: 'Sienna Ridge Floor Plans',
     leadAnswer:
-      'Sienna Ridge by Lennar offers floor plans from 1,594 to 2,270+ sq ft including single-story, two-story, and executive layouts. Base prices range from $564,890 to $860,000+ depending on plan and lot.',
+      `Sienna Ridge by Lennar offers four floor plan collections in 89147 — Glenbrook (1,966 sq ft), Kingsbury (2,051 sq ft), Skyland (2,270 sq ft), and Bellevue Next Gen® (2,640 sq ft) — priced from ${siennaRidgeCommunityPriceRange()}.`,
     comparison: {
-      title: 'Featured Sienna Ridge Models',
-      headers: ['Model', 'Sq Ft', 'Beds/Baths', 'From'],
-      rows: FEATURED_LISTINGS.map((l) => ({
-        label: l.name,
-        values: [l.sqft.toLocaleString(), `${l.beds} / ${l.baths}`, `$${l.price.toLocaleString()}`],
+      title: 'Sienna Ridge Lennar Collections',
+      headers: ['Collection', 'Sq Ft', 'Beds/Baths', 'From'],
+      rows: SIENNA_RIDGE_COLLECTIONS.map((c) => ({
+        label: c.shortName,
+        values: [
+          c.sqft.toLocaleString(),
+          `${c.beds} / ${c.baths}${c.halfBaths ? `.${c.halfBaths}` : ''}`,
+          formatCollectionPrice(c.priceFrom),
+        ],
       })),
     },
-    itemList: FEATURED_LISTINGS.map((l) => ({ name: l.name, url: `/listings/${l.slug}`, description: l.description })),
+    itemList: SIENNA_RIDGE_COLLECTIONS.map((c) => ({
+      name: c.name,
+      url: c.path,
+      description: c.description,
+    })),
     faqs: [
-      { question: 'What is the smallest floor plan at Sienna Ridge?', answer: 'The 1594 plan is the entry-level single-story model starting around $564,890 with 3 beds and 2.5 baths.' },
-      { question: 'What is the largest Sienna Ridge model?', answer: 'The 2270 executive plan offers up to 5 bedrooms and 3.5 baths, priced toward the top of the community range.' },
+      { question: 'What is the smallest floor plan at Sienna Ridge?', answer: 'Glenbrook is the entry plan at 1,966 sq ft with 3 beds and 2.5 baths, starting from $588,990.' },
+      { question: 'What is the largest Sienna Ridge plan?', answer: 'Bellevue Next Gen® is the largest at 2,640 sq ft with a private suite, starting from $662,990.' },
+      { question: 'What Lennar collections are at Sienna Ridge?', answer: 'Kingsbury, Skyland, Glenbrook, and Bellevue Next Gen® are the four active collections at the 89147 sales center.' },
     ],
     relatedLinks: [
+      ...SIENNA_RIDGE_COLLECTIONS.map((c) => ({
+        href: c.path,
+        label: c.shortName,
+        description: `${c.sqft.toLocaleString()} sq ft`,
+      })),
       { href: '/sienna-ridge-lennar-las-vegas', label: 'Community Guide', description: 'Location and amenities' },
-      { href: '/listings', label: 'All Listings', description: 'Browse models' },
+      { href: '/listings', label: 'Featured Models', description: 'Browse model pages' },
     ],
     ctaTitle: 'Tour Sienna Ridge Models',
     ctaDescription: 'Schedule a consultation before your model home visit.',
@@ -498,6 +538,7 @@ export const SPRING_VALLEY_VS_SUMMERLIN_PAGE: SeoPageConfig = {
 /** All SEO expansion pages for sitemap registration */
 export const SEO_EXPANSION_PAGES: SeoPageConfig[] = [
   SIENNA_RIDGE_LENNAR_PAGE,
+  ...SIENNA_RIDGE_KEYWORD_PAGES,
   DESERT_BREEZE_PARK_PAGE,
   ZIP_COMPARISON_PAGE,
   LENNAR_BUYER_AGENT_PAGE,

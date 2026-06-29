@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Home, MapPin, User, FileText, Search, Phone, Mail } from 'lucide-react'
 import { NAP, REALSCOUT_SEARCH_URL, formatFullAddress } from '@/lib/site-config'
 import { SEO_GUIDE_PAGES } from '@/lib/seo-guide-pages'
+import { SIENNA_RIDGE_COLLECTIONS } from '@/lib/sienna-ridge-collections'
 
 export const metadata: Metadata = {
   title: 'Sitemap | Southwest Las Vegas Real Estate | Dr. Jan Duffy',
@@ -61,6 +62,45 @@ export default function SitemapPage() {
       description: '215 corridor and newer Southwest Las Vegas builds',
       url: '/neighborhoods/89148',
       icon: MapPin,
+    },
+  ]
+
+  const siennaRidgePages = [
+    {
+      title: 'Sienna Ridge by Lennar',
+      description: 'Master community guide for Lennar new construction in 89147',
+      url: '/sienna-ridge-lennar-las-vegas',
+      icon: Home,
+    },
+    {
+      title: 'Sienna Ridge Floor Plans',
+      description: 'Compare Kingsbury, Skyland, Glenbrook, and Bellevue Next Gen®',
+      url: '/sienna-ridge-floor-plans',
+      icon: Home,
+    },
+    {
+      title: 'Next Gen® Homes',
+      description: 'Multi-generational Lennar plans at Sienna Ridge',
+      url: '/next-gen-homes-sienna-ridge',
+      icon: Home,
+    },
+    {
+      title: 'Lennar Buyer Agent Guide',
+      description: 'Why you need buyer representation at new construction',
+      url: '/lennar-buyer-agent-las-vegas',
+      icon: FileText,
+    },
+    ...SIENNA_RIDGE_COLLECTIONS.map((collection) => ({
+      title: collection.name,
+      description: `${collection.sqft.toLocaleString()} sq ft from $${(collection.priceFrom / 1000).toFixed(0)}K`,
+      url: collection.path,
+      icon: Home,
+    })),
+    {
+      title: 'Siena Homes for Sale (Las Vegas)',
+      description: 'Common misspelling guide for Sienna Ridge',
+      url: '/siena-homes-for-sale-las-vegas',
+      icon: Home,
     },
   ]
 
@@ -177,6 +217,34 @@ export default function SitemapPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {guidePages.map((page) => (
+                <Card key={page.url} className="hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-base">
+                      <page.icon className="h-5 w-5 text-blue-600 shrink-0" />
+                      {page.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 mb-4 text-sm">{page.description}</p>
+                    <Link href={page.url}>
+                      <Button variant="outline" className="w-full">
+                        Visit Page
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Sienna Ridge / Lennar */}
+          <div className="mb-12">
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <Home className="h-6 w-6 text-blue-600" />
+              Sienna Ridge & Lennar Collections
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {siennaRidgePages.map((page) => (
                 <Card key={page.url} className="hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 text-base">
