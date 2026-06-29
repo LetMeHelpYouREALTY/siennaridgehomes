@@ -32,7 +32,15 @@ export default function PageHero({
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-blue-950/85 to-blue-800/80" />
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_30%_20%,white,transparent_40%)]" />
       <div className="absolute inset-0">
-        <Image src={imageSrc} alt={imageAlt} fill className="object-cover" priority />
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+          fetchPriority="high"
+        />
       </div>
       <div
         className={cn(

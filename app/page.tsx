@@ -18,10 +18,7 @@ import SiteCtaBand from '@/components/site-cta-band'
 import SeoFaqSection from '@/components/seo-faq-section'
 import HomepageSubnav from '@/components/homepage-subnav'
 import SeoGuidesHub from '@/components/seo-guides-hub'
-import RealScoutSearchTabs from '@/components/realscout-search-tabs'
-import {
-  RealScoutOfficeListings,
-} from '@/components/realscout-widgets'
+import HomepageRealScoutSection from '@/components/homepage-realscout-section'
 import { buildFaqPageSchema, HOMEPAGE_FAQS } from '@/lib/structured-data'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
 import { formatCommunityPriceRange } from '@/lib/sienna-ridge-community'
@@ -112,13 +109,7 @@ export default function HomePage() {
               description="Search live MLS listings, run advanced filters, or get an instant home valuation — all in one place."
             />
 
-            <RealScoutSearchTabs />
-
-            <div className="mt-12 mb-12">
-              <RealScoutOfficeListings
-                description="Current listings in Spring Valley & Southwest Las Vegas (89117, 89147, 89148) — $400K to $600K range"
-              />
-            </div>
+            <HomepageRealScoutSection />
 
             <div className="max-w-3xl mx-auto">
               <LeadForm />

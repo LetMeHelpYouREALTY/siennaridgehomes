@@ -1,9 +1,11 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
 import type { ComponentProps } from 'react'
 import { Calendar } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { CALENDLY_URL } from '@/lib/calendly-config'
+import { ensureCalendlyReady } from '@/lib/load-calendly-assets'
 
 type CalendlyPopupButtonProps = Omit<ComponentProps<typeof Button>, 'onClick'> & {
   label?: string
@@ -16,12 +18,32 @@ export default function CalendlyPopupButton({
   children,
   ...buttonProps
 }: CalendlyPopupButtonProps) {
-  const openCalendly = () => {
+  const prefetchStarted = useRef(false)
+
+  const prefetchCalendly = () => {
+    if (prefetchStarted.current) {
+      return
+    }
+
+    prefetchStarted.current = true
+    void ensureCalendlyReady()
+  }
+
+  const openCalendly = async () => {
+    await ensureCalendlyReady()
     window.Calendly?.initPopupWidget({ url: CALENDLY_URL })
   }
 
   return (
-    <Button type="button" onClick={openCalendly} {...buttonProps}>
+    <Button
+      type="button"
+      onClick={() => {
+        void openCalendly()
+      }}
+      onMouseEnter={prefetchCalendly}
+      onFocus={prefetchCalendly}
+      {...buttonProps}
+    >
       {showIcon ? <Calendar className="h-4 w-4 mr-2" /> : null}
       {children ?? label}
     </Button>

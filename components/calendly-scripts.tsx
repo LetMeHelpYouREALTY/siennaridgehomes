@@ -1,14 +1,13 @@
-import Script from 'next/script'
+'use client'
 
-const CALENDLY_WIDGET_JS = 'https://assets.calendly.com/assets/external/widget.js'
-const CALENDLY_WIDGET_CSS = 'https://assets.calendly.com/assets/external/widget.css'
+import { useEffect } from 'react'
+import { prefetchCalendlyOnIdle } from '@/lib/load-calendly-assets'
 
-/** Load Calendly assets once site-wide — shared by inline, badge, and popup widgets. */
+/** Prefetch Calendly assets after idle — no render-blocking CSS in document head. */
 export default function CalendlyScripts() {
-  return (
-    <>
-      <link href={CALENDLY_WIDGET_CSS} rel="stylesheet" />
-      <Script id="calendly-widget" src={CALENDLY_WIDGET_JS} strategy="lazyOnload" />
-    </>
-  )
+  useEffect(() => {
+    prefetchCalendlyOnIdle()
+  }, [])
+
+  return null
 }

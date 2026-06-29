@@ -1,25 +1,24 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { ensureCalendlyReady } from '@/lib/load-calendly-assets'
 
-/** Resolves true once Calendly's widget.js has loaded. */
+/** Resolves true once Calendly assets have loaded. */
 export function useCalendlyReady() {
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
-    if (window.Calendly) {
-      setReady(true)
-      return
-    }
+    let cancelled = false
 
-    const interval = window.setInterval(() => {
-      if (window.Calendly) {
+    void ensureCalendlyReady().then(() => {
+      if (!cancelled) {
         setReady(true)
-        window.clearInterval(interval)
       }
-    }, 100)
+    })
 
-    return () => window.clearInterval(interval)
+    return () => {
+      cancelled = true
+    }
   }, [])
 
   return ready

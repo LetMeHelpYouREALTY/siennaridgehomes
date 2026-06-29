@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import { CALENDLY_INLINE_DEFAULTS, CALENDLY_URL } from '@/lib/calendly-config'
-import { useCalendlyReady } from '@/hooks/use-calendly-ready'
+import { ensureCalendlyReady } from '@/lib/load-calendly-assets'
 
 type CalendlyInlineWidgetProps = {
   height?: number
@@ -16,18 +16,30 @@ export default function CalendlyInlineWidget({
   className,
 }: CalendlyInlineWidgetProps) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const ready = useCalendlyReady()
 
   useEffect(() => {
-    if (!ready || !containerRef.current || containerRef.current.childElementCount > 0) {
+    const container = containerRef.current
+    if (!container || container.childElementCount > 0) {
       return
     }
 
-    window.Calendly?.initInlineWidget({
-      url: CALENDLY_URL,
-      parentElement: containerRef.current,
+    let cancelled = false
+
+    void ensureCalendlyReady().then(() => {
+      if (cancelled || !containerRef.current || containerRef.current.childElementCount > 0) {
+        return
+      }
+
+      window.Calendly?.initInlineWidget({
+        url: CALENDLY_URL,
+        parentElement: containerRef.current,
+      })
     })
-  }, [ready])
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   return (
     <div

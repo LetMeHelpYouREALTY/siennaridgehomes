@@ -10,6 +10,6 @@ export const inter = Inter({
 export const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
   display: 'swap',
-  preload: true,
+  preload: false,
   variable: '--font-display',
 })
