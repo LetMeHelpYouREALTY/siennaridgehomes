@@ -15,9 +15,9 @@ import PageHero from '@/components/page-hero'
 import SectionHeading from '@/components/section-heading'
 import SiteCtaBand from '@/components/site-cta-band'
 import SeoFaqSection from '@/components/seo-faq-section'
+import HomepageSubnav from '@/components/homepage-subnav'
+import RealScoutSearchTabs from '@/components/realscout-search-tabs'
 import {
-  RealScoutSearchPair,
-  RealScoutHomeValueCard,
   RealScoutOfficeListings,
 } from '@/components/realscout-widgets'
 import { buildFaqPageSchema, HOMEPAGE_FAQS } from '@/lib/structured-data'
@@ -98,63 +98,27 @@ export default function HomePage() {
         </div>
       </PageHero>
 
+      <HomepageSubnav />
+
       {/* Search & Valuation */}
-      <section className="section-padding section-default">
+      <section id="search" className="section-padding section-default scroll-mt-section">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <SectionHeading
               eyebrow="MLS Search"
               title="Find Your Dream Home Today"
-              description="Search live MLS listings and get instant property valuations with Dr. Jan Duffy's expertise in Southwest Las Vegas."
+              description="Search live MLS listings, run advanced filters, or get an instant home valuation — all in one place."
             />
 
-            <RealScoutSearchPair />
+            <RealScoutSearchTabs />
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mt-12 mb-12">
-              <div>
-                <h3 className="text-2xl font-bold mb-6 tracking-tight">Why Get a Home Valuation?</h3>
-                <div className="space-y-5">
-                  {[
-                    {
-                      icon: DollarSign,
-                      title: 'Accurate Market Value',
-                      text: 'Get instant, data-driven property valuations',
-                    },
-                    {
-                      icon: TrendingUp,
-                      title: 'Market Trends',
-                      text: 'Understand current market conditions and trends',
-                    },
-                    {
-                      icon: MapPin,
-                      title: 'Local Expertise',
-                      text: 'Spring Valley & Southwest Las Vegas area-specific valuations',
-                    },
-                  ].map(({ icon: Icon, title, text }) => (
-                    <div key={title} className="flex items-start gap-3">
-                      <div className="rounded-lg bg-blue-50 p-2 shrink-0">
-                        <Icon className="h-5 w-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-slate-900">{title}</h4>
-                        <p className="text-slate-600">{text}</p>
-                      </div>
-                    </div>
-                  ))}
-                  <div className="rounded-lg bg-slate-50 border border-slate-200 p-3 text-sm">
-                    <p className="font-medium text-slate-800">Coverage Areas</p>
-                    <p className="text-slate-500">89117, 89147, 89148</p>
-                  </div>
-                </div>
-              </div>
-              <RealScoutHomeValueCard />
+            <div className="mt-12 mb-12">
+              <RealScoutOfficeListings
+                description="Current listings in Spring Valley & Southwest Las Vegas (89117, 89147, 89148) — $400K to $600K range"
+              />
             </div>
 
-            <RealScoutOfficeListings
-              description="Current listings in Spring Valley & Southwest Las Vegas (89117, 89147, 89148) — $400K to $600K range"
-            />
-
-            <div className="max-w-3xl mx-auto mt-12">
+            <div className="max-w-3xl mx-auto">
               <LeadForm />
             </div>
           </div>
@@ -162,7 +126,7 @@ export default function HomePage() {
       </section>
 
       {/* Trust */}
-      <section className="section-padding section-muted">
+      <section id="agent" className="section-padding section-muted scroll-mt-section">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="mb-12 grid grid-cols-1 items-center gap-10 lg:grid-cols-[280px_1fr]">
@@ -230,7 +194,7 @@ export default function HomePage() {
       </section>
 
       {/* Market Overview */}
-      <section className="section-padding section-default">
+      <section id="market" className="section-padding section-default scroll-mt-section">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <SectionHeading
@@ -344,7 +308,7 @@ export default function HomePage() {
       </section>
 
       {/* Sienna Ridge */}
-      <section className="section-padding section-muted">
+      <section id="sienna-ridge" className="section-padding section-muted scroll-mt-section">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <SectionHeading
@@ -357,7 +321,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Models */}
-      <section className="section-padding section-default">
+      <section id="models" className="section-padding section-default scroll-mt-section">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <SectionHeading
@@ -380,12 +344,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ClientReviewsSection limit={3} />
+      <div id="reviews" className="scroll-mt-section">
+        <ClientReviewsSection limit={3} />
+      </div>
 
-      <SeoFaqSection
-        title="Frequently Asked Questions About Spring Valley Real Estate"
-        faqs={HOMEPAGE_FAQS}
-      />
+      <div id="faq" className="scroll-mt-section">
+        <SeoFaqSection
+          title="Frequently Asked Questions About Spring Valley Real Estate"
+          faqs={HOMEPAGE_FAQS}
+        />
+      </div>
 
       <SiteCtaBand />
     </div>

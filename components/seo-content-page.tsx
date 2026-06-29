@@ -136,7 +136,7 @@ export default function SeoContentPage({
                 </Badge>
               ))}
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-balance">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-balance">
               {title}
             </h1>
             {subtitle ? <p className="text-xl text-blue-100 mb-6">{subtitle}</p> : null}

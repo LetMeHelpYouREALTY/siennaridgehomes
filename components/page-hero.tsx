@@ -6,6 +6,7 @@ type PageHeroProps = {
   title: string
   subtitle?: string
   description?: string
+  kicker?: string
   imageSrc?: string
   imageAlt: string
   badges?: ReactNode
@@ -18,6 +19,7 @@ export default function PageHero({
   title,
   subtitle,
   description,
+  kicker,
   imageSrc = '/images/hero-homepage.jpg',
   imageAlt,
   badges,
@@ -39,10 +41,13 @@ export default function PageHero({
         )}
       >
         <div className="max-w-4xl mx-auto text-center text-white">
+          {kicker ? (
+            <p className="font-display text-5xl md:text-7xl font-bold text-white/90 mb-2">{kicker}</p>
+          ) : null}
           {badges ? <div className="flex flex-wrap justify-center gap-2 mb-6">{badges}</div> : null}
           <h1
             className={cn(
-              'font-bold mb-6 tracking-tight text-balance',
+              'font-display font-bold mb-6 tracking-tight text-balance',
               size === 'compact' ? 'text-3xl md:text-4xl' : 'text-4xl md:text-5xl lg:text-6xl',
             )}
           >

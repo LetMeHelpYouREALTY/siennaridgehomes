@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { ThemeProvider } from 'next-themes'
 import JsonLd from '@/components/json-ld'
 import ThirdPartyScripts from '@/components/third-party-scripts'
 import CalendlyScripts from '@/components/calendly-scripts'
@@ -9,13 +7,8 @@ import RealScoutScript from '@/components/realscout-script'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import { buildGlobalStructuredDataGraph } from '@/lib/structured-data'
+import { inter, playfairDisplay } from '@/lib/fonts'
 import './globals.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.siennaridgehomes.com'),
@@ -95,24 +88,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <JsonLd id="global-structured-data" data={buildGlobalStructuredDataGraph()} />
       </head>
-      <body className={`${inter.className} antialiased`}>
-        <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-              storageKey="theme"
-            >
-              <Header />
-              <main id="main-content">
-                {children}
-              </main>
-              <Footer />
-            </ThemeProvider>
+      <body className={`${inter.variable} ${playfairDisplay.variable} font-sans antialiased`}>
+        <Header />
+        <main id="main-content">
+          {children}
+        </main>
+        <Footer />
         <ThirdPartyScripts />
         <CalendlyScripts />
         <CalendlyBadgeWidget />
