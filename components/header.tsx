@@ -4,7 +4,8 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
-import { Menu, X, Phone, Search, Home } from 'lucide-react'
+import AgentHeadshot from '@/components/agent-headshot'
+import { Menu, X, Phone, Search } from 'lucide-react'
 import { NAP, REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 
 export default function Header() {
@@ -16,11 +17,11 @@ export default function Header() {
     <header className="bg-white shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          <Link href="/" className="flex items-center space-x-2">
-            <Home className="h-8 w-8 text-blue-600" />
+          <Link href="/" className="flex items-center space-x-3">
+            <AgentHeadshot size="sm" />
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold text-gray-900">Sienna Ridge Homes</h1>
-              <p className="text-sm text-gray-600">Dr. Jan Duffy</p>
+              <p className="text-sm text-gray-600">Dr. Jan Duffy, Realtor</p>
             </div>
           </Link>
 

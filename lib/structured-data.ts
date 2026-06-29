@@ -1,4 +1,4 @@
-import { AGENT_ENCODED_ID, NAP, OFFICE_GEO, SITE_URL } from '@/lib/site-config'
+import { AGENT_ENCODED_ID, agentHeadshotUrl, NAP, OFFICE_GEO, SITE_URL } from '@/lib/site-config'
 import type { ClientReview } from '@/lib/reviews-data'
 import type { FeaturedListing } from '@/lib/listings-data'
 import { listingUrl } from '@/lib/listings-data'
@@ -93,8 +93,8 @@ function organizationSchema() {
     name: NAP.businessName,
     legalName: NAP.businessName,
     url: SITE_URL,
-    logo: `${SITE_URL}/images/professional-photo.jpg`,
-    image: `${SITE_URL}/images/professional-photo.jpg`,
+    logo: agentHeadshotUrl(),
+    image: agentHeadshotUrl(),
     telephone: NAP.phoneTel,
     email: NAP.email,
     address: postalAddress,
@@ -112,7 +112,7 @@ function realEstateAgentSchema() {
     url: SITE_URL,
     telephone: NAP.phoneTel,
     email: NAP.email,
-    image: `${SITE_URL}/images/professional-photo.jpg`,
+    image: agentHeadshotUrl(),
     address: postalAddress,
     geo: geoCoordinates,
     priceRange: '$$',
@@ -218,7 +218,7 @@ export function buildProfilePageSchema() {
       name: NAP.name,
       jobTitle: 'Real Estate Agent',
       url: `${SITE_URL}/about`,
-      image: `${SITE_URL}/images/professional-photo.jpg`,
+      image: agentHeadshotUrl(),
       telephone: NAP.phoneTel,
       email: NAP.email,
       worksFor: { '@id': STRUCTURED_DATA_IDS.organization },

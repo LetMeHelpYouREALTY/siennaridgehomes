@@ -9,6 +9,7 @@ import { Home, MapPin, Bed, Bath, Square, DollarSign, Filter, Search, TrendingUp
 import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import ClientReviewsSection from '@/components/client-reviews-section'
 import FeaturedListingCard from '@/components/featured-listing-card'
+import AgentHeadshot from '@/components/agent-headshot'
 import SiennaRidgeOverview from '@/components/sienna-ridge-overview'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
@@ -311,10 +312,10 @@ export default function ListingsPage() {
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-center mb-6">Featured Property</h3>
               <Card className="overflow-hidden hover:shadow-lg transition-shadow max-w-2xl mx-auto">
-                <div className="bg-gradient-to-r from-blue-600 to-blue-800 h-48 flex items-center justify-center">
+                <div className="bg-gradient-to-r from-blue-600 to-blue-800 h-48 flex items-center justify-center px-6">
                   <div className="text-center text-white">
-                    <Home className="h-16 w-16 mx-auto mb-4" />
-                    <p className="text-lg font-semibold">Dr. Jan Duffy's Office</p>
+                    <AgentHeadshot size="sm" className="mx-auto mb-4 ring-amber-300" />
+                    <p className="text-lg font-semibold">Dr. Jan Duffy&apos;s Office</p>
                     <p className="text-sm">{NAP.streetAddress}</p>
                     <p className="text-xs">{formatCityStateZip()}</p>
                   </div>

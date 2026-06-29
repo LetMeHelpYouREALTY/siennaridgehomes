@@ -1,4 +1,4 @@
-import { SITE_URL } from '@/lib/site-config'
+import { AGENT_HEADSHOT_PATH, SITE_URL } from '@/lib/site-config'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
 import { SEO_EXPANSION_PAGES } from '@/lib/seo-pages-data'
 
@@ -11,8 +11,8 @@ export type SitemapPage = {
 
 /** Stable lastmod dates — update only when page content meaningfully changes. */
 export const SITEMAP_PAGES: SitemapPage[] = [
-  { path: '', lastModified: '2026-06-16', changeFrequency: 'weekly', priority: 1 },
-  { path: '/about', lastModified: '2026-01-15', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '', lastModified: '2026-06-17', changeFrequency: 'weekly', priority: 1 },
+  { path: '/about', lastModified: '2026-06-17', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/listings', lastModified: '2026-06-16', changeFrequency: 'daily', priority: 0.9 },
   ...FEATURED_LISTINGS.map((listing) => ({
     path: `/listings/${listing.slug}`,
@@ -93,7 +93,7 @@ export const SITEMAP_IMAGES: SitemapImage[] = [
   },
   {
     pagePath: '/about',
-    loc: `${SITE_URL}/images/professional-photo.jpg`,
+    loc: `${SITE_URL}${AGENT_HEADSHOT_PATH}`,
     caption: 'Dr. Jan Duffy - Professional Real Estate Agent',
     title: 'Professional Headshot - Dr. Jan Duffy Real Estate',
   },

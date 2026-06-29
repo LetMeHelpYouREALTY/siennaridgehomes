@@ -9,11 +9,12 @@ import CalendlyPopupButton from '@/components/calendly-popup-button'
 import JsonLd from '@/components/json-ld'
 import ClientReviewsSection from '@/components/client-reviews-section'
 import FeaturedListingCard from '@/components/featured-listing-card'
+import AgentHeadshot from '@/components/agent-headshot'
 import SiennaRidgeOverview from '@/components/sienna-ridge-overview'
 import { buildFaqPageSchema, HOMEPAGE_FAQS } from '@/lib/structured-data'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
 import { formatCommunityPriceRange } from '@/lib/sienna-ridge-community'
-import { REALSCOUT_SEARCH_URL } from '@/lib/site-config'
+import { NAP, REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 import { 
   Home, 
   MapPin, 
@@ -303,11 +304,17 @@ export default function HomePage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Why Choose Dr. Jan Duffy for Southwest Las Vegas?</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                With years of experience in Las Vegas real estate, Dr. Jan Duffy has helped over 100 families find their dream homes in Spring Valley, Southwest Las Vegas (89117, 89147, 89148), and surrounding areas.
-              </p>
+            <div className="mb-12 grid grid-cols-1 items-center gap-10 lg:grid-cols-[280px_1fr]">
+              <AgentHeadshot size="md" className="mx-auto lg:mx-0" />
+              <div className="text-center lg:text-left">
+                <h2 className="text-3xl font-bold mb-4">Why Choose Dr. Jan Duffy for Southwest Las Vegas?</h2>
+                <p className="text-xl text-gray-600">
+                  With years of experience in Las Vegas real estate, Dr. Jan Duffy has helped over 100 families find their dream homes in Spring Valley, Southwest Las Vegas (89117, 89147, 89148), and surrounding areas.
+                </p>
+                <p className="mt-4 text-sm text-gray-500">
+                  {NAP.name} · License {NAP.license} · {NAP.brokerage}
+                </p>
+              </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center mb-12">
               <div>

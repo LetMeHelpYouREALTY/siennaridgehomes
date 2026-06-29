@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { Phone, Mail, MapPin, Home, User, Search } from 'lucide-react'
+import { Phone, Mail, MapPin, Search } from 'lucide-react'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
+import AgentHeadshot from '@/components/agent-headshot'
 import { NAP, OFFICE_MAPS_URL, REALSCOUT_SEARCH_URL, formatCityStateZip } from '@/lib/site-config'
 
 export default function Footer() {
@@ -10,12 +11,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <Home className="h-6 w-6 text-blue-400" />
-              <h3 className="text-lg font-semibold">Sienna Ridge Homes</h3>
+            <div className="flex items-center space-x-3 mb-4">
+              <AgentHeadshot size="sm" />
+              <div>
+                <h3 className="text-lg font-semibold">Sienna Ridge Homes</h3>
+                <p className="text-sm text-gray-400">{NAP.name}, Realtor</p>
+              </div>
             </div>
             <p className="text-gray-300 mb-4">
               Your premier Southwest Las Vegas real estate specialist. Expert guidance for families, investors, and first-time buyers.
+            </p>
+            <p className="text-sm text-gray-400 mb-4">
+              License {NAP.license} · {NAP.brokerage}
             </p>
             <div className="flex items-center space-x-2 text-gray-300">
               <MapPin className="h-4 w-4" />
@@ -49,7 +56,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/about" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  About Dr. Duffy
+                  About Dr. Jan Duffy
                 </Link>
               </li>
               <li>
@@ -209,7 +216,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Sienna Ridge Homes. All rights reserved. Dr. Jan Duffy - Licensed Real Estate Agent.
+              © 2026 Sienna Ridge Homes. All rights reserved. {NAP.name} — Licensed Real Estate Agent ({NAP.license}).
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="/privacy" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">

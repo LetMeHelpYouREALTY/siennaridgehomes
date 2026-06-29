@@ -10,6 +10,7 @@ import JsonLd from '@/components/json-ld'
 import SiennaRidgeOverview from '@/components/sienna-ridge-overview'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import { buildProfilePageSchema } from '@/lib/structured-data'
+import AgentHeadshot from '@/components/agent-headshot'
 import {
   communityPriceMaxString,
   communityPriceMinString,
@@ -105,14 +106,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                     {/* Professional photo */}
-                    <div className="rounded-lg h-96 relative shadow-lg overflow-hidden">
-                      <Image
-                        src="/images/professional-photo.jpg"
-                        alt="Dr. Jan Duffy - Professional Real Estate Agent"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
+                    <AgentHeadshot size="lg" className="mx-auto" priority />
               </div>
               <div className="space-y-6">
                 <h2 className="text-3xl font-bold text-gray-900">
