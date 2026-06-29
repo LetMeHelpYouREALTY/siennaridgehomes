@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import ZipCodeLanding from '@/components/zip-code-landing'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
+import { getSeoGuideByPath } from '@/lib/seo-guide-pages'
 import { SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -13,6 +14,8 @@ export const metadata: Metadata = {
 }
 
 export default function Homes89147Page() {
+  const guide = getSeoGuideByPath('/89147-homes-for-sale')
+
   return (
     <ZipCodeLanding
       zipCode="89147"
@@ -34,6 +37,8 @@ export default function Homes89147Page() {
       breadcrumbs={breadcrumbTrail({ name: '89147 Homes for Sale', path: '/89147-homes-for-sale' })}
       schemaName="89147 Homes for Sale | Southwest Las Vegas"
       schemaDescription="Search 89147 homes for sale in Southwest Las Vegas. Dr. Jan Duffy specializes in buyer representation for families and investors in zip code 89147."
+      leadAnswer={guide?.leadAnswer}
+      faqs={guide?.faqs}
     />
   )
 }

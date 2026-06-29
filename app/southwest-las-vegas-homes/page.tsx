@@ -5,7 +5,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import SeoCtaSection from '@/components/seo-cta-section'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import SeoPageJsonLd from '@/components/seo-page-json-ld'
+import SeoGuideAeoSection from '@/components/seo-guide-aeo-section'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
+import { getSeoGuideByPath } from '@/lib/seo-guide-pages'
 import { AGENT_ENCODED_ID, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
 
 export default function SouthwestLasVegasHomesPage() {
   const breadcrumbs = breadcrumbTrail({ name: 'Southwest Las Vegas Homes', path: '/southwest-las-vegas-homes' })
+  const guide = getSeoGuideByPath('/southwest-las-vegas-homes')
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -27,6 +30,7 @@ export default function SouthwestLasVegasHomesPage() {
         name="Southwest Las Vegas Homes for Sale | 89117 89147 89148"
         description="Find Southwest Las Vegas homes for sale in zip codes 89117, 89147, and 89148. Dr. Jan Duffy provides expert buyer guidance across Spring Valley and surrounding communities."
         breadcrumbs={breadcrumbs}
+        faqs={guide?.faqs}
       />
       <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-700/80" />
@@ -42,8 +46,9 @@ export default function SouthwestLasVegasHomesPage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Southwest Las Vegas Homes for Sale</h1>
-            <p className="text-xl text-blue-100">
-              Explore homes across Spring Valley and Southwest Las Vegas — zip codes 89117, 89147, and 89148
+            <p className="lead-answer aeo-answer text-xl text-blue-100">
+              {guide?.leadAnswer ??
+                'Explore homes across Spring Valley and Southwest Las Vegas — zip codes 89117, 89147, and 89148'}
             </p>
           </div>
         </div>
@@ -80,6 +85,8 @@ export default function SouthwestLasVegasHomesPage() {
           </div>
         </div>
       </section>
+
+      {guide ? <SeoGuideAeoSection leadAnswer={guide.leadAnswer} faqs={guide.faqs} /> : null}
 
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">

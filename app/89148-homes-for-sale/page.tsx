@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import ZipCodeLanding from '@/components/zip-code-landing'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
+import { getSeoGuideByPath } from '@/lib/seo-guide-pages'
 import { SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -13,6 +14,8 @@ export const metadata: Metadata = {
 }
 
 export default function Homes89148Page() {
+  const guide = getSeoGuideByPath('/89148-homes-for-sale')
+
   return (
     <ZipCodeLanding
       zipCode="89148"
@@ -34,6 +37,8 @@ export default function Homes89148Page() {
       breadcrumbs={breadcrumbTrail({ name: '89148 Homes for Sale', path: '/89148-homes-for-sale' })}
       schemaName="89148 Homes for Sale | Southwest Las Vegas New Homes"
       schemaDescription="Find 89148 homes for sale including newer Southwest Las Vegas developments. Dr. Jan Duffy helps buyers navigate new construction and resale options in 89148."
+      leadAnswer={guide?.leadAnswer}
+      faqs={guide?.faqs}
     />
   )
 }

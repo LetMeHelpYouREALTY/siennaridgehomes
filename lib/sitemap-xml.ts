@@ -22,12 +22,20 @@ function escapeXml(value: string) {
     .replaceAll("'", '&apos;')
 }
 
+function formatLastMod(date: string) {
+  if (date.includes('T')) {
+    return date
+  }
+
+  return `${date}T00:00:00+00:00`
+}
+
 export function buildUrlsetXml(pages: SitemapPage[]) {
   const urls = pages
     .map(
       (page) => `  <url>
     <loc>${escapeXml(pageUrl(page.path))}</loc>
-    <lastmod>${page.lastModified}</lastmod>
+    <lastmod>${formatLastMod(page.lastModified)}</lastmod>
   </url>`,
     )
     .join('\n')
@@ -48,7 +56,7 @@ export function buildSitemapIndexXml(entries: { loc: string; lastmod: string }[]
     .map(
       (entry) => `  <sitemap>
     <loc>${escapeXml(entry.loc)}</loc>
-    <lastmod>${entry.lastmod}</lastmod>
+    <lastmod>${formatLastMod(entry.lastmod)}</lastmod>
   </sitemap>`,
     )
     .join('\n')

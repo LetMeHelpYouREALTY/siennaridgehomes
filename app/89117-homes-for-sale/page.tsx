@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import ZipCodeLanding from '@/components/zip-code-landing'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
+import { getSeoGuideByPath } from '@/lib/seo-guide-pages'
 import { SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -13,6 +14,8 @@ export const metadata: Metadata = {
 }
 
 export default function Homes89117Page() {
+  const guide = getSeoGuideByPath('/89117-homes-for-sale')
+
   return (
     <ZipCodeLanding
       zipCode="89117"
@@ -34,6 +37,8 @@ export default function Homes89117Page() {
       breadcrumbs={breadcrumbTrail({ name: '89117 Homes for Sale', path: '/89117-homes-for-sale' })}
       schemaName="89117 Homes for Sale | Spring Valley Las Vegas"
       schemaDescription="Browse 89117 homes for sale in Spring Valley, Las Vegas. Dr. Jan Duffy helps buyers find established homes and newer developments in zip code 89117."
+      leadAnswer={guide?.leadAnswer}
+      faqs={guide?.faqs}
     />
   )
 }

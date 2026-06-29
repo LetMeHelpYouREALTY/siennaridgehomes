@@ -10,6 +10,10 @@ export async function GET() {
       lastmod: SITEMAP_CHILD_LASTMOD.pages,
     },
     {
+      loc: `${SITE_URL}/sitemap-guides.xml`,
+      lastmod: SITEMAP_CHILD_LASTMOD.guides,
+    },
+    {
       loc: `${SITE_URL}/sitemap-images.xml`,
       lastmod: SITEMAP_CHILD_LASTMOD.images,
     },
