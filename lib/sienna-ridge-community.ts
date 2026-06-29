@@ -5,7 +5,7 @@ export const SIENNA_RIDGE = {
   postalCode: '89147',
   location:
     'Near Desert Breeze Park and the I-215, offering easy commutes throughout Southwest Las Vegas.',
-  priceMin: 581_990,
+  priceMin: 588_990,
   priceMax: 662_990,
   features: [
     "Lennar's Next Gen® suite for multi-generational living",

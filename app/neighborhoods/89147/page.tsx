@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import ZipCodeLanding from '@/components/zip-code-landing'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
+import { getSeoGuideByPath } from '@/lib/seo-guide-pages'
 import { SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -13,19 +14,21 @@ export const metadata: Metadata = {
 }
 
 export default function Neighborhood89147Page() {
+  const guide = getSeoGuideByPath('/89147-homes-for-sale')
+
   return (
     <ZipCodeLanding
       zipCode="89147"
       areaName="Southwest Las Vegas"
       heroTitle="Southwest Las Vegas Real Estate — 89147"
-      heroDescription="Explore established Southwest Las Vegas neighborhoods with excellent schools, parks, and family-friendly communities."
+      heroDescription="Explore Sienna Ridge by Lennar new construction and established Southwest Las Vegas neighborhoods with excellent schools, parks, and family-friendly communities."
       overviewTitle="Why Choose 89147?"
       overviewDescription="Zip code 89147 includes Sienna Ridge by Lennar — new construction near Desert Breeze Park and I-215 — plus established neighborhoods near Caldera Hills with strong family demand."
-      priceRange="$350K to $860K+"
+      priceRange="$350K to $662K+"
       priceMin="350000"
-      priceMax="860000"
+      priceMax="662990"
       highlights={[
-        'Sienna Ridge by Lennar — Next Gen® suites, solar, and downstairs bedrooms',
+        'Sienna Ridge by Lennar — Kingsbury, Skyland, Glenbrook, Bellevue Next Gen®',
         'Near Desert Breeze Park and I-215 for easy commutes',
         'Established neighborhoods near Caldera Hills Avenue',
         'Popular with families seeking space, value, and new construction options',
@@ -37,6 +40,9 @@ export default function Neighborhood89147Page() {
       )}
       schemaName="89147 Real Estate | Southwest Las Vegas Homes"
       schemaDescription="89147 real estate in Southwest Las Vegas. Dr. Jan Duffy helps buyers find established homes near Caldera Hills with expert local knowledge and personalized service."
+      leadAnswer={guide?.leadAnswer}
+      faqs={guide?.faqs}
+      showCollectionsHub
     />
   )
 }

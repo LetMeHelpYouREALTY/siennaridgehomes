@@ -1,4 +1,7 @@
 import type { FaqItem } from '@/lib/structured-data'
+import { formatCollectionPrice } from '@/lib/sienna-ridge-collections'
+
+const siennaRidgeFromPrice = formatCollectionPrice(588_990)
 
 /** Priority SEO landing pages — keep in sync with sitemap-pages.ts */
 export type SeoGuidePage = {
@@ -51,7 +54,7 @@ export const SEO_GUIDE_PAGES: SeoGuidePage[] = [
       {
         question: 'How much do Southwest Las Vegas homes cost?',
         answer:
-          'Southwest Las Vegas home prices typically range from $350,000 for established resale to $860,000+ for new construction at Sienna Ridge by Lennar in 89147. Price varies by zip code, square footage, and lot size.',
+          `Southwest Las Vegas home prices typically range from $350,000 for established resale to ${siennaRidgeFromPrice}+ for new construction at Sienna Ridge by Lennar in 89147. Price varies by zip code, square footage, and lot size.`,
       },
       {
         question: 'How do I search Southwest Las Vegas MLS listings?',
@@ -91,12 +94,12 @@ export const SEO_GUIDE_PAGES: SeoGuidePage[] = [
     label: '89147 Homes for Sale',
     description: 'Sienna Ridge new construction and Southwest LV resale.',
     leadAnswer:
-      '89147 homes for sale include Sienna Ridge by Lennar new construction starting near $564,890 plus established Southwest Las Vegas resale. Dr. Jan Duffy represents buyers at the Sienna Ridge sales center and across 89147 MLS listings.',
+      `89147 homes for sale include Sienna Ridge by Lennar new construction starting near ${siennaRidgeFromPrice} plus established Southwest Las Vegas resale. Dr. Jan Duffy represents buyers at the Sienna Ridge sales center and across 89147 MLS listings.`,
     faqs: [
       {
         question: 'What new construction is available in 89147?',
         answer:
-          'Sienna Ridge by Lennar is the primary new construction community in 89147, with base prices from approximately $564,890 to $860,000+ depending on floor plan. Options include single-story, two-story, and executive models.',
+          `Sienna Ridge by Lennar is the primary new construction community in 89147, with base prices from approximately ${siennaRidgeFromPrice} to $662,990+ depending on floor plan. Collections include Kingsbury, Skyland, Glenbrook, and Bellevue Next Gen®.`,
       },
       {
         question: 'Where is Sienna Ridge located in 89147?',
@@ -151,7 +154,7 @@ export const SEO_GUIDE_PAGES: SeoGuidePage[] = [
       {
         question: 'Which Las Vegas zip code is best for first-time buyers?',
         answer:
-          '89117 offers established homes from $350K, 89147 includes Sienna Ridge new construction from $564K, and 89148 has newer builds along the 215 corridor. Dr. Jan Duffy helps first-time buyers match budget and lifestyle to the right zip code.',
+          `89117 offers established homes from $350K, 89147 includes Sienna Ridge new construction from ${siennaRidgeFromPrice}, and 89148 has newer builds along the 215 corridor. Dr. Jan Duffy helps first-time buyers match budget and lifestyle to the right zip code.`,
       },
       {
         question: 'Do first-time buyers need a real estate agent in Nevada?',
@@ -196,7 +199,7 @@ export const SEO_GUIDE_PAGES: SeoGuidePage[] = [
       {
         question: 'Is Spring Valley good for real estate investment?',
         answer:
-          'Spring Valley attracts investors due to strong rental demand from Las Vegas employment centers, diverse price points from $350K to $860K+, and appreciation potential across zip codes 89117, 89147, and 89148.',
+          'Spring Valley attracts investors due to strong rental demand from Las Vegas employment centers, diverse price points from $350K to $662K+, and appreciation potential across zip codes 89117, 89147, and 89148.',
       },
       {
         question: 'What cap rates can investors expect in Southwest Las Vegas?',

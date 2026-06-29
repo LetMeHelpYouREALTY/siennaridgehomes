@@ -1,34 +1,16 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { MapPin, Home, Users, Star, TrendingUp, Phone, Mail } from 'lucide-react'
-
-// Type declarations for RealScout web components
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'realscout-simple-search': {
-        'agent-encoded-id': string
-        style?: React.CSSProperties
-        className?: string
-      }
-      'realscout-office-listings': {
-        'agent-encoded-id': string
-        'sort-order'?: string
-        'listing-status'?: string
-        'property-types'?: string
-        'price-min'?: string
-        'price-max'?: string
-        style?: React.CSSProperties
-        className?: string
-      }
-    }
-  }
-}
-
-import { SITE_URL } from '@/lib/site-config'
+import BreadcrumbSchema from '@/components/breadcrumb-schema'
+import SeoPageJsonLd from '@/components/seo-page-json-ld'
+import SeoGuideAeoSection from '@/components/seo-guide-aeo-section'
+import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
+import { getSeoGuideByPath } from '@/lib/seo-guide-pages'
+import { NAP, SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
   title: 'Spring Valley Real Estate | 89117 Homes for Sale | Dr. Jan Duffy',
@@ -51,9 +33,22 @@ export const metadata: Metadata = {
 }
 
 export default function SpringValley89117Page() {
+  const breadcrumbs = breadcrumbTrail(
+    { name: 'Neighborhoods', path: '/neighborhoods' },
+    { name: '89117', path: '/neighborhoods/89117' },
+  )
+  const guide = getSeoGuideByPath('/89117-homes-for-sale')
+
   return (
     <div className="min-h-screen bg-gray-50">
-      
+      <BreadcrumbSchema items={breadcrumbs} />
+      <SeoPageJsonLd
+        path="/neighborhoods/89117"
+        name="Spring Valley Real Estate | 89117 Homes for Sale"
+        description="Discover Spring Valley homes for sale in zip code 89117. Dr. Jan Duffy specializes in Spring Valley real estate with expert local knowledge."
+        breadcrumbs={breadcrumbs}
+        faqs={guide?.faqs}
+      />
       {/* Hero Section */}
       <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-700/80"></div>
@@ -71,8 +66,9 @@ export default function SpringValley89117Page() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Spring Valley Real Estate - 89117
             </h1>
-            <p className="text-xl mb-8 text-blue-100">
-              Discover established homes and newer developments in Spring Valley's most desirable neighborhoods with Dr. Jan Duffy's expert guidance
+            <p className="lead-answer aeo-answer text-xl mb-8 text-blue-100">
+              {guide?.leadAnswer ??
+                'Discover established homes and newer developments in Spring Valley\'s most desirable 89117 neighborhoods with Dr. Jan Duffy\'s expert guidance.'}
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <Badge variant="secondary" className="bg-white text-blue-600 px-4 py-2">
@@ -269,6 +265,28 @@ export default function SpringValley89117Page() {
         </div>
       </section>
 
+      {guide ? <SeoGuideAeoSection leadAnswer={guide.leadAnswer} faqs={guide.faqs} /> : null}
+
+      <section className="py-12 bg-gray-50 border-t border-gray-200">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="text-2xl font-bold text-center mb-6">Related Spring Valley Guides</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            {[
+              { href: '/89117-homes-for-sale', label: '89117 Homes for Sale' },
+              { href: '/homes-near-desert-breeze-park', label: 'Homes Near Desert Breeze Park' },
+              { href: '/desert-breeze-park-spring-valley', label: 'Desert Breeze Park Guide' },
+              { href: '/spring-valley-schools', label: 'Spring Valley Schools' },
+              { href: '/89147-homes-for-sale', label: '89147 Homes (Sienna Ridge)' },
+              { href: '/89117-vs-89147-vs-89148', label: 'Compare Zip Codes' },
+            ].map(({ href, label }) => (
+              <Link key={href} href={href} className="rounded-lg border border-gray-200 bg-white px-4 py-3 hover:border-blue-300 hover:bg-blue-50/50 font-medium text-blue-700">
+                {label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action */}
       <section className="py-16 bg-blue-600 text-white">
         <div className="container mx-auto px-4">
@@ -278,13 +296,17 @@ export default function SpringValley89117Page() {
               Let Dr. Jan Duffy guide you through your home buying journey in Spring Valley (89117) with expert local knowledge and personalized service.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
-                <Phone className="h-4 w-4 mr-2" />
-                Call (702) 903-3336
+              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100" asChild>
+                <a href={`tel:${NAP.phoneTel}`}>
+                  <Phone className="h-4 w-4 mr-2" />
+                  Call {NAP.phone}
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
-                <Mail className="h-4 w-4 mr-2" />
-                Email DrJanSells@SiennaRidgeHomes.com
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
+                <a href={`mailto:${NAP.email}`}>
+                  <Mail className="h-4 w-4 mr-2" />
+                  Email {NAP.email}
+                </a>
               </Button>
             </div>
           </div>

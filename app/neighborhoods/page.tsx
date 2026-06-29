@@ -32,7 +32,7 @@ const neighborhoods = [
   {
     zip: '89147',
     name: 'Caldera Hills / Sienna Ridge',
-    price: '$350K–$860K+',
+    price: '$350K–$662K+',
     href: '/neighborhoods/89147',
     homesHref: '/89147-homes-for-sale',
     blurb: 'Sienna Ridge Lennar new construction plus established Southwest LV resale.',
@@ -142,7 +142,7 @@ export default function NeighborhoodsHubPage() {
             <CardContent className="p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
                 <h3 className="text-xl font-bold mb-2">Sienna Ridge by Lennar</h3>
-                <p className="text-slate-600">New construction in 89147 — Kingsbury, Skyland, Glenbrook, Bellevue Next Gen® from $581,990.</p>
+                <p className="text-slate-600">New construction in 89147 — Kingsbury, Skyland, Glenbrook, Bellevue Next Gen® from $588,990.</p>
               </div>
               <Link href="/sienna-ridge-lennar-las-vegas" className="inline-flex items-center font-semibold text-blue-600 hover:underline">
                 Community guide <ArrowRight className="h-4 w-4 ml-1" />

@@ -9,6 +9,7 @@ import ScheduleConsultationSection from '@/components/schedule-consultation-sect
 import CalendlyPopupButton from '@/components/calendly-popup-button'
 import SeoPageJsonLd from '@/components/seo-page-json-ld'
 import SeoGuideAeoSection from '@/components/seo-guide-aeo-section'
+import SiennaRidgeCollectionsHub from '@/components/sienna-ridge-collections-hub'
 import { AGENT_ENCODED_ID, REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 import type { BreadcrumbItem, FaqItem } from '@/lib/structured-data'
 
@@ -29,6 +30,7 @@ export type ZipCodeLandingProps = {
   schemaDescription: string
   leadAnswer?: string
   faqs?: FaqItem[]
+  showCollectionsHub?: boolean
 }
 
 export default function ZipCodeLanding({
@@ -48,6 +50,7 @@ export default function ZipCodeLanding({
   schemaDescription,
   leadAnswer,
   faqs = [],
+  showCollectionsHub = false,
 }: ZipCodeLandingProps) {
   return (
     <div className="min-h-screen bg-slate-50">
@@ -133,6 +136,14 @@ export default function ZipCodeLanding({
           </div>
         </div>
       </section>
+
+      {showCollectionsHub ? (
+        <section className="py-16 bg-white border-b border-slate-100">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <SiennaRidgeCollectionsHub />
+          </div>
+        </section>
+      ) : null}
 
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">

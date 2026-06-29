@@ -85,7 +85,7 @@ export const SIENNA_RIDGE_LENNAR_PAGE: SeoPageConfig = {
     faqs: [
       {
         question: 'How much do Sienna Ridge homes cost?',
-        answer: `Lennar lists Sienna Ridge from $581,990 to $662,990+ depending on collection — Kingsbury, Skyland, Glenbrook, and Bellevue Next Gen®. Contact Dr. Jan Duffy for current incentives.`,
+        answer: `Lennar lists Sienna Ridge from $588,990 to $662,990+ depending on collection — Kingsbury, Skyland, Glenbrook, and Bellevue Next Gen®. Contact Dr. Jan Duffy for current incentives.`,
       },
       {
         question: 'What floor plans are available at Sienna Ridge?',
@@ -177,13 +177,14 @@ export const DESERT_BREEZE_PARK_PAGE: SeoPageConfig = {
     ],
     faqs: [
       { question: 'What zip code is Desert Breeze Park in?', answer: 'Desert Breeze Park is located at 8275 Spring Mountain Rd, Las Vegas NV 89117, in the Spring Valley area of Southwest Las Vegas.' },
-      { question: 'Are there new homes near Desert Breeze Park?', answer: 'Yes — Sienna Ridge by Lennar in 89147 offers new construction a short drive from Desert Breeze, with floor plans from $581,990.' },
+      { question: 'Are there new homes near Desert Breeze Park?', answer: 'Yes — Sienna Ridge by Lennar in 89147 offers new construction a short drive from Desert Breeze, with floor plans from $588,990.' },
       { question: 'Is 89117 good for families?', answer: '89117 is popular with families for park access, CCSD schools, and established neighborhoods with space and value.' },
       { question: 'How far is Desert Breeze from Sienna Ridge?', answer: 'Sienna Ridge at Caldera Hills is roughly 10–15 minutes from Desert Breeze Park via surface streets and I-215.' },
     ],
     relatedLinks: [
       { href: '/desert-breeze-park-spring-valley', label: 'Desert Breeze Park Guide', description: 'Amenities and lifestyle' },
       { href: '/sienna-ridge-lennar-las-vegas', label: 'Sienna Ridge New Homes', description: 'Lennar 89147 community' },
+      { href: '/kingsbury-homes-sienna-ridge', label: 'Kingsbury Homes', description: 'Lennar collection' },
       { href: '/89117-homes-for-sale', label: '89117 Homes for Sale', description: 'Spring Valley listings' },
     ],
     ctaTitle: 'Find Homes Near Desert Breeze Park',
@@ -214,12 +215,12 @@ export const ZIP_COMPARISON_PAGE: SeoPageConfig = {
     title: '89117 vs 89147 vs 89148',
     subtitle: 'Which Southwest Las Vegas zip is right for you?',
     leadAnswer:
-      '89117 offers established Spring Valley neighborhoods near Desert Breeze Park ($350K–$550K). 89147 mixes resale with Sienna Ridge new construction ($350K–$860K+). 89148 features newer builds near the 215 corridor ($450K–$650K). The best zip depends on budget, commute, and new vs resale preference.',
+      '89117 offers established Spring Valley neighborhoods near Desert Breeze Park ($350K–$550K). 89147 mixes resale with Sienna Ridge new construction ($350K–$662K+). 89148 features newer builds near the 215 corridor ($450K–$650K). The best zip depends on budget, commute, and new vs resale preference.',
     comparison: {
       title: 'Spring Valley Zip Code Comparison',
       headers: ['Factor', '89117', '89147', '89148'],
       rows: [
-        { label: 'Typical Price Range', values: ['$350K–$550K', '$350K–$860K+', '$450K–$650K'] },
+        { label: 'Typical Price Range', values: ['$350K–$550K', '$350K–$662K+', '$450K–$650K'] },
         { label: 'Home Age', values: ['Established', 'Mixed + New', 'Newer builds'] },
         { label: 'Highlights', values: ['Desert Breeze Park', 'Sienna Ridge Lennar', '215 corridor'] },
         { label: 'Best For', values: ['Value & space', 'New construction', 'Modern amenities'] },
@@ -265,6 +266,8 @@ export const LENNAR_BUYER_AGENT_PAGE: SeoPageConfig = {
     ],
     relatedLinks: [
       { href: '/sienna-ridge-lennar-las-vegas', label: 'Sienna Ridge Community', description: 'Lennar 89147 new homes' },
+      { href: '/bellevue-nextgen-sienna-ridge', label: 'Bellevue Next Gen®', description: 'Multi-gen floor plan' },
+      { href: '/kingsbury-homes-sienna-ridge', label: 'Kingsbury', description: 'Single-family plan' },
       { href: '/first-time-home-buyer-las-vegas', label: 'First-Time Buyer Guide', description: 'Step-by-step process' },
     ],
     ctaTitle: 'Get Buyer Representation at Sienna Ridge',
@@ -392,6 +395,7 @@ export const SPRING_VALLEY_SCHOOLS_PAGE: SeoPageConfig = {
     relatedLinks: [
       { href: '/moving-to-spring-valley-las-vegas', label: 'Moving to Spring Valley', description: 'Relocation guide' },
       { href: '/89117-vs-89147-vs-89148', label: 'Zip Comparison', description: 'Compare all three zips' },
+      { href: '/sienna-ridge-lennar-las-vegas', label: 'Sienna Ridge New Homes', description: '89147 Lennar community' },
     ],
     ctaTitle: 'Find Family-Friendly Homes',
     ctaDescription: 'Dr. Jan Duffy helps families choose neighborhoods by school zone and lifestyle.',
@@ -413,7 +417,7 @@ export const MOVING_TO_SPRING_VALLEY_PAGE: SeoPageConfig = {
     leadAnswer:
       'Spring Valley is an unincorporated Clark County community in Southwest Las Vegas spanning zips 89117, 89147, and 89148. It offers established neighborhoods, new construction at Sienna Ridge, park access, and strong value compared to Summerlin — with convenient I-215 commutes.',
     faqs: [
-      { question: 'Is Spring Valley a good place to live?', answer: 'Yes — Spring Valley offers family-friendly parks, diverse housing from $350K to $860K+, and easy access to the Strip and airport.' },
+      { question: 'Is Spring Valley a good place to live?', answer: 'Yes — Spring Valley offers family-friendly parks, diverse housing from $350K to $662K+, and easy access to the Strip and airport.' },
       { question: 'What zip codes are in Spring Valley?', answer: 'Primary zips include 89117, 89147, and 89148, each with distinct price points and housing stock.' },
     ],
     relatedLinks: relatedZipLinks,
@@ -446,6 +450,7 @@ export const CALDERA_HILLS_PAGE: SeoPageConfig = {
       'Caldera Hills Avenue in 89147 is home to the Sienna Ridge by Lennar sales center and surrounding established neighborhoods. Buyers choose this corridor for I-215 access, new construction options, and Southwest Las Vegas value.',
     relatedLinks: [
       { href: '/sienna-ridge-lennar-las-vegas', label: 'Sienna Ridge', description: 'Lennar community' },
+      { href: '/kingsbury-homes-sienna-ridge', label: 'Kingsbury', description: 'Lennar collection' },
       { href: '/89147-homes-for-sale', label: '89147 Listings', description: 'MLS search' },
     ],
     faqs: [

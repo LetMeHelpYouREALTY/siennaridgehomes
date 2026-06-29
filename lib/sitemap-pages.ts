@@ -12,9 +12,9 @@ export type SitemapPage = {
 
 /** Stable lastmod dates — update only when page content meaningfully changes. */
 export const SITEMAP_LASTMOD = {
-  core: '2026-06-17',
+  core: '2026-06-29',
   guides: '2026-06-29',
-  expansion: '2026-06-16',
+  expansion: '2026-06-29',
   legal: '2026-01-01',
 } as const
 

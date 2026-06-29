@@ -9,6 +9,7 @@ import ScheduleConsultationSection from '@/components/schedule-consultation-sect
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { buildFaqPageSchema, buildWebPageSchema, HOMEPAGE_FAQS } from '@/lib/structured-data'
 import { ALL_FAQS, SEO_EXPANSION_PAGES } from '@/lib/seo-pages-data'
+import { SEO_GUIDE_PAGES } from '@/lib/seo-guide-pages'
 import { SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -21,6 +22,11 @@ export const metadata: Metadata = {
 const guideLinks = SEO_EXPANSION_PAGES.map((p) => ({
   href: p.path,
   label: p.metadata.title as string,
+}))
+
+const areaGuideLinks = SEO_GUIDE_PAGES.map((p) => ({
+  href: p.href,
+  label: p.label,
 }))
 
 export default function FaqHubPage() {
@@ -49,7 +55,20 @@ export default function FaqHubPage() {
 
       <section className="py-16 border-b border-slate-100">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-2xl font-bold mb-6">Buyer Guides</h2>
+          <h2 className="text-2xl font-bold mb-6">Area & Zip Code Guides</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-10">
+            {areaGuideLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="flex items-center justify-between rounded-lg border border-slate-200 px-4 py-3 text-sm hover:border-blue-300 hover:bg-blue-50/50 transition-colors"
+              >
+                <span className="font-medium text-slate-800">{link.label}</span>
+                <ArrowRight className="h-4 w-4 shrink-0 text-blue-600 ml-2" />
+              </Link>
+            ))}
+          </div>
+          <h2 className="text-2xl font-bold mb-6">Sienna Ridge & Community Guides</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {guideLinks.map((link) => (
               <Link

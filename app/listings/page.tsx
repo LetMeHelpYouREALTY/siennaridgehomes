@@ -11,6 +11,7 @@ import ClientReviewsSection from '@/components/client-reviews-section'
 import FeaturedListingCard from '@/components/featured-listing-card'
 import AgentHeadshot from '@/components/agent-headshot'
 import SiennaRidgeOverview from '@/components/sienna-ridge-overview'
+import SiennaRidgeCollectionsHub from '@/components/sienna-ridge-collections-hub'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
@@ -99,6 +100,9 @@ export default function ListingsPage() {
             </div>
 
             <SiennaRidgeOverview />
+            <div className="mt-12">
+              <SiennaRidgeCollectionsHub />
+            </div>
           </div>
         </div>
       </section>
@@ -145,10 +149,9 @@ export default function ListingsPage() {
                         <SelectValue placeholder="Any Price" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="565k-650k">$565K - $650K</SelectItem>
+                        <SelectItem value="589k-650k">$589K - $650K</SelectItem>
                         <SelectItem value="650k-750k">$650K - $750K</SelectItem>
-                        <SelectItem value="750k-860k">$750K - $860K</SelectItem>
-                        <SelectItem value="860k-plus">$860K+</SelectItem>
+                        <SelectItem value="750k-plus">$750K+</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>

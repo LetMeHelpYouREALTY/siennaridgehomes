@@ -19,6 +19,7 @@ export type FeaturedListing = {
   image: string
   imageAlt: string
   description: string
+  collectionPath?: string
   highlights: string[]
   lastModified: string
 }
@@ -27,6 +28,7 @@ export const FEATURED_LISTINGS: FeaturedListing[] = [
   {
     slug: '1594-sienna-ridge',
     name: 'Glenbrook at Sienna Ridge',
+    collectionPath: '/glenbrook-homes-sienna-ridge',
     streetAddress: '8370 Caldera Hls Ave',
     city: 'Las Vegas',
     state: 'NV',
@@ -49,11 +51,12 @@ export const FEATURED_LISTINGS: FeaturedListing[] = [
       'Energy-saving features including solar panels',
       'Minutes from Desert Breeze Park and I-215',
     ],
-    lastModified: '2026-06-16',
+    lastModified: '2026-06-29',
   },
   {
     slug: '1760-sienna-ridge',
     name: 'Skyland at Sienna Ridge',
+    collectionPath: '/skyland-sienna-ridge',
     streetAddress: '8370 Caldera Hls Ave',
     city: 'Las Vegas',
     state: 'NV',
@@ -76,11 +79,12 @@ export const FEATURED_LISTINGS: FeaturedListing[] = [
       "Lennar's Next Gen® suite options for multi-generational living",
       'Solar and energy-efficient features available',
     ],
-    lastModified: '2026-06-16',
+    lastModified: '2026-06-29',
   },
   {
     slug: '2270-sienna-ridge',
     name: 'Bellevue Next Gen® at Sienna Ridge',
+    collectionPath: '/bellevue-nextgen-sienna-ridge',
     streetAddress: '8370 Caldera Hls Ave',
     city: 'Las Vegas',
     state: 'NV',
@@ -103,7 +107,7 @@ export const FEATURED_LISTINGS: FeaturedListing[] = [
       '2,640 sq ft executive floor plan',
       'Energy-saving solar features on select homes',
     ],
-    lastModified: '2026-06-16',
+    lastModified: '2026-06-29',
   },
 ]
 

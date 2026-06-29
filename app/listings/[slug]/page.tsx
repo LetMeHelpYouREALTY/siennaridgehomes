@@ -129,6 +129,13 @@ export default async function ListingDetailPage({ params }: ListingPageProps) {
               </ul>
 
               <div className="flex flex-col sm:flex-row gap-3">
+                {listing.collectionPath ? (
+                  <Button variant="outline" asChild>
+                    <Link href={listing.collectionPath}>
+                      View {listing.name.split(' at ')[0]} Guide
+                    </Link>
+                  </Button>
+                ) : null}
                 <CalendlyPopupButton className="bg-blue-600 hover:bg-blue-700" label="Schedule a Tour" />
                 <Button className="bg-blue-600 hover:bg-blue-700" asChild>
                   <Link href={`tel:${NAP.phoneTel}`}>

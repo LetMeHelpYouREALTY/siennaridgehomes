@@ -24,9 +24,9 @@ export default function Homes89147Page() {
       heroDescription="Explore established Southwest Las Vegas neighborhoods with excellent schools, parks, and convenient access to daily amenities."
       overviewTitle="Why Buy in 89147?"
       overviewDescription="Zip code 89147 includes Sienna Ridge by Lennar near Desert Breeze Park and I-215, plus established Southwest Las Vegas neighborhoods with strong schools and steady demand."
-      priceRange="$350K to $860K+"
+      priceRange="$350K to $662K+"
       priceMin="350000"
-      priceMax="860000"
+      priceMax="662990"
       highlights={[
         'Sienna Ridge by Lennar — Next Gen® suites, solar, and downstairs bedrooms',
         'Near Desert Breeze Park and I-215 for easy commutes',
@@ -39,6 +39,7 @@ export default function Homes89147Page() {
       schemaDescription="Search 89147 homes for sale in Southwest Las Vegas. Dr. Jan Duffy specializes in buyer representation for families and investors in zip code 89147."
       leadAnswer={guide?.leadAnswer}
       faqs={guide?.faqs}
+      showCollectionsHub
     />
   )
 }

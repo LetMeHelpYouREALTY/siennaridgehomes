@@ -139,3 +139,11 @@ export function siennaRidgeCommunityPriceRange() {
   const max = Math.max(...prices)
   return `${formatCollectionPrice(min)} to ${formatCollectionPrice(max)}+`
 }
+
+export function siennaRidgeCollectionLinks() {
+  return SIENNA_RIDGE_COLLECTIONS.map((c) => ({
+    href: c.path,
+    label: c.shortName,
+    description: `From ${formatCollectionPrice(c.priceFrom)} · ${c.sqft.toLocaleString()} sq ft`,
+  }))
+}

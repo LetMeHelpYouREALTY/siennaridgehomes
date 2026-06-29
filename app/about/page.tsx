@@ -6,6 +6,7 @@ import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import ClientReviewsSection from '@/components/client-reviews-section'
 import JsonLd from '@/components/json-ld'
 import SiennaRidgeOverview from '@/components/sienna-ridge-overview'
+import SiennaRidgeCollectionsHub from '@/components/sienna-ridge-collections-hub'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import PageHero from '@/components/page-hero'
 import SectionHeading from '@/components/section-heading'
@@ -152,6 +153,9 @@ export default function AboutPage() {
               description={`Dr. Jan Duffy represents buyers at the Sienna Ridge sales center — new Lennar homes from ${formatCommunityPriceRange()}.`}
             />
             <SiennaRidgeOverview />
+            <div className="mt-12">
+              <SiennaRidgeCollectionsHub />
+            </div>
           </div>
         </div>
       </section>
