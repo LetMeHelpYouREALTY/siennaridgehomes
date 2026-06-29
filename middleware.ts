@@ -1,22 +1,29 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { SITE_URL } from '@/lib/site-config'
 
-const CANONICAL_HOST = 'www.siennaridgehomes.com'
-
-export function middleware(request: NextRequest) {
-  const host = request.headers.get('host') ?? ''
+function canonicalRedirect(request: NextRequest): NextResponse | null {
+  const host = (request.headers.get('host') ?? '').split(':')[0].toLowerCase()
   const protocol = request.headers.get('x-forwarded-proto') ?? 'https'
-  const url = request.nextUrl.clone()
+  const needsHttps = protocol !== 'https'
+  const needsWww = host === 'siennaridgehomes.com'
 
-  if (host === 'siennaridgehomes.com') {
-    url.host = CANONICAL_HOST
-    url.protocol = 'https:'
-    return NextResponse.redirect(url, 301)
+  if (!needsHttps && !needsWww) {
+    return null
   }
 
-  if (protocol === 'http') {
-    url.protocol = 'https:'
-    return NextResponse.redirect(url, 301)
+  const destination = new URL(
+    `${request.nextUrl.pathname}${request.nextUrl.search}`,
+    SITE_URL,
+  )
+
+  return NextResponse.redirect(destination, { status: 301 })
+}
+
+export function middleware(request: NextRequest) {
+  const redirect = canonicalRedirect(request)
+  if (redirect) {
+    return redirect
   }
 
   return NextResponse.next()

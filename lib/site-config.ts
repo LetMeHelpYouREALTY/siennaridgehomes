@@ -1,4 +1,5 @@
 export const SITE_URL = 'https://www.siennaridgehomes.com'
+export const CANONICAL_HOST = 'www.siennaridgehomes.com'
 export const AGENT_ENCODED_ID = 'QWdlbnQtMjI1MDUw'
 export const AGENT_HEADSHOT_PATH = '/images/dr-jan-duffy-headshot.jpg'
 
