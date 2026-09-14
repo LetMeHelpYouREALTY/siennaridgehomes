@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/next'
 import JsonLd from '@/components/json-ld'
 import ThirdPartyScripts from '@/components/third-party-scripts'
 import CalendlyScripts from '@/components/calendly-scripts'
@@ -107,6 +108,7 @@ export default function RootLayout({
         <CalendlyScripts />
         <CalendlyBadgeWidget />
         <RealScoutScript />
+        <Analytics />
       </body>
     </html>
   )
