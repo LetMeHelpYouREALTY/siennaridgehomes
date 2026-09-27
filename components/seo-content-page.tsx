@@ -12,12 +12,7 @@ import ScheduleConsultationSection from '@/components/schedule-consultation-sect
 import CalendlyPopupButton from '@/components/calendly-popup-button'
 import { REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 import type { FaqItem, BreadcrumbItem } from '@/lib/structured-data'
-import {
-  buildBreadcrumbSchema,
-  buildFaqPageSchema,
-  buildItemListSchema,
-  buildWebPageSchema,
-} from '@/lib/structured-data'
+import { buildFaqPageSchema, buildItemListSchema, buildWebPageSchema } from '@/lib/structured-data'
 
 export type SeoStat = {
   label: string
@@ -92,7 +87,6 @@ export default function SeoContentPage({
   const schemas: Record<string, unknown>[] = [
     buildWebPageSchema({ path: pagePath, name: title, description: leadAnswer }),
     buildFaqPageSchema(faqs),
-    buildBreadcrumbSchema(breadcrumbs),
   ]
   if (itemList?.length) {
     schemas.push(buildItemListSchema(itemList))
