@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import BreadcrumbSchema from '@/components/breadcrumb-schema'
+import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { NAP, formatFullAddress } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -12,8 +14,11 @@ export const metadata: Metadata = {
 }
 
 export default function TermsOfServicePage() {
+  const breadcrumbs = breadcrumbTrail({ name: 'Terms of Service', path: '/terms' })
+
   return (
     <div className="min-h-screen bg-gray-50 py-16">
+      <BreadcrumbSchema items={breadcrumbs} />
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <Card>

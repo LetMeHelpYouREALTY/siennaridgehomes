@@ -5,7 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { MapPin, Home, Users, Star, TrendingUp, Phone, Mail } from 'lucide-react'
-import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import SeoPageJsonLd from '@/components/seo-page-json-ld'
 import SeoGuideAeoSection from '@/components/seo-guide-aeo-section'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
@@ -41,7 +40,6 @@ export default function SpringValley89117Page() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <BreadcrumbSchema items={breadcrumbs} />
       <SeoPageJsonLd
         path="/neighborhoods/89117"
         name="Spring Valley Real Estate | 89117 Homes for Sale"

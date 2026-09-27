@@ -13,8 +13,9 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.siennaridgehomes.com'),
-  title: 'Spring Valley Real Estate Agent | Dr. Jan Duffy | Southwest Las Vegas Homes',
-  description: 'Top Spring Valley real estate agent Dr. Jan Duffy specializes in Southwest Las Vegas homes (89117, 89147, 89148). Expert buyer agent for families, investors & first-time buyers. Free home valuation & market insights.',
+  title: 'Sienna Ridge Homes Las Vegas | Dr. Jan Duffy',
+  description:
+    'Sienna Ridge by Lennar in Las Vegas (89147). Dr. Jan Duffy, Nevada REALTOR®, helps buyers with Lennar floor plans, collections, and buyer representation.',
   keywords: [
     'Spring Valley real estate agent',
     'Southwest Las Vegas homes for sale',
@@ -55,8 +56,9 @@ export const metadata: Metadata = {
     ? { google: GOOGLE_SITE_VERIFICATION }
     : undefined,
   openGraph: {
-    title: 'Spring Valley Real Estate Agent | Dr. Jan Duffy | Southwest Las Vegas Homes',
-    description: 'Top Spring Valley real estate agent Dr. Jan Duffy specializes in Southwest Las Vegas homes (89117, 89147, 89148). Expert buyer agent for families, investors & first-time buyers.',
+    title: 'Sienna Ridge Homes Las Vegas | Dr. Jan Duffy',
+    description:
+      'Sienna Ridge by Lennar in Las Vegas (89147). Dr. Jan Duffy, Nevada REALTOR®, helps buyers with Lennar floor plans, collections, and buyer representation.',
     url: 'https://www.siennaridgehomes.com',
     siteName: 'Southwest Las Vegas Homes',
     images: [

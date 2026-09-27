@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import BreadcrumbSchema from '@/components/breadcrumb-schema'
+import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Home, MapPin, User, FileText, Search, Phone, Mail } from 'lucide-react'
@@ -17,6 +19,7 @@ export const metadata: Metadata = {
 }
 
 export default function SitemapPage() {
+  const breadcrumbs = breadcrumbTrail({ name: 'Sitemap', path: '/sitemap' })
   const mainPages = [
     {
       title: 'Home',
@@ -143,6 +146,7 @@ export default function SitemapPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-16">
+      <BreadcrumbSchema items={breadcrumbs} />
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
