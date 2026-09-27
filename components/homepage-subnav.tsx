@@ -8,6 +8,7 @@ const SECTIONS = [
   { id: 'agent', label: 'About Agent' },
   { id: 'guides', label: 'Guides' },
   { id: 'market', label: 'Market' },
+  { id: 'nearby', label: 'Nearby' },
   { id: 'sienna-ridge', label: 'Sienna Ridge' },
   { id: 'models', label: 'Models' },
   { id: 'reviews', label: 'Reviews' },

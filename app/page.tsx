@@ -19,6 +19,7 @@ import SeoFaqSection from '@/components/seo-faq-section'
 import HomepageSubnav from '@/components/homepage-subnav'
 import SeoGuidesHub from '@/components/seo-guides-hub'
 import HomepageRealScoutSection from '@/components/homepage-realscout-section'
+import NearbyAmenitiesSection from '@/components/nearby-amenities-section'
 import { buildFaqPageSchema, HOMEPAGE_FAQS } from '@/lib/structured-data'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
 import { formatCommunityPriceRange } from '@/lib/sienna-ridge-community'
@@ -324,6 +325,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <NearbyAmenitiesSection />
 
       {/* Sienna Ridge */}
       <section id="sienna-ridge" className="section-padding section-muted scroll-mt-section">
