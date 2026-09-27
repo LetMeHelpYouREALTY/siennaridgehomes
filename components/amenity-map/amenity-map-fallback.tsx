@@ -48,8 +48,8 @@ export default function AmenityMapFallback({ category, compact = false }: Amenit
         </ul>
       ) : (
         <p className="text-sm text-slate-600">
-          Interactive place search requires a Google Maps API key. The map above is centered on the Sienna Ridge sales
-          center.
+          The map above is centered on the Sienna Ridge sales center. Select another category or visit the full amenities
+          guide for more local places.
         </p>
       )}
     </div>

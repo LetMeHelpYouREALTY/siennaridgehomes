@@ -37,7 +37,7 @@ export type AmenityCategory = {
   ariaLabel: string
 }
 
-/** Family suburban community — parks and daily essentials first; schools included. */
+/** Southwest Las Vegas community — parks and daily essentials first; schools included. */
 export const AMENITY_CATEGORIES: AmenityCategory[] = [
   {
     id: 'parks',

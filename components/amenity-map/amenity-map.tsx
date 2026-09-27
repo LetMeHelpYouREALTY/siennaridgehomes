@@ -6,14 +6,14 @@ import {
   AMENITY_CATEGORIES,
   AMENITY_MAP_CENTER,
   AMENITY_MAP_DEFAULT_ZOOM,
-  AMENITY_SEARCH_RADIUS_M,
   COMMUNITY_MAP_ADDRESS,
   COMMUNITY_MAP_LABEL,
   DEFAULT_AMENITY_CATEGORY,
   googleMapsDirectionsUrl,
   type AmenityCategoryId,
 } from '@/lib/amenities-config'
-import { getGoogleMapsApiKey, getGoogleMapsMapId, loadGoogleMapsScript } from '@/lib/load-google-maps'
+import { searchAmenityCategory } from '@/lib/amenity-places-search'
+import { getGoogleMapsApiKey, getGoogleMapsMapId, loadGoogleMaps, mapsAuthFailed } from '@/lib/load-google-maps'
 import AmenityCuratedList from '@/components/amenity-map/amenity-curated-list'
 import AmenityMapFallback from '@/components/amenity-map/amenity-map-fallback'
 
@@ -28,36 +28,58 @@ function placeDisplayName(place: google.maps.places.Place): string {
   if (typeof raw === 'string') {
     return raw
   }
-  if (raw && typeof raw.text === 'string') {
+  if (raw?.text) {
     return raw.text
   }
   return 'Place'
 }
 
-function escapeHtml(value: string) {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
+function latLngLiteralFromPlaceLocation(
+  location: google.maps.LatLng | google.maps.LatLngLiteral,
+): google.maps.LatLngLiteral {
+  if (typeof (location as google.maps.LatLng).lat === 'function') {
+    const ll = location as google.maps.LatLng
+    return { lat: ll.lat(), lng: ll.lng() }
+  }
+  if (typeof (location as google.maps.LatLngLiteral).lat === 'number') {
+    return location as google.maps.LatLngLiteral
+  }
+  const json = (location as google.maps.LatLng).toJSON?.()
+  if (json) {
+    return json
+  }
+  return AMENITY_MAP_CENTER
 }
 
-function infoWindowHtml(place: {
+function buildInfoWindowContent(place: {
   name: string
   address?: string
-  rating?: number
   directionsUrl: string
 }) {
-  const ratingLine =
-    place.rating !== undefined && place.rating > 0
-      ? `<p class="text-sm text-slate-600">Rating: ${place.rating.toFixed(1)}</p>`
-      : ''
-  return `<div class="p-1 max-w-[240px]">
-    <p class="font-semibold text-slate-900">${escapeHtml(place.name)}</p>
-    ${place.address ? `<p class="text-sm text-slate-600 mt-1">${escapeHtml(place.address)}</p>` : ''}
-    ${ratingLine}
-    <a href="${escapeHtml(place.directionsUrl)}" target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:underline mt-2 inline-block">Directions</a>
-  </div>`
+  const wrap = document.createElement('div')
+  wrap.className = 'p-1 max-w-[240px]'
+
+  const title = document.createElement('p')
+  title.className = 'font-semibold text-slate-900'
+  title.textContent = place.name
+  wrap.appendChild(title)
+
+  if (place.address) {
+    const addr = document.createElement('p')
+    addr.className = 'text-sm text-slate-600 mt-1'
+    addr.textContent = place.address
+    wrap.appendChild(addr)
+  }
+
+  const link = document.createElement('a')
+  link.href = place.directionsUrl
+  link.target = '_blank'
+  link.rel = 'noopener noreferrer'
+  link.className = 'text-sm text-blue-600 hover:underline mt-2 inline-block'
+  link.textContent = 'Directions'
+  wrap.appendChild(link)
+
+  return wrap
 }
 
 export default function AmenityMap({
@@ -65,6 +87,7 @@ export default function AmenityMap({
   className,
   initialCategory = DEFAULT_AMENITY_CATEGORY,
 }: AmenityMapProps) {
+  const sectionRef = useRef<HTMLDivElement>(null)
   const mapContainerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<google.maps.Map | null>(null)
   const communityMarkerRef = useRef<google.maps.Marker | null>(null)
@@ -72,11 +95,26 @@ export default function AmenityMap({
   const infoWindowRef = useRef<google.maps.InfoWindow | null>(null)
 
   const [category, setCategory] = useState<AmenityCategoryId>(initialCategory)
-  const [useFallback, setUseFallback] = useState(() => !getGoogleMapsApiKey())
+  const [useFallback, setUseFallback] = useState(() => !getGoogleMapsApiKey() || mapsAuthFailed)
   const [loadingPlaces, setLoadingPlaces] = useState(false)
+  const [placesSearchFailed, setPlacesSearchFailed] = useState(false)
   const [statusMessage, setStatusMessage] = useState<string | null>(null)
+  const [mapSectionVisible, setMapSectionVisible] = useState(false)
+  const [mapInitStarted, setMapInitStarted] = useState(false)
 
   const mapHeight = compact ? '280px' : '420px'
+
+  const enterFallback = useCallback(() => {
+    if (mapRef.current) {
+      mapRef.current = null
+    }
+    communityMarkerRef.current?.setMap(null)
+    communityMarkerRef.current = null
+    placeMarkersRef.current.forEach((marker) => marker.setMap(null))
+    placeMarkersRef.current = []
+    infoWindowRef.current?.close()
+    setUseFallback(true)
+  }, [])
 
   const clearPlaceMarkers = useCallback(() => {
     placeMarkersRef.current.forEach((marker) => marker.setMap(null))
@@ -101,7 +139,7 @@ export default function AmenityMap({
         infoWindowRef.current = new google.maps.InfoWindow()
       }
       infoWindowRef.current.setContent(
-        infoWindowHtml({
+        buildInfoWindowContent({
           name: COMMUNITY_MAP_LABEL,
           address: COMMUNITY_MAP_ADDRESS,
           directionsUrl: googleMapsDirectionsUrl(AMENITY_MAP_CENTER.lat, AMENITY_MAP_CENTER.lng, COMMUNITY_MAP_LABEL),
@@ -114,14 +152,14 @@ export default function AmenityMap({
 
   const initMap = useCallback(async () => {
     const apiKey = getGoogleMapsApiKey()
-    if (!apiKey || !mapContainerRef.current) {
-      setUseFallback(true)
+    if (mapsAuthFailed || !apiKey || !mapContainerRef.current) {
+      enterFallback()
       return
     }
 
     try {
-      await loadGoogleMapsScript(apiKey)
-      const { Map } = await google.maps.importLibrary('maps')
+      await loadGoogleMaps(apiKey)
+      const { Map } = (await google.maps.importLibrary('maps')) as google.maps.MapsLibrary
       const mapId = getGoogleMapsMapId()
       const map = new Map(mapContainerRef.current, {
         center: AMENITY_MAP_CENTER,
@@ -135,9 +173,9 @@ export default function AmenityMap({
       await ensureCommunityMarker(map)
       setUseFallback(false)
     } catch {
-      setUseFallback(true)
+      enterFallback()
     }
-  }, [compact, ensureCommunityMarker])
+  }, [compact, ensureCommunityMarker, enterFallback])
 
   const loadPlaces = useCallback(
     async (categoryId: AmenityCategoryId) => {
@@ -154,19 +192,11 @@ export default function AmenityMap({
 
       setLoadingPlaces(true)
       setStatusMessage(null)
+      setPlacesSearchFailed(false)
       clearPlaceMarkers()
 
       try {
-        const { Place } = await google.maps.importLibrary('places')
-        const { places } = await Place.searchNearby({
-          fields: ['displayName', 'location', 'formattedAddress', 'rating', 'googleMapsURI'],
-          locationRestriction: {
-            center: AMENITY_MAP_CENTER,
-            radius: AMENITY_SEARCH_RADIUS_M,
-          },
-          includedPrimaryTypes: categoryConfig.primaryTypes,
-          maxResultCount: 15,
-        })
+        const places = await searchAmenityCategory(categoryId, categoryConfig.primaryTypes)
 
         if (!infoWindowRef.current) {
           infoWindowRef.current = new google.maps.InfoWindow()
@@ -180,24 +210,23 @@ export default function AmenityMap({
           if (!location) {
             continue
           }
+          const position = latLngLiteralFromPlaceLocation(location)
           const name = placeDisplayName(place)
-          const address = place.formattedAddress
+          const address = place.formattedAddress ?? undefined
           const directionsUrl =
-            place.googleMapsURI ??
-            googleMapsDirectionsUrl(location.lat, location.lng, name)
+            place.googleMapsURI ?? googleMapsDirectionsUrl(position.lat, position.lng, name)
 
           const marker = new google.maps.Marker({
             map,
-            position: location,
+            position,
             title: name,
           })
 
           marker.addListener('click', () => {
             infoWindowRef.current?.setContent(
-              infoWindowHtml({
+              buildInfoWindowContent({
                 name,
                 address,
-                rating: place.rating,
                 directionsUrl,
               }),
             )
@@ -205,18 +234,22 @@ export default function AmenityMap({
           })
 
           placeMarkersRef.current.push(marker)
-          bounds.extend(location)
+          bounds.extend(position)
         }
 
         if (places.length === 0) {
-          setStatusMessage('No results for this category in the search radius. Try another filter or view the list below.')
+          setStatusMessage('No results for this category in the search radius. See the featured list below.')
+          setPlacesSearchFailed(true)
           map.setCenter(AMENITY_MAP_CENTER)
           map.setZoom(AMENITY_MAP_DEFAULT_ZOOM)
         } else {
           map.fitBounds(bounds)
         }
       } catch {
-        setStatusMessage('Place search is temporarily unavailable. Showing the map and featured list.')
+        setStatusMessage('Place search is temporarily unavailable. See the featured list below.')
+        setPlacesSearchFailed(true)
+        map.setCenter(AMENITY_MAP_CENTER)
+        map.setZoom(AMENITY_MAP_DEFAULT_ZOOM)
       } finally {
         setLoadingPlaces(false)
       }
@@ -225,8 +258,41 @@ export default function AmenityMap({
   )
 
   useEffect(() => {
-    void initMap()
-  }, [initMap])
+    if (mapsAuthFailed) {
+      enterFallback()
+    }
+  }, [enterFallback])
+
+  useEffect(() => {
+    const onAuthFailure = () => enterFallback()
+    window.addEventListener('gmaps:auth-failure', onAuthFailure)
+    return () => window.removeEventListener('gmaps:auth-failure', onAuthFailure)
+  }, [enterFallback])
+
+  useEffect(() => {
+    const node = sectionRef.current
+    if (!node || mapSectionVisible) {
+      return
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setMapSectionVisible(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '200px' },
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [mapSectionVisible])
+
+  useEffect(() => {
+    if (mapSectionVisible && !mapInitStarted && !useFallback) {
+      setMapInitStarted(true)
+      void initMap()
+    }
+  }, [mapSectionVisible, mapInitStarted, initMap, useFallback])
 
   useEffect(() => {
     if (!useFallback && mapRef.current) {
@@ -236,7 +302,7 @@ export default function AmenityMap({
 
   if (useFallback) {
     return (
-      <div className={className}>
+      <div ref={sectionRef} className={className}>
         <CategoryFilters category={category} onChange={setCategory} />
         <AmenityMapFallback category={category} compact={compact} />
       </div>
@@ -244,7 +310,7 @@ export default function AmenityMap({
   }
 
   return (
-    <div className={className}>
+    <div ref={sectionRef} className={className}>
       <CategoryFilters category={category} onChange={setCategory} />
       <div className="relative">
         <div
@@ -261,7 +327,10 @@ export default function AmenityMap({
         ) : null}
       </div>
       {statusMessage ? <p className="mt-2 text-sm text-slate-600">{statusMessage}</p> : null}
-      <AmenityCuratedList category={category} />
+      <AmenityCuratedList
+        category={category}
+        title={placesSearchFailed ? 'Featured nearby places' : 'Featured nearby places'}
+      />
     </div>
   )
 }

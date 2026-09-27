@@ -22,6 +22,8 @@ export type CuratedAmenity = {
   state: string
   postalCode: string
   schemaType: CuratedAmenitySchemaType
+  /** Official business or agency page used to verify name and address. */
+  sourceUrl: string
   note?: string
   mapsUrl?: string
 }
@@ -36,7 +38,9 @@ export const CURATED_AMENITIES: CuratedAmenity[] = [
     state: 'NV',
     postalCode: '89117',
     schemaType: 'Park',
-    note: '119-acre Clark County park with aquatics, trails, and recreation.',
+    sourceUrl:
+      'https://www.clarkcountynv.gov/government/departments/parks___recreation/parks/desert_breeze_park.php',
+    note: '119 developed acres of a 265-acre Clark County park site with aquatics, trails, and recreation.',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Desert+Breeze+Park+8275+Spring+Mountain+Rd+Las+Vegas+NV',
   },
   {
@@ -47,6 +51,7 @@ export const CURATED_AMENITIES: CuratedAmenity[] = [
     state: 'NV',
     postalCode: '89147',
     schemaType: 'GroceryStore',
+    sourceUrl: 'https://www.smithsfoodanddrug.com/stores/grocery/nv/las-vegas/9350-w-flamingo-rd-las-vegas-nv/706/00396',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=9350+W+Flamingo+Rd+Las+Vegas+NV+89147',
   },
   {
@@ -57,6 +62,8 @@ export const CURATED_AMENITIES: CuratedAmenity[] = [
     state: 'NV',
     postalCode: '89147',
     schemaType: 'GroceryStore',
+    sourceUrl:
+      'https://www.smithsfoodanddrug.com/stores/grocery/nv/las-vegas/10100-w-tropicana-ave-las-vegas-nv/706/00397',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=10100+W+Tropicana+Ave+Las+Vegas+NV+89147',
   },
   {
@@ -67,27 +74,19 @@ export const CURATED_AMENITIES: CuratedAmenity[] = [
     state: 'NV',
     postalCode: '89148',
     schemaType: 'Hospital',
+    sourceUrl: 'https://southernhillshospital.com/',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Southern+Hills+Hospital+9300+W+Sunset+Rd+Las+Vegas+NV',
-  },
-  {
-    name: 'Centennial Hills Hospital Medical Center',
-    category: 'healthcare',
-    streetAddress: '6900 N Durango Dr',
-    city: 'Las Vegas',
-    state: 'NV',
-    postalCode: '89149',
-    schemaType: 'Hospital',
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Centennial+Hills+Hospital+6900+N+Durango+Dr+Las+Vegas+NV',
   },
   {
     name: 'Rhodes Ranch Golf Club',
     category: 'golf',
-    streetAddress: '20 E Rhodes Ranch Pkwy',
+    streetAddress: '20 Rhodes Ranch Pkwy',
     city: 'Las Vegas',
     state: 'NV',
     postalCode: '89148',
     schemaType: 'GolfCourse',
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Rhodes+Ranch+Golf+Club+Las+Vegas+NV',
+    sourceUrl: 'https://www.rhodesranchgolf.com/',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Rhodes+Ranch+Golf+Club+20+Rhodes+Ranch+Pkwy+Las+Vegas+NV',
   },
   {
     name: 'Durango High School',
@@ -97,7 +96,8 @@ export const CURATED_AMENITIES: CuratedAmenity[] = [
     state: 'NV',
     postalCode: '89113',
     schemaType: 'School',
-    note: 'Clark County School District (CCSD).',
+    sourceUrl: 'https://durangohs.org/',
+    note: 'Clark County School District (CCSD). Verify zoning for your address.',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Durango+High+School+7100+W+Dewey+Dr+Las+Vegas+NV',
   },
   {
@@ -108,6 +108,7 @@ export const CURATED_AMENITIES: CuratedAmenity[] = [
     state: 'NV',
     postalCode: '89135',
     schemaType: 'ShoppingCenter',
+    sourceUrl: 'https://www.downtownsummerlin.com/',
     note: 'Open-air shopping, dining, and entertainment in Summerlin.',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Downtown+Summerlin+Las+Vegas+NV',
   },
@@ -128,19 +129,23 @@ export const AMENITIES_PAGE_FAQS: FaqItem[] = [
   },
   {
     question: `Are there hospitals near ${SIENNA_RIDGE.name}?`,
-    answer: `Yes. Southern Hills Hospital and Medical Center (9300 W Sunset Rd, Las Vegas) and Centennial Hills Hospital Medical Center (6900 N Durango Dr) are major hospitals within a reasonable drive of Sienna Ridge in 89147.`,
+    answer: `Southern Hills Hospital and Medical Center (9300 W Sunset Rd, Las Vegas) is a major hospital campus within a reasonable drive of Sienna Ridge in 89147. Additional regional hospitals are available across the Las Vegas valley.`,
   },
   {
     question: `What parks are close to ${SIENNA_RIDGE.name}?`,
-    answer: `Desert Breeze Park at 8275 Spring Mountain Rd in Spring Valley (89117) is the flagship nearby county park — about 119 acres with aquatics, trails, and recreation. Many buyers in 89147 use it regularly.`,
+    answer: `Desert Breeze Park at 8275 Spring Mountain Rd in Spring Valley (89117) is the flagship nearby county park — 119 developed acres of a 265-acre park site with aquatics, trails, and recreation. Many residents in 89147 use it regularly.`,
   },
   {
     question: `Is there golf near Sienna Ridge Las Vegas?`,
-    answer: `Rhodes Ranch Golf Club at 20 E Rhodes Ranch Pkwy in 89148 is one of the well-known public courses in the southwest valley, a short drive from the Sienna Ridge area.`,
+    answer: `Rhodes Ranch Golf Club at 20 Rhodes Ranch Pkwy in 89148 is one of the well-known public courses in the southwest valley, a short drive from the Sienna Ridge area.`,
   },
   {
     question: `How do I get to Harry Reid International Airport from ${SIENNA_RIDGE.name}?`,
     answer: `Harry Reid International Airport is approximately 15–25 minutes from Sienna Ridge via I-215 and the airport connector roads, depending on traffic — plan extra time during peak travel.`,
+  },
+  {
+    question: `Which CCSD schools are assigned to ${SIENNA_RIDGE.name} addresses?`,
+    answer: `School assignments depend on your exact address within 89147. Verify with the CCSD Zoning Search (zoning.ccsd.net) before you buy. Durango High School is one southwest valley CCSD high school — assignment is not guaranteed for every Sienna Ridge address.`,
   },
   {
     question: `Who is the local REALTOR for ${SIENNA_RIDGE.name} new homes?`,
@@ -175,12 +180,13 @@ export const AMENITIES_CONTENT_SECTIONS: AmenityContentSection[] = [
     id: 'parks',
     title: 'Parks & Recreation',
     paragraphs: [
-      `${SIENNA_RIDGE.location} Desert Breeze Park is the anchor outdoor destination for many families in 89117 and nearby 89147.`,
+      `${SIENNA_RIDGE.location} Desert Breeze Park is the anchor outdoor destination for many residents in 89117 and nearby 89147.`,
     ],
     places: [
       {
         name: 'Desert Breeze Park',
-        detail: '8275 Spring Mountain Rd, Las Vegas, NV 89117 — aquatics, trails, and open space.',
+        detail:
+          '8275 Spring Mountain Rd, Las Vegas, NV 89117 — 119 developed acres of a 265-acre park site with aquatics, trails, and open space.',
         href: 'https://www.google.com/maps/search/?api=1&query=Desert+Breeze+Park+Las+Vegas+NV',
       },
     ],
@@ -194,7 +200,7 @@ export const AMENITIES_CONTENT_SECTIONS: AmenityContentSection[] = [
     places: [
       {
         name: 'Rhodes Ranch Golf Club',
-        detail: '20 E Rhodes Ranch Pkwy, Las Vegas, NV 89148.',
+        detail: '20 Rhodes Ranch Pkwy, Las Vegas, NV 89148.',
         href: 'https://www.google.com/maps/search/?api=1&query=Rhodes+Ranch+Golf+Club+Las+Vegas+NV',
       },
     ],
@@ -203,18 +209,13 @@ export const AMENITIES_CONTENT_SECTIONS: AmenityContentSection[] = [
     id: 'healthcare',
     title: 'Healthcare & Pharmacies',
     paragraphs: [
-      'Major hospital campuses in the southwest and northwest valley serve Sienna Ridge residents. Use the Healthcare and Pharmacies map filters for clinics and drugstores closer to your daily route.',
+      'Southern Hills Hospital and medical offices in the southwest valley serve many Sienna Ridge households. Use the Healthcare and Pharmacies map filters for clinics and drugstores closer to your daily route.',
     ],
     places: [
       {
         name: 'Southern Hills Hospital and Medical Center',
         detail: '9300 W Sunset Rd, Las Vegas, NV 89148.',
         href: 'https://www.google.com/maps/search/?api=1&query=Southern+Hills+Hospital+Las+Vegas+NV',
-      },
-      {
-        name: 'Centennial Hills Hospital Medical Center',
-        detail: '6900 N Durango Dr, Las Vegas, NV 89149.',
-        href: 'https://www.google.com/maps/search/?api=1&query=Centennial+Hills+Hospital+Las+Vegas+NV',
       },
     ],
   },
@@ -241,7 +242,7 @@ export const AMENITIES_CONTENT_SECTIONS: AmenityContentSection[] = [
     id: 'schools',
     title: 'Schools (CCSD)',
     paragraphs: [
-      'Sienna Ridge buyers with children typically research Clark County School District (CCSD) zoning for their specific address. Durango High School is one of the known southwest valley high schools — confirm assignment with CCSD before you buy.',
+      `Which CCSD schools are assigned to ${SIENNA_RIDGE.name} addresses? Verify with the CCSD Zoning Search (zoning.ccsd.net) for your specific lot. Durango High School is one southwest valley CCSD high school — confirm assignment before you buy.`,
     ],
     places: [
       {
@@ -273,7 +274,7 @@ export const AMENITIES_CONTENT_SECTIONS: AmenityContentSection[] = [
 
 export const AMENITIES_TRUST_BLOCK = {
   title: `Local buyer's agent for ${SIENNA_RIDGE.name}`,
-  body: `${NAP.name} helps families and relocations compare Lennar floor plans, resale in 89147, and lifestyle fit near Desert Breeze Park and the I-215 corridor.`,
+  body: `${NAP.name} helps buyers and relocations compare Lennar floor plans, resale in 89147, and lifestyle fit near Desert Breeze Park and the I-215 corridor.`,
   phone: NAP.phone,
   phoneTel: NAP.phoneTel,
   email: NAP.email,

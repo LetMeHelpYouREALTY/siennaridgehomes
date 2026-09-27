@@ -55,7 +55,7 @@ const featuredPlacesSchema = buildFeaturedNearbyPlacesItemListSchema(
     city: place.city,
     state: place.state,
     postalCode: place.postalCode,
-    url: place.mapsUrl,
+    url: place.sourceUrl,
   })),
 )
 
