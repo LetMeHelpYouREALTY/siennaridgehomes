@@ -54,6 +54,11 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/amenities" className="text-gray-300 hover:text-blue-400 transition-colors">
+                    Nearby Amenities
+                  </Link>
+                </li>
+                <li>
                   <Link href="/about" className="text-gray-300 hover:text-blue-400 transition-colors">
                     About Dr. Jan Duffy
                   </Link>

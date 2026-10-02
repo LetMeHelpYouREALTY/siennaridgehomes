@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import ZipCodeLanding from '@/components/zip-code-landing'
+import NearbyAmenitiesSection from '@/components/nearby-amenities-section'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { getSeoGuideByPath } from '@/lib/seo-guide-pages'
 import { SITE_URL } from '@/lib/site-config'
@@ -17,6 +18,7 @@ export default function Neighborhood89147Page() {
   const guide = getSeoGuideByPath('/89147-homes-for-sale')
 
   return (
+    <>
     <ZipCodeLanding
       zipCode="89147"
       areaName="Southwest Las Vegas"
@@ -44,5 +46,7 @@ export default function Neighborhood89147Page() {
       faqs={guide?.faqs}
       showCollectionsHub
     />
+    <NearbyAmenitiesSection id="nearby-amenities" />
+  </>
   )
 }

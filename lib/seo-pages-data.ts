@@ -121,6 +121,7 @@ export const SIENNA_RIDGE_LENNAR_PAGE: SeoPageConfig = {
       },
     ] satisfies FaqItem[],
     relatedLinks: [
+      { href: '/amenities', label: 'Nearby Amenities Map', description: 'Parks, grocery, healthcare near Sienna Ridge' },
       { href: '/kingsbury-homes-sienna-ridge', label: 'Kingsbury Homes', description: '2,051 sq ft from $589,990' },
       { href: '/bellevue-nextgen-sienna-ridge', label: 'Bellevue Next Gen®', description: 'Multi-gen 2,640 sq ft' },
       { href: '/skyland-sienna-ridge', label: 'Skyland', description: '4 bed executive plan' },

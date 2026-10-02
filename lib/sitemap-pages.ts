@@ -42,6 +42,7 @@ export const SITEMAP_PAGES: SitemapPage[] = [
   ...SITEMAP_GUIDE_PAGES,
   { path: '/neighborhoods', lastModified: SITEMAP_LASTMOD.expansion, changeFrequency: 'weekly', priority: 0.85 },
   { path: '/faq', lastModified: SITEMAP_LASTMOD.expansion, changeFrequency: 'weekly', priority: 0.8 },
+  { path: '/amenities', lastModified: '2026-09-27', changeFrequency: 'monthly', priority: 0.85 },
   ...SEO_EXPANSION_PAGES.map((page) => ({
     path: page.path,
     lastModified: SITEMAP_LASTMOD.expansion,

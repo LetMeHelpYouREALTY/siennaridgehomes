@@ -11,6 +11,7 @@ import ClientReviewsSection from '@/components/client-reviews-section'
 import FeaturedListingCard from '@/components/featured-listing-card'
 import AgentHeadshot from '@/components/agent-headshot'
 import SiennaRidgeOverview from '@/components/sienna-ridge-overview'
+import NearbyAmenitiesSection from '@/components/nearby-amenities-section'
 import SiennaRidgeCollectionsHub from '@/components/sienna-ridge-collections-hub'
 import ScheduleConsultationSection from '@/components/schedule-consultation-section'
 import CalendlyPopupButton from '@/components/calendly-popup-button'
@@ -106,6 +107,8 @@ export default function ListingsPage() {
           </div>
         </div>
       </section>
+
+      <NearbyAmenitiesSection id="nearby-amenities" compact showHeading={true} />
 
       {/* Featured Models */}
       <section className="py-16 bg-gray-50">

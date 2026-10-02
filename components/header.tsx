@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { href: '/', label: 'Home', external: false },
   { href: REALSCOUT_SEARCH_URL, label: 'Listings', external: true },
   { href: '/sienna-ridge-lennar-las-vegas', label: 'Sienna Ridge', external: false },
+  { href: '/amenities', label: 'Amenities', external: false },
   { href: '/neighborhoods', label: 'Neighborhoods', external: false },
   { href: '/faq', label: 'FAQ', external: false },
   { href: '/about', label: 'About', external: false },

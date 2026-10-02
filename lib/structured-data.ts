@@ -135,6 +135,20 @@ function realEstateAgentSchema() {
       { '@type': 'PostalCode', postalCode: '89117' },
       { '@type': 'PostalCode', postalCode: '89147' },
       { '@type': 'PostalCode', postalCode: '89148' },
+      {
+        '@type': 'Place',
+        name: SIENNA_RIDGE.name,
+        description: `${SIENNA_RIDGE.builder} new construction community in Las Vegas ${SIENNA_RIDGE.postalCode}.`,
+        geo: geoCoordinates,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: NAP.streetAddress,
+          addressLocality: NAP.city,
+          addressRegion: NAP.state,
+          postalCode: SIENNA_RIDGE.postalCode,
+          addressCountry: 'US',
+        },
+      },
     ],
     knowsAbout: [
       'Spring Valley real estate',
@@ -526,6 +540,45 @@ export function buildArticleSchema(path: string, headline: string, description: 
 }
 
 /** Park schema for Desert Breeze and lifestyle pages. */
+export type FeaturedNearbyPlace = {
+  name: string
+  schemaType: string
+  streetAddress: string
+  city: string
+  state: string
+  postalCode: string
+  url?: string
+}
+
+/** ItemList of verified nearby places for amenities / local SEO pages. */
+export function buildFeaturedNearbyPlacesItemListSchema(
+  places: FeaturedNearbyPlace[],
+  listName = 'Featured places near Sienna Ridge',
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: listName,
+    itemListElement: places.map((place, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': place.schemaType,
+        name: place.name,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: place.streetAddress,
+          addressLocality: place.city,
+          addressRegion: place.state,
+          postalCode: place.postalCode,
+          addressCountry: 'US',
+        },
+        ...(place.url ? { url: place.url } : {}),
+      },
+    })),
+  }
+}
+
 export function buildParkSchema(name: string, description: string, path: string, latitude: number, longitude: number) {
   return {
     '@context': 'https://schema.org',
