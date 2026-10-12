@@ -13,7 +13,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.siennaridgehomes.com'),
-  title: 'Sienna Ridge Homes Las Vegas | Dr. Jan Duffy',
+  title: 'Sienna Ridge Resale Homes | Las Vegas 89147',
   description:
     'Sienna Ridge by Lennar in Las Vegas (89147). Dr. Jan Duffy, Nevada REALTOR®, helps buyers with Lennar floor plans, collections, and buyer representation.',
   keywords: [
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     ? { google: GOOGLE_SITE_VERIFICATION }
     : undefined,
   openGraph: {
-    title: 'Sienna Ridge Homes Las Vegas | Dr. Jan Duffy',
+    title: 'Sienna Ridge Resale Homes | Las Vegas 89147',
     description:
       'Sienna Ridge by Lennar in Las Vegas (89147). Dr. Jan Duffy, Nevada REALTOR®, helps buyers with Lennar floor plans, collections, and buyer representation.',
     url: 'https://www.siennaridgehomes.com',
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Spring Valley Real Estate Agent | Dr. Jan Duffy',
+    title: 'Sienna Ridge Resale Homes | Las Vegas 89147',
     description: 'Top Spring Valley real estate agent specializing in Southwest Las Vegas homes (89117, 89147, 89148). Expert guidance for buyers.',
     images: ['/og-image.png'],
     creator: '@DrJanDuffy',

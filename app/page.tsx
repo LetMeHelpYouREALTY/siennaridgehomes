@@ -20,6 +20,7 @@ import HomepageSubnav from '@/components/homepage-subnav'
 import SeoGuidesHub from '@/components/seo-guides-hub'
 import HomepageRealScoutSection from '@/components/homepage-realscout-section'
 import { buildFaqPageSchema, HOMEPAGE_FAQS } from '@/lib/structured-data'
+import { clientReviewsForDisplay } from '@/lib/reviews-data'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
 import { formatCommunityPriceRange } from '@/lib/sienna-ridge-community'
 import { NAP, REALSCOUT_SEARCH_URL } from '@/lib/site-config'
@@ -34,7 +35,7 @@ import {
 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Sienna Ridge Homes Las Vegas | Dr. Jan Duffy',
+  title: 'Sienna Ridge Resale Homes | Las Vegas 89147',
   description:
     'Sienna Ridge by Lennar in Las Vegas (89147). Dr. Jan Duffy, Nevada REALTOR®, helps buyers with Lennar floor plans, collections, and buyer representation.',
   keywords: [
@@ -62,7 +63,7 @@ export default function HomePage() {
       <JsonLd id="faq-schema" data={buildFaqPageSchema(HOMEPAGE_FAQS)} />
 
       <PageHero
-        title="Spring Valley Real Estate Agent | Dr. Jan Duffy"
+        title="Sienna Ridge Resale Homes in Las Vegas 89147"
         description="Find your dream home in Spring Valley & Southwest Las Vegas (89117, 89147, 89148) with Dr. Jan Duffy, your premier buyer specialist."
         imageAlt="Southwest Las Vegas Real Estate - Beautiful homes in Spring Valley"
         badges={
@@ -374,7 +375,7 @@ export default function HomePage() {
       </section>
 
       <div id="reviews" className="scroll-mt-section">
-        <ClientReviewsSection limit={3} />
+        <ClientReviewsSection reviews={clientReviewsForDisplay(3)} />
       </div>
 
       <div id="faq" className="scroll-mt-section">

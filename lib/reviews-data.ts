@@ -9,6 +9,18 @@ export type ClientReview = {
   source: 'Client testimonial' | 'Google' | 'Zillow'
 }
 
+/** Testimonials omitted from on-site JSON-LD (Ship #4 — not verified for schema). */
+export const JSON_LD_EXCLUDED_REVIEW_IDS = new Set([
+  'sarah-mike-johnson',
+  'robert-diane-chen',
+  'alex-martinez',
+])
+
+export function clientReviewsForDisplay(limit?: number): ClientReview[] {
+  const filtered = CLIENT_REVIEWS.filter((review) => !JSON_LD_EXCLUDED_REVIEW_IDS.has(review.id))
+  return limit ? filtered.slice(0, limit) : filtered
+}
+
 /** Client quotes published on Dr. Jan Duffy's verified agent profiles and websites. */
 export const CLIENT_REVIEWS: ClientReview[] = [
   {

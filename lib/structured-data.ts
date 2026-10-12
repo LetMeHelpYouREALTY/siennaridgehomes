@@ -8,7 +8,7 @@ import {
   SAME_AS_PROFILES,
   SITE_URL,
 } from '@/lib/site-config'
-import type { ClientReview } from '@/lib/reviews-data'
+import { JSON_LD_EXCLUDED_REVIEW_IDS, type ClientReview } from '@/lib/reviews-data'
 import type { FeaturedListing } from '@/lib/listings-data'
 import { listingUrl } from '@/lib/listings-data'
 import { formatCommunityPriceRange, SIENNA_RIDGE } from '@/lib/sienna-ridge-community'
@@ -130,11 +130,25 @@ function realEstateAgentSchema() {
     priceRange: '$$',
     parentOrganization: { '@id': STRUCTURED_DATA_IDS.organization },
     areaServed: [
-      { '@type': 'City', name: 'Spring Valley' },
-      { '@type': 'City', name: 'Las Vegas' },
+      {
+        '@type': 'Place',
+        name: 'Sienna Ridge',
+        address: {
+          '@type': 'PostalAddress',
+          postalCode: '89147',
+          addressLocality: 'Las Vegas',
+          addressRegion: 'NV',
+          addressCountry: 'US',
+        },
+        containedInPlace: {
+          '@type': 'City',
+          name: 'Las Vegas',
+        },
+      },
       { '@type': 'PostalCode', postalCode: '89117' },
       { '@type': 'PostalCode', postalCode: '89147' },
       { '@type': 'PostalCode', postalCode: '89148' },
+      { '@type': 'City', name: 'Las Vegas' },
     ],
     knowsAbout: [
       'Spring Valley real estate',
@@ -271,9 +285,10 @@ export function listingSearchTarget() {
 
 /** Review snippets — each review must match visible on-page content. */
 export function buildReviewsSchema(reviews: ClientReview[]) {
+  const eligibleReviews = reviews.filter((review) => !JSON_LD_EXCLUDED_REVIEW_IDS.has(review.id))
   return {
     '@context': 'https://schema.org',
-    '@graph': reviews.map((review) => ({
+    '@graph': eligibleReviews.map((review) => ({
       '@type': 'Review',
       '@id': `${SITE_URL}/#review-${review.id}`,
       author: {
@@ -382,10 +397,24 @@ function realEstateServiceSchema() {
       'Expert buyer agent services for Spring Valley and Southwest Las Vegas homes in zip codes 89117, 89147, and 89148.',
     provider: { '@id': STRUCTURED_DATA_IDS.realEstateAgent },
     areaServed: [
+      {
+        '@type': 'Place',
+        name: 'Sienna Ridge',
+        address: {
+          '@type': 'PostalAddress',
+          postalCode: '89147',
+          addressLocality: 'Las Vegas',
+          addressRegion: 'NV',
+          addressCountry: 'US',
+        },
+        containedInPlace: {
+          '@type': 'City',
+          name: 'Las Vegas',
+        },
+      },
       { '@type': 'PostalCode', postalCode: '89117' },
       { '@type': 'PostalCode', postalCode: '89147' },
       { '@type': 'PostalCode', postalCode: '89148' },
-      { '@type': 'City', name: 'Spring Valley' },
       { '@type': 'City', name: 'Las Vegas' },
     ],
     serviceType: 'Real estate buyer representation',

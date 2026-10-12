@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import JsonLd from '@/components/json-ld'
 import AgentHeadshot from '@/components/agent-headshot'
-import { CLIENT_REVIEWS } from '@/lib/reviews-data'
+import { CLIENT_REVIEWS, type ClientReview } from '@/lib/reviews-data'
 import { buildReviewsSchema } from '@/lib/structured-data'
 import { NAP, REVIEW_PROFILES } from '@/lib/site-config'
 
@@ -12,18 +12,24 @@ type ClientReviewsSectionProps = {
   title?: string
   subtitle?: string
   limit?: number
+  reviews?: ClientReview[]
 }
 
 export default function ClientReviewsSection({
   title = 'What Clients Say About Dr. Jan Duffy',
   subtitle = 'Real stories from Las Vegas buyers, sellers, and investors. Read more verified reviews on Google and Zillow.',
   limit,
+  reviews: reviewsProp,
 }: ClientReviewsSectionProps) {
-  const reviews = limit ? CLIENT_REVIEWS.slice(0, limit) : CLIENT_REVIEWS
+  const reviews =
+    reviewsProp ?? (limit ? CLIENT_REVIEWS.slice(0, limit) : CLIENT_REVIEWS)
+  const reviewsSchema = buildReviewsSchema(reviews)
 
   return (
     <section className="py-16 bg-gray-50">
-      <JsonLd id="client-reviews-schema" data={buildReviewsSchema(reviews)} />
+      {reviewsSchema['@graph'].length > 0 ? (
+        <JsonLd id="client-reviews-schema" data={reviewsSchema} />
+      ) : null}
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10 grid grid-cols-1 items-center gap-8 lg:grid-cols-[220px_1fr]">
