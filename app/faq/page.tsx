@@ -13,9 +13,9 @@ import { SEO_GUIDE_PAGES } from '@/lib/seo-guide-pages'
 import { SITE_URL } from '@/lib/site-config'
 
 export const metadata: Metadata = {
-  title: 'Spring Valley Real Estate FAQ | Southwest Las Vegas Home Buying',
+  title: 'Sienna Ridge & Las Vegas Real Estate FAQ | Dr. Jan Duffy',
   description:
-    'Answers to common Spring Valley and Southwest Las Vegas real estate questions — zip codes, Sienna Ridge, pricing, buyer agents, and home valuations. Dr. Jan Duffy.',
+    'FAQ on Sienna Ridge resale in Las Vegas 89147, Southwest Las Vegas zip codes 89117–89148, buyer representation, and home valuations with Dr. Jan Duffy.',
   alternates: { canonical: `${SITE_URL}/faq` },
 }
 
@@ -39,17 +39,19 @@ export default function FaqHubPage() {
       <BreadcrumbSchema items={breadcrumbs} />
       <JsonLd id="faq-webpage" data={buildWebPageSchema({
         path: '/faq',
-        name: 'Spring Valley Real Estate FAQ',
-        description: 'Frequently asked questions about Southwest Las Vegas home buying.',
+        name: 'Sienna Ridge & Las Vegas Real Estate FAQ',
+        description:
+          'Frequently asked questions about Sienna Ridge resale in Las Vegas 89147 and Southwest Las Vegas home buying with Dr. Jan Duffy.',
+        dateModified: '2026-10-17',
       })} />
       <JsonLd id="faq-schema" data={buildFaqPageSchema(visibleFaqs)} />
 
       <section className="bg-gradient-to-br from-slate-950 via-blue-950 to-blue-800 text-white py-20">
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <HelpCircle className="h-12 w-12 mx-auto mb-4 text-blue-300" />
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Real Estate FAQ</h1>
-          <p className="text-xl text-blue-100 leading-relaxed">
-            Direct answers about Spring Valley, Sienna Ridge, zip codes 89117–89148, pricing, and buying with Dr. Jan Duffy — optimized for search and AI assistants.
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Sienna Ridge & Las Vegas Real Estate FAQ</h1>
+          <p className="lead-answer aeo-answer text-xl text-blue-100 leading-relaxed">
+            Direct answers on Sienna Ridge in Las Vegas 89147, Southwest Las Vegas zip codes 89117–89148, MLS search, and buyer representation with Dr. Jan Duffy.
           </p>
         </div>
       </section>
@@ -93,7 +95,7 @@ export default function FaqHubPage() {
         </div>
       </section>
 
-      <SeoCtaSection title="Get Personalized Answers" description="Dr. Jan Duffy answers your Spring Valley and Sienna Ridge questions one-on-one." />
+      <SeoCtaSection title="Get Personalized Answers" description="Dr. Jan Duffy answers your Sienna Ridge and Southwest Las Vegas questions one-on-one." />
     </div>
   )
 }

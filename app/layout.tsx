@@ -79,9 +79,6 @@ export const metadata: Metadata = {
     creator: '@DrJanDuffy',
     site: '@SiennaRidgeHomes',
   },
-  alternates: {
-    canonical: 'https://www.siennaridgehomes.com',
-  },
   icons: {
     icon: [{ url: '/favicon.ico', sizes: 'any' }],
     shortcut: ['/favicon.ico'],

@@ -42,7 +42,7 @@ export const SITEMAP_PAGES: SitemapPage[] = [
   { path: '/neighborhoods/89148', lastModified: SITEMAP_LASTMOD.expansion, changeFrequency: 'weekly', priority: 0.9 },
   ...SITEMAP_GUIDE_PAGES,
   { path: '/neighborhoods', lastModified: SITEMAP_LASTMOD.expansion, changeFrequency: 'weekly', priority: 0.85 },
-  { path: '/faq', lastModified: SITEMAP_LASTMOD.expansion, changeFrequency: 'weekly', priority: 0.8 },
+  { path: '/faq', lastModified: SITEMAP_LASTMOD.home, changeFrequency: 'weekly', priority: 0.8 },
   ...SEO_EXPANSION_PAGES.map((page) => ({
     path: page.path,
     lastModified: SITEMAP_LASTMOD.expansion,

@@ -74,18 +74,17 @@ export const HOMEPAGE_FAQS: FaqItem[] = [
   },
   {
     question: 'How much do homes cost in Spring Valley Las Vegas?',
-    answer:
-      'Spring Valley home prices range from $350,000 to $650,000+ for established homes in 89117 and 89147. New construction at Sienna Ridge by Lennar (89147) starts from approximately $588,990 with Bellevue Next Gen® from $662,990.',
+    answer: `Established resale in Spring Valley zip codes 89117 and 89147 often lists from about $350,000 to $650,000+, depending on size, upgrades, and lot. Sienna Ridge Lennar base pricing runs ${formatCommunityPriceRange()} when new inventory is available. Dr. Jan Duffy shares current MLS comps for your target area.`,
   },
   {
     question: 'Is Spring Valley a good area to buy a home in Las Vegas?',
     answer:
-      'Yes, Spring Valley is an excellent area for home buyers. It offers established neighborhoods, great schools, convenient access to the Strip and airport, and strong appreciation potential. The area is expected to outperform metro averages in 2025.',
+      'Spring Valley sits in Southwest Las Vegas with established neighborhoods, Desert Breeze Park access, shopping along Spring Mountain Road, and quick I-215 routes to the Strip and Harry Reid International Airport. Dr. Jan Duffy helps you compare commute times, HOA costs, and MLS pricing block by block.',
   },
   {
     question: 'What makes Dr. Jan Duffy the best Spring Valley real estate agent?',
     answer:
-      'Dr. Jan Duffy has helped over 100 families find their dream homes in Spring Valley and Southwest Las Vegas. She offers personalized service, expert local knowledge, and specializes in buyer representation for families, investors, and first-time buyers.',
+      'Dr. Jan Duffy focuses on buyer representation across Spring Valley and Southwest Las Vegas with local MLS expertise in 89117, 89147, and 89148 — including Sienna Ridge resale and Lennar inventory when available.',
   },
   {
     question: 'How can I get a free home valuation for my Las Vegas property?',

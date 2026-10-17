@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import BreadcrumbSchema from '@/components/breadcrumb-schema'
 import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
+import { pageCanonical } from '@/lib/canonical'
 import { NAP, formatFullAddress } from '@/lib/site-config'
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  ...pageCanonical('/terms'),
 }
 
 export default function TermsOfServicePage() {

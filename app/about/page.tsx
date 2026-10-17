@@ -20,10 +20,12 @@ import {
   communityPriceMinString,
   formatCommunityPriceRange,
 } from '@/lib/sienna-ridge-community'
+import { pageCanonical } from '@/lib/canonical'
 
 export const metadata: Metadata = {
   title: 'About Dr. Jan Duffy - Southwest Las Vegas Real Estate Expert',
   description: 'Meet Dr. Jan Duffy, your premier buyer agent for Spring Valley & Southwest Las Vegas (89117, 89147, 89148). Expert guidance, local knowledge, and personalized service for your home buying journey.',
+  ...pageCanonical('/about'),
 }
 
 const EXPERTISE_CARDS = [

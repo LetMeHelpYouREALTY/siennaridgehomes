@@ -34,6 +34,7 @@ import {
 import { clientReviewsForDisplay } from '@/lib/reviews-data'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
 import { formatCommunityPriceRange } from '@/lib/sienna-ridge-community'
+import { pageCanonical } from '@/lib/canonical'
 import { NAP, REALSCOUT_SEARCH_URL } from '@/lib/site-config'
 import {
   Home,
@@ -67,6 +68,7 @@ export const metadata: Metadata = {
     'Las Vegas home valuation',
     'best real estate agent Las Vegas',
   ],
+  ...pageCanonical('/'),
 }
 
 export default function HomePage() {
@@ -100,7 +102,7 @@ export default function HomePage() {
             </Badge>
             <Badge variant="secondary" className="bg-white/15 text-white border-white/20 backdrop-blur-sm px-4 py-2">
               <TrendingUp className="h-4 w-4 mr-2" />
-              2025 Market Leader
+              Southwest Las Vegas MLS
             </Badge>
           </>
         }
@@ -218,7 +220,7 @@ export default function HomePage() {
           <div className="max-w-6xl mx-auto">
             <SectionHeading
               title="Southwest Las Vegas Market Overview"
-              description="Spring Valley & Southwest Las Vegas (89117, 89147, 89148) offer exceptional opportunities for families, investors, and first-time buyers."
+              description="Southwest Las Vegas zip codes 89117, 89147, and 89148 include Sienna Ridge resale, established neighborhoods, and investor-friendly MLS inventory."
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -233,7 +235,7 @@ export default function HomePage() {
                   details: [
                     ['Bedrooms', '3-4'],
                     ['Bathrooms', '2-3'],
-                    ['Price Range', '$350K-$500K'],
+                    ['Price Range', '$350K-$650K+'],
                   ],
                 },
                 {
@@ -330,10 +332,10 @@ export default function HomePage() {
               <h3 className="text-2xl font-bold mb-8 tracking-tight">Why Southwest Las Vegas is a Smart Investment</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
-                  { icon: TrendingUp, iconBg: 'bg-blue-100', iconColor: 'text-blue-600', title: '2025 Market Leader', text: 'Expected to outperform metro average growth' },
+                  { icon: TrendingUp, iconBg: 'bg-blue-100', iconColor: 'text-blue-600', title: 'Active MLS Market', text: 'Resale and new-build options across 89117–89148' },
                   { icon: DollarSign, iconBg: 'bg-green-100', iconColor: 'text-green-600', title: 'Strong Rental Market', text: 'Excellent cash flow potential for investors' },
                   { icon: MapPin, iconBg: 'bg-purple-100', iconColor: 'text-purple-600', title: 'Prime Location', text: 'Close to Strip, airport, and major employers' },
-                  { icon: Users, iconBg: 'bg-orange-100', iconColor: 'text-orange-600', title: 'Family Friendly', text: 'Great schools, parks, and community amenities' },
+                  { icon: Users, iconBg: 'bg-orange-100', iconColor: 'text-orange-600', title: 'Parks & Recreation', text: 'Desert Breeze Park, trails, and community centers nearby' },
                 ].map(({ icon: Icon, iconBg, iconColor, title, text }) => (
                   <div key={title} className="text-center">
                     <div className={`${iconBg} rounded-full w-14 h-14 flex items-center justify-center mx-auto mb-3`}>

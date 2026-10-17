@@ -22,6 +22,7 @@ import {
   communityPriceMinString,
   formatCommunityPriceRange,
 } from '@/lib/sienna-ridge-community'
+import { pageCanonical } from '@/lib/canonical'
 
 // Type declarations for RealScout web components
 declare global {
@@ -54,6 +55,7 @@ declare global {
 export const metadata: Metadata = {
   title: 'Southwest Las Vegas Homes for Sale - Spring Valley Listings',
   description: 'Browse available homes for sale in Southwest Las Vegas / Spring Valley (89117, 89147, 89148). Find your dream home with expert guidance from Dr. Jan Duffy.',
+  ...pageCanonical('/listings'),
 }
 
 export default function ListingsPage() {

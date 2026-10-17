@@ -5,6 +5,7 @@ import { breadcrumbTrail } from '@/lib/breadcrumb-presets'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Home, MapPin, User, FileText, Search, Phone, Mail } from 'lucide-react'
+import { pageCanonical } from '@/lib/canonical'
 import { NAP, REALSCOUT_SEARCH_URL, formatFullAddress } from '@/lib/site-config'
 import { SEO_GUIDE_PAGES } from '@/lib/seo-guide-pages'
 import { SIENNA_RIDGE_COLLECTIONS } from '@/lib/sienna-ridge-collections'
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  ...pageCanonical('/sitemap'),
 }
 
 export default function SitemapPage() {
