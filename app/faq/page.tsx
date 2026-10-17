@@ -32,6 +32,7 @@ const areaGuideLinks = SEO_GUIDE_PAGES.map((p) => ({
 export default function FaqHubPage() {
   const breadcrumbs = breadcrumbTrail({ name: 'FAQ', path: '/faq' })
   const allFaqs = [...HOMEPAGE_FAQS, ...ALL_FAQS.filter((f) => !HOMEPAGE_FAQS.some((h) => h.question === f.question))]
+  const visibleFaqs = allFaqs.slice(0, 12)
 
   return (
     <div className="min-h-screen bg-white">
@@ -41,7 +42,7 @@ export default function FaqHubPage() {
         name: 'Spring Valley Real Estate FAQ',
         description: 'Frequently asked questions about Southwest Las Vegas home buying.',
       })} />
-      <JsonLd id="faq-schema" data={buildFaqPageSchema(allFaqs.slice(0, 30))} />
+      <JsonLd id="faq-schema" data={buildFaqPageSchema(visibleFaqs)} />
 
       <section className="bg-gradient-to-br from-slate-950 via-blue-950 to-blue-800 text-white py-20">
         <div className="container mx-auto px-4 text-center max-w-3xl">
@@ -84,7 +85,7 @@ export default function FaqHubPage() {
         </div>
       </section>
 
-      <SeoFaqSection title="Top Questions" faqs={allFaqs.slice(0, 12)} />
+      <SeoFaqSection title="Top Questions" faqs={visibleFaqs} />
 
       <section className="py-16">
         <div className="container mx-auto px-4">

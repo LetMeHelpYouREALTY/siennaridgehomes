@@ -13,6 +13,7 @@ export type SitemapPage = {
 /** Stable lastmod dates — update only when page content meaningfully changes. */
 export const SITEMAP_LASTMOD = {
   core: '2026-06-29',
+  home: '2026-10-17',
   guides: '2026-06-29',
   expansion: '2026-06-29',
   legal: '2026-01-01',
@@ -27,7 +28,7 @@ export const SITEMAP_GUIDE_PAGES: SitemapPage[] = GSC_PRIORITY_PATHS.map((path) 
 }))
 
 export const SITEMAP_PAGES: SitemapPage[] = [
-  { path: '', lastModified: SITEMAP_LASTMOD.core, changeFrequency: 'weekly', priority: 1 },
+  { path: '', lastModified: SITEMAP_LASTMOD.home, changeFrequency: 'weekly', priority: 1 },
   { path: '/about', lastModified: SITEMAP_LASTMOD.core, changeFrequency: 'monthly', priority: 0.8 },
   { path: '/listings', lastModified: SITEMAP_LASTMOD.expansion, changeFrequency: 'daily', priority: 0.9 },
   ...FEATURED_LISTINGS.map((listing) => ({
@@ -54,7 +55,7 @@ export const SITEMAP_PAGES: SitemapPage[] = [
 ]
 
 export const SITEMAP_CHILD_LASTMOD = {
-  pages: SITEMAP_LASTMOD.expansion,
+  pages: SITEMAP_LASTMOD.home,
   guides: SITEMAP_LASTMOD.guides,
   images: SITEMAP_LASTMOD.expansion,
 } as const

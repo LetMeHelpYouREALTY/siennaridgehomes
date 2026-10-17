@@ -19,7 +19,18 @@ import SeoFaqSection from '@/components/seo-faq-section'
 import HomepageSubnav from '@/components/homepage-subnav'
 import SeoGuidesHub from '@/components/seo-guides-hub'
 import HomepageRealScoutSection from '@/components/homepage-realscout-section'
-import { buildFaqPageSchema, HOMEPAGE_FAQS } from '@/lib/structured-data'
+import {
+  buildFaqPageSchema,
+  buildResidentialComplexSchema,
+  buildWebPageSchema,
+  HOMEPAGE_FAQS,
+} from '@/lib/structured-data'
+import {
+  HOMEPAGE_H1,
+  HOMEPAGE_LEAD_ANSWER,
+  HOMEPAGE_META_DESCRIPTION,
+  HOMEPAGE_META_TITLE,
+} from '@/lib/homepage-metadata'
 import { clientReviewsForDisplay } from '@/lib/reviews-data'
 import { FEATURED_LISTINGS } from '@/lib/listings-data'
 import { formatCommunityPriceRange } from '@/lib/sienna-ridge-community'
@@ -35,10 +46,11 @@ import {
 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Sienna Ridge Resale Homes | Las Vegas 89147',
-  description:
-    'Sienna Ridge by Lennar in Las Vegas (89147). Dr. Jan Duffy, Nevada REALTOR®, helps buyers with Lennar floor plans, collections, and buyer representation.',
+  title: HOMEPAGE_META_TITLE,
+  description: HOMEPAGE_META_DESCRIPTION,
   keywords: [
+    'Sienna Ridge resale homes',
+    'Sienna Ridge Las Vegas 89147',
     'Spring Valley real estate agent',
     'Southwest Las Vegas homes for sale',
     '89117 homes',
@@ -61,11 +73,21 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       <JsonLd id="faq-schema" data={buildFaqPageSchema(HOMEPAGE_FAQS)} />
+      <JsonLd
+        id="homepage-webpage"
+        data={buildWebPageSchema({
+          path: '/',
+          name: HOMEPAGE_H1,
+          description: HOMEPAGE_META_DESCRIPTION,
+          dateModified: '2026-10-17',
+        })}
+      />
+      <JsonLd id="sienna-ridge-community" data={buildResidentialComplexSchema()} />
 
       <PageHero
-        title="Sienna Ridge Resale Homes in Las Vegas 89147"
-        description="Find your dream home in Spring Valley & Southwest Las Vegas (89117, 89147, 89148) with Dr. Jan Duffy, your premier buyer specialist."
-        imageAlt="Southwest Las Vegas Real Estate - Beautiful homes in Spring Valley"
+        title={HOMEPAGE_H1}
+        description={HOMEPAGE_LEAD_ANSWER}
+        imageAlt="Sienna Ridge resale homes in Las Vegas Nevada 89147"
         badges={
           <>
             <Badge variant="secondary" className="bg-white/15 text-white border-white/20 backdrop-blur-sm px-4 py-2">
@@ -74,7 +96,7 @@ export default function HomePage() {
             </Badge>
             <Badge variant="secondary" className="bg-white/15 text-white border-white/20 backdrop-blur-sm px-4 py-2">
               <MapPin className="h-4 w-4 mr-2" />
-              Spring Valley Expert
+              Sienna Ridge · 89147
             </Badge>
             <Badge variant="secondary" className="bg-white/15 text-white border-white/20 backdrop-blur-sm px-4 py-2">
               <TrendingUp className="h-4 w-4 mr-2" />

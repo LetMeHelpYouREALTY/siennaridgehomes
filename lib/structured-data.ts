@@ -69,6 +69,10 @@ export const HOMEPAGE_FAQS: FaqItem[] = [
     answer: `${SIENNA_RIDGE.location} Floor plans often include ${SIENNA_RIDGE.features[0]}, ${SIENNA_RIDGE.features[1].toLowerCase()}, and ${SIENNA_RIDGE.features[2].toLowerCase()}.`,
   },
   {
+    question: 'Where is Sienna Ridge located in Las Vegas?',
+    answer: `Sienna Ridge is in Las Vegas, Nevada zip code ${SIENNA_RIDGE.postalCode}, near Caldera Hills Avenue and the I-215 corridor. Dr. Jan Duffy helps buyers compare resale MLS listings and Lennar inventory tied to this community.`,
+  },
+  {
     question: 'How much do homes cost in Spring Valley Las Vegas?',
     answer:
       'Spring Valley home prices range from $350,000 to $650,000+ for established homes in 89117 and 89147. New construction at Sienna Ridge by Lennar (89147) starts from approximately $588,990 with Bellevue Next Gen® from $662,990.',
@@ -120,7 +124,7 @@ function realEstateAgentSchema() {
     '@id': STRUCTURED_DATA_IDS.realEstateAgent,
     name: NAP.name,
     description:
-      'Premier Spring Valley real estate agent specializing in Southwest Las Vegas homes (89117, 89147, 89148). Expert buyer agent for families, investors, and first-time home buyers.',
+      'Dr. Jan Duffy is a Nevada buyer agent for Sienna Ridge resale and Southwest Las Vegas homes in zip codes 89117, 89147, and 89148.',
     url: SITE_URL,
     telephone: NAP.phoneTel,
     email: NAP.email,
@@ -197,7 +201,7 @@ function websiteSchema() {
     url: SITE_URL,
     name: NAP.businessName,
     description:
-      'Southwest Las Vegas real estate services with Dr. Jan Duffy — MLS search, buyer representation, and home valuations in Spring Valley (89117, 89147, 89148).',
+      'Sienna Ridge resale and Southwest Las Vegas buyer services with Dr. Jan Duffy — MLS search, showings, and home valuations in Las Vegas 89147, 89117, and 89148.',
     publisher: { '@id': STRUCTURED_DATA_IDS.organization },
     potentialAction: {
       '@type': 'SearchAction',

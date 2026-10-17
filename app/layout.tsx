@@ -7,15 +7,15 @@ import RealScoutScript from '@/components/realscout-script'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import { buildGlobalStructuredDataGraph } from '@/lib/structured-data'
+import { HOMEPAGE_META_DESCRIPTION, HOMEPAGE_META_TITLE } from '@/lib/homepage-metadata'
 import { GOOGLE_SITE_VERIFICATION } from '@/lib/site-config'
 import { inter, playfairDisplay } from '@/lib/fonts'
 import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.siennaridgehomes.com'),
-  title: 'Sienna Ridge Resale Homes | Las Vegas 89147',
-  description:
-    'Sienna Ridge by Lennar in Las Vegas (89147). Dr. Jan Duffy, Nevada REALTOR®, helps buyers with Lennar floor plans, collections, and buyer representation.',
+  title: HOMEPAGE_META_TITLE,
+  description: HOMEPAGE_META_DESCRIPTION,
   keywords: [
     'Spring Valley real estate agent',
     'Southwest Las Vegas homes for sale',
@@ -56,9 +56,8 @@ export const metadata: Metadata = {
     ? { google: GOOGLE_SITE_VERIFICATION }
     : undefined,
   openGraph: {
-    title: 'Sienna Ridge Resale Homes | Las Vegas 89147',
-    description:
-      'Sienna Ridge by Lennar in Las Vegas (89147). Dr. Jan Duffy, Nevada REALTOR®, helps buyers with Lennar floor plans, collections, and buyer representation.',
+    title: HOMEPAGE_META_TITLE,
+    description: HOMEPAGE_META_DESCRIPTION,
     url: 'https://www.siennaridgehomes.com',
     siteName: 'Southwest Las Vegas Homes',
     images: [
@@ -66,7 +65,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Dr. Jan Duffy - Spring Valley Real Estate Agent',
+        alt: 'Dr. Jan Duffy — Sienna Ridge resale homes Las Vegas 89147',
       }
     ],
     locale: 'en_US',
@@ -74,8 +73,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sienna Ridge Resale Homes | Las Vegas 89147',
-    description: 'Top Spring Valley real estate agent specializing in Southwest Las Vegas homes (89117, 89147, 89148). Expert guidance for buyers.',
+    title: HOMEPAGE_META_TITLE,
+    description: HOMEPAGE_META_DESCRIPTION,
     images: ['/og-image.png'],
     creator: '@DrJanDuffy',
     site: '@SiennaRidgeHomes',
