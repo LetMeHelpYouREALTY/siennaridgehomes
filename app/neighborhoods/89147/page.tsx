@@ -21,16 +21,16 @@ export default function Neighborhood89147Page() {
       zipCode="89147"
       areaName="Southwest Las Vegas"
       heroTitle="Southwest Las Vegas Real Estate — 89147"
-      heroDescription="Explore Sienna Ridge by Lennar new construction and established Southwest Las Vegas neighborhoods with excellent schools, parks, and family-friendly communities."
+      heroDescription="Explore Sienna Ridge by Lennar new construction and established Southwest Las Vegas neighborhoods with nearby schools, parks, and master-planned communities."
       overviewTitle="Why Choose 89147?"
-      overviewDescription="Zip code 89147 includes Sienna Ridge by Lennar — new construction near Desert Breeze Park and I-215 — plus established neighborhoods near Caldera Hills with strong family demand."
+      overviewDescription="Zip code 89147 includes Sienna Ridge by Lennar — new construction near Desert Breeze Park and I-215 — plus older neighborhoods near Caldera Hills with strong family demand."
       priceRange="$350K to $662K+"
       priceMin="350000"
       priceMax="662990"
       highlights={[
         'Sienna Ridge by Lennar — Kingsbury, Skyland, Glenbrook, Bellevue Next Gen®',
         'Near Desert Breeze Park and I-215 for easy commutes',
-        'Established neighborhoods near Caldera Hills Avenue',
+        'Older neighborhoods near Caldera Hills Avenue',
         'Popular with families seeking space, value, and new construction options',
       ]}
       heroImageAlt="89147 Southwest Las Vegas real estate neighborhood"

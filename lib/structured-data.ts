@@ -79,7 +79,7 @@ export const HOMEPAGE_FAQS: FaqItem[] = [
   {
     question: 'Is Spring Valley a good area to buy a home in Las Vegas?',
     answer:
-      'Spring Valley sits in Southwest Las Vegas with established neighborhoods, Desert Breeze Park access, shopping along Spring Mountain Road, and quick I-215 routes to the Strip and Harry Reid International Airport. Dr. Jan Duffy helps you compare commute times, HOA costs, and MLS pricing block by block.',
+      'Spring Valley sits in Southwest Las Vegas with older neighborhoods, Desert Breeze Park access, shopping along Spring Mountain Road, and quick I-215 routes to the Strip and Harry Reid International Airport. Dr. Jan Duffy helps you compare commute times, HOA costs, and MLS pricing block by block.',
   },
   {
     question: 'What makes Dr. Jan Duffy the best Spring Valley real estate agent?',
@@ -94,7 +94,7 @@ export const HOMEPAGE_FAQS: FaqItem[] = [
   {
     question: 'What types of homes are available in Southwest Las Vegas zip codes 89117, 89147, 89148?',
     answer:
-      "Southwest Las Vegas offers diverse housing options including single-story homes (1,800-2,400 sq ft), two-story homes (2,200-3,200 sq ft), and executive properties (3,000+ sq ft). You'll find established neighborhoods, new construction, and excellent investment opportunities.",
+      "Southwest Las Vegas offers diverse housing options including single-story homes (1,800-2,400 sq ft), two-story homes (2,200-3,200 sq ft), and executive properties (3,000+ sq ft). You'll find older neighborhoods, new construction, and excellent investment opportunities.",
   },
 ]
 

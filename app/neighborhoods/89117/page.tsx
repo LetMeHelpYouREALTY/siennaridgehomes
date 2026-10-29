@@ -93,7 +93,7 @@ export default function SpringValley89117Page() {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">Why Choose Spring Valley (89117)?</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Spring Valley offers the perfect blend of established neighborhoods and modern amenities, making it one of Southwest Las Vegas's most sought-after areas.
+                Spring Valley offers the perfect blend of older neighborhoods and modern amenities, making it one of Southwest Las Vegas's most sought-after areas.
               </p>
             </div>
             
@@ -254,8 +254,8 @@ export default function SpringValley89117Page() {
                   <div className="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                     <TrendingUp className="h-8 w-8 text-orange-600" />
                   </div>
-                  <h3 className="font-semibold mb-2">Strong Schools</h3>
-                  <p className="text-sm text-gray-600">Access to quality schools and educational facilities in the Clark County School District</p>
+                  <h3 className="font-semibold mb-2">Nearby Public Schools</h3>
+                  <p className="text-sm text-gray-600">Access to public schools and educational facilities in the Clark County School District</p>
                 </CardContent>
               </Card>
             </div>

@@ -67,7 +67,7 @@ export default function SpringValleyRealEstatePage() {
         <div className="container mx-auto px-4 max-w-6xl">
           <h2 className="text-3xl font-bold text-center mb-4">Why Spring Valley?</h2>
           <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto mb-12">
-            Spring Valley sits at the heart of Southwest Las Vegas, offering established neighborhoods, strong schools, and convenient access to the Strip, airport, and Red Rock Canyon.
+            Spring Valley sits at the heart of Southwest Las Vegas, offering older neighborhoods, nearby public schools, and convenient access to the Strip, airport, and Red Rock Canyon.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card>
@@ -85,7 +85,7 @@ export default function SpringValleyRealEstatePage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Users className="h-5 w-5 text-blue-600" />
-                  Family-Friendly
+                  Parks Nearby
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-gray-600">
