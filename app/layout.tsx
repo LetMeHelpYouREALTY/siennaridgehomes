@@ -11,7 +11,6 @@ import { HOMEPAGE_META_DESCRIPTION, HOMEPAGE_META_TITLE } from '@/lib/homepage-m
 import { GOOGLE_SITE_VERIFICATION } from '@/lib/site-config'
 import { inter, playfairDisplay } from '@/lib/fonts'
 import './globals.css'
-import WidgetTracker from './widget-tracker'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.siennaridgehomes.com'),
@@ -106,7 +105,6 @@ export default function RootLayout({
         <CalendlyScripts />
         <CalendlyBadgeWidget />
         <RealScoutScript />
-        <WidgetTracker />
       </body>
     </html>
   )
