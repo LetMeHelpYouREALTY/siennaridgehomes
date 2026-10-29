@@ -105,7 +105,7 @@ export const SIENNA_RIDGE_LENNAR_PAGE: SeoPageConfig = {
       },
       {
         question: 'Is Sienna Ridge in Spring Valley?',
-        answer: 'Sienna Ridge is marketed as Las Vegas 89147 but sits in the Spring Valley area of Southwest Las Vegas, near established neighborhoods and new construction along Caldera Hills.',
+        answer: 'Sienna Ridge is marketed as Las Vegas 89147 but sits in the Spring Valley area of Southwest Las Vegas, near older neighborhoods and new construction along Caldera Hills.',
       },
       {
         question: 'Does Lennar offer solar at Sienna Ridge?',
@@ -117,7 +117,7 @@ export const SIENNA_RIDGE_LENNAR_PAGE: SeoPageConfig = {
       },
       {
         question: 'How do I compare Sienna Ridge to resale homes in 89147?',
-        answer: 'Use our MLS search widgets and zip code guides to compare new construction pricing, HOA fees, and appreciation against established neighborhoods nearby.',
+        answer: 'Use our MLS search widgets and zip code guides to compare new construction pricing, HOA fees, and appreciation against older neighborhoods nearby.',
       },
     ] satisfies FaqItem[],
     relatedLinks: [
@@ -153,16 +153,16 @@ export const DESERT_BREEZE_PARK_PAGE: SeoPageConfig = {
   path: '/homes-near-desert-breeze-park',
   metadata: meta(
     'Homes Near Desert Breeze Park Las Vegas | 89117 Real Estate',
-    'Find homes near Desert Breeze Park in Spring Valley Las Vegas. Parks, aquatics, and family-friendly neighborhoods in 89117 and nearby 89147. Dr. Jan Duffy buyer agent.',
+    'Find homes near Desert Breeze Park in Spring Valley Las Vegas. Parks, aquatics, and neighborhoods in 89117 and nearby 89147. Dr. Jan Duffy buyer agent.',
     '/homes-near-desert-breeze-park',
   ),
   props: {
     breadcrumbs: breadcrumbTrail({ name: 'Homes Near Desert Breeze Park', path: '/homes-near-desert-breeze-park' }),
     heroImageAlt: 'Homes near Desert Breeze Park Spring Valley Las Vegas',
-    badges: ['89117', 'Family Friendly', 'Parks & Recreation'],
+    badges: ['89117', 'Parks & Recreation'],
     title: 'Homes Near Desert Breeze Park',
     leadAnswer:
-      'Desert Breeze Park at 8275 Spring Mountain Rd anchors one of Spring Valley\'s most family-friendly areas. Buyers in 89117 and nearby 89147 enjoy 119 acres of parks, aquatics, trails, and skate facilities — with easy access to Sienna Ridge new construction and established resale neighborhoods.',
+      'Desert Breeze Park at 8275 Spring Mountain Rd anchors one of Spring Valley\'s most areas. Buyers in 89117 and nearby 89147 enjoy 119 acres of parks, aquatics, trails, and skate facilities — with easy access to Sienna Ridge new construction and established resale neighborhoods.',
     stats: [
       { label: 'Park Size', value: '119 acres' },
       { label: 'Primary Zip', value: '89117' },
@@ -178,7 +178,7 @@ export const DESERT_BREEZE_PARK_PAGE: SeoPageConfig = {
     faqs: [
       { question: 'What zip code is Desert Breeze Park in?', answer: 'Desert Breeze Park is located at 8275 Spring Mountain Rd, Las Vegas NV 89117, in the Spring Valley area of Southwest Las Vegas.' },
       { question: 'Are there new homes near Desert Breeze Park?', answer: 'Yes — Sienna Ridge by Lennar in 89147 offers new construction a short drive from Desert Breeze, with floor plans from $588,990.' },
-      { question: 'Is 89117 good for families?', answer: '89117 is popular with families for park access, CCSD schools, and established neighborhoods with space and value.' },
+      { question: 'Is 89117 good for families?', answer: '89117 is popular with families for park access, CCSD schools, and older neighborhoods with space and value.' },
       { question: 'How far is Desert Breeze from Sienna Ridge?', answer: 'Sienna Ridge at Caldera Hills is roughly 10–15 minutes from Desert Breeze Park via surface streets and I-215.' },
     ],
     relatedLinks: [
@@ -229,7 +229,7 @@ export const ZIP_COMPARISON_PAGE: SeoPageConfig = {
     },
     faqs: [
       { question: 'Which zip is cheapest in Spring Valley?', answer: '89117 and established 89147 resale often offer the lowest entry prices. Sienna Ridge new construction in 89147 starts higher but includes builder warranties and modern layouts.' },
-      { question: 'Which zip has the newest homes?', answer: '89148 and new construction in 89147 (Sienna Ridge) have the newest inventory. 89117 is primarily established neighborhoods.' },
+      { question: 'Which zip has the newest homes?', answer: '89148 and new construction in 89147 (Sienna Ridge) have the newest inventory. 89117 is primarily older neighborhoods.' },
       { question: 'Is 89147 the same as Spring Valley?', answer: '89147 is one of several Spring Valley zip codes, covering Southwest Las Vegas including Caldera Hills and Sienna Ridge.' },
     ],
     relatedLinks: relatedZipLinks,
@@ -390,14 +390,14 @@ export const SPRING_VALLEY_SCHOOLS_PAGE: SeoPageConfig = {
     ],
     faqs: [
       { question: 'What schools serve 89117?', answer: '89117 is served by CCSD schools including Roger Bryan Elementary and Spring Valley High School depending on address. Always verify with CCSD for your lot.' },
-      { question: 'Are there good schools near Sienna Ridge?', answer: 'Sienna Ridge in 89147 is near CCSD schools in Southwest Las Vegas. Dr. Jan Duffy can help you compare neighborhoods by school zone.' },
+      { question: 'Are there nearby public schools near Sienna Ridge?', answer: 'Sienna Ridge in 89147 is near CCSD schools in Southwest Las Vegas. Dr. Jan Duffy can help you compare neighborhoods by school zone.' },
     ],
     relatedLinks: [
       { href: '/moving-to-spring-valley-las-vegas', label: 'Moving to Spring Valley', description: 'Relocation guide' },
       { href: '/89117-vs-89147-vs-89148', label: 'Zip Comparison', description: 'Compare all three zips' },
       { href: '/sienna-ridge-lennar-las-vegas', label: 'Sienna Ridge New Homes', description: '89147 Lennar community' },
     ],
-    ctaTitle: 'Find Family-Friendly Homes',
+    ctaTitle: 'Find Homes',
     ctaDescription: 'Dr. Jan Duffy helps families choose neighborhoods by school zone and lifestyle.',
   },
 }
@@ -415,9 +415,9 @@ export const MOVING_TO_SPRING_VALLEY_PAGE: SeoPageConfig = {
     badges: ['Relocation', 'Spring Valley', 'Southwest LV'],
     title: 'Moving to Spring Valley, Las Vegas',
     leadAnswer:
-      'Spring Valley is an unincorporated Clark County community in Southwest Las Vegas spanning zips 89117, 89147, and 89148. It offers established neighborhoods, new construction at Sienna Ridge, park access, and strong value compared to Summerlin — with convenient I-215 commutes.',
+      'Spring Valley is an unincorporated Clark County community in Southwest Las Vegas spanning zips 89117, 89147, and 89148. It offers older neighborhoods, new construction at Sienna Ridge, park access, and strong value compared to Summerlin — with convenient I-215 commutes.',
     faqs: [
-      { question: 'Is Spring Valley a good place to live?', answer: 'Yes — Spring Valley offers family-friendly parks, diverse housing from $350K to $662K+, and easy access to the Strip and airport.' },
+      { question: 'Is Spring Valley a good place to live?', answer: 'Yes — Spring Valley offers parks, diverse housing from $350K to $662K+, and easy access to the Strip and airport.' },
       { question: 'What zip codes are in Spring Valley?', answer: 'Primary zips include 89117, 89147, and 89148, each with distinct price points and housing stock.' },
     ],
     relatedLinks: relatedZipLinks,
@@ -447,7 +447,7 @@ export const CALDERA_HILLS_PAGE: SeoPageConfig = {
     badges: ['89147', 'Caldera Hills', 'Sienna Ridge'],
     title: 'Caldera Hills Homes — Las Vegas 89147',
     leadAnswer:
-      'Caldera Hills Avenue in 89147 is home to the Sienna Ridge by Lennar sales center and surrounding established neighborhoods. Buyers choose this corridor for I-215 access, new construction options, and Southwest Las Vegas value.',
+      'Caldera Hills Avenue in 89147 is home to the Sienna Ridge by Lennar sales center and surrounding older neighborhoods. Buyers choose this corridor for I-215 access, new construction options, and Southwest Las Vegas value.',
     relatedLinks: [
       { href: '/sienna-ridge-lennar-las-vegas', label: 'Sienna Ridge', description: 'Lennar community' },
       { href: '/kingsbury-homes-sienna-ridge', label: 'Kingsbury', description: 'Lennar collection' },

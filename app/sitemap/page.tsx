@@ -375,7 +375,7 @@ export default function SitemapPage() {
                       <span className="text-2xl font-bold text-blue-600">89117</span>
                     </div>
                     <h3 className="font-semibold mb-1">Spring Valley</h3>
-                    <p className="text-gray-600 text-sm">Established neighborhoods</p>
+                    <p className="text-gray-600 text-sm">Older neighborhoods</p>
                   </div>
                   <div className="text-center">
                     <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
