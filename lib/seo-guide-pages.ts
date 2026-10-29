@@ -29,7 +29,7 @@ export const SEO_GUIDE_PAGES: SeoGuidePage[] = [
       {
         question: 'Is Spring Valley a good place to buy a home in Las Vegas?',
         answer:
-          'Yes. Spring Valley offers established neighborhoods, strong schools, convenient Strip and airport access, and appreciation potential. Median home prices range from $350,000 to $650,000+ depending on zip code and property type.',
+          'Yes. Spring Valley offers older neighborhoods, nearby public schools, convenient Strip and airport access, and appreciation potential. Median home prices range from $350,000 to $650,000+ depending on zip code and property type.',
       },
       {
         question: 'Who is the best real estate agent for Spring Valley?',

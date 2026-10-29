@@ -220,7 +220,7 @@ export default function HomePage() {
           <div className="max-w-6xl mx-auto">
             <SectionHeading
               title="Southwest Las Vegas Market Overview"
-              description="Southwest Las Vegas zip codes 89117, 89147, and 89148 include Sienna Ridge resale, established neighborhoods, and investor-friendly MLS inventory."
+              description="Southwest Las Vegas zip codes 89117, 89147, and 89148 include Sienna Ridge resale, older neighborhoods, and investor-friendly MLS inventory."
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -64,14 +64,14 @@ export default function SouthwestLasVegasHomesPage() {
             <Card>
               <CardHeader><CardTitle>89117 — Spring Valley</CardTitle></CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">Established neighborhoods, mature trees, and central Southwest LV location.</p>
+                <p className="text-gray-600 mb-4">Older neighborhoods, mature trees, and central Southwest LV location.</p>
                 <Link href="/89117-homes-for-sale" className="text-blue-600 hover:underline">View 89117 homes →</Link>
               </CardContent>
             </Card>
             <Card>
               <CardHeader><CardTitle>89147 — Established SW LV</CardTitle></CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">Family-friendly communities with parks, schools, and strong resale activity.</p>
+                <p className="text-gray-600 mb-4">Communities with parks, schools, and strong resale activity.</p>
                 <Link href="/89147-homes-for-sale" className="text-blue-600 hover:underline">View 89147 homes →</Link>
               </CardContent>
             </Card>

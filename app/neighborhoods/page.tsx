@@ -27,7 +27,7 @@ const neighborhoods = [
     price: '$350K–$550K',
     href: '/neighborhoods/89117',
     homesHref: '/89117-homes-for-sale',
-    blurb: 'Established neighborhoods near Desert Breeze Park and Spring Mountain corridor.',
+    blurb: 'Older neighborhoods near Desert Breeze Park and Spring Mountain corridor.',
   },
   {
     zip: '89147',
