@@ -11,6 +11,8 @@ import { HOMEPAGE_META_DESCRIPTION, HOMEPAGE_META_TITLE } from '@/lib/homepage-m
 import { GOOGLE_SITE_VERIFICATION } from '@/lib/site-config'
 import { inter, playfairDisplay } from '@/lib/fonts'
 import './globals.css'
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.siennaridgehomes.com'),
@@ -105,6 +107,8 @@ export default function RootLayout({
         <CalendlyScripts />
         <CalendlyBadgeWidget />
         <RealScoutScript />
+        <VercelAnalytics />
+        <VercelSpeedInsights />
       </body>
     </html>
   )
